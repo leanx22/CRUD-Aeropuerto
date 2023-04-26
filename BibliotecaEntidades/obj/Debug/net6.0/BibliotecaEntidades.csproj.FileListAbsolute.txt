@@ -1,0 +1,12 @@
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\BibliotecaEntidades\bin\Debug\net6.0\BibliotecaEntidades.deps.json
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\BibliotecaEntidades\bin\Debug\net6.0\BibliotecaEntidades.dll
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\BibliotecaEntidades\bin\Debug\net6.0\BibliotecaEntidades.pdb
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\BibliotecaEntidades\obj\Debug\net6.0\BibliotecaEntidades.csproj.AssemblyReference.cache
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\BibliotecaEntidades\obj\Debug\net6.0\BibliotecaEntidades.GeneratedMSBuildEditorConfig.editorconfig
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\BibliotecaEntidades\obj\Debug\net6.0\BibliotecaEntidades.AssemblyInfoInputs.cache
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\BibliotecaEntidades\obj\Debug\net6.0\BibliotecaEntidades.AssemblyInfo.cs
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\BibliotecaEntidades\obj\Debug\net6.0\BibliotecaEntidades.csproj.CoreCompileInputs.cache
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\BibliotecaEntidades\obj\Debug\net6.0\BibliotecaEntidades.dll
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\BibliotecaEntidades\obj\Debug\net6.0\refint\BibliotecaEntidades.dll
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\BibliotecaEntidades\obj\Debug\net6.0\BibliotecaEntidades.pdb
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\BibliotecaEntidades\obj\Debug\net6.0\ref\BibliotecaEntidades.dll

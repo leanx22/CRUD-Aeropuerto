@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {}
+    "net6.0-windows7.0": {
+      "BibliotecaEntidades/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/BibliotecaEntidades.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BibliotecaEntidades.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BibliotecaEntidades/1.0.0": {
+      "type": "project",
+      "path": "../BibliotecaEntidades/BibliotecaEntidades.csproj",
+      "msbuildProject": "../BibliotecaEntidades/BibliotecaEntidades.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": []
+    "net6.0-windows7.0": [
+      "BibliotecaEntidades >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\leank\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "A:\\UNIVERSIDAD\\PROGRAMACION\\PROGRA-LABO II\\Guia.Leandro.PrimerParcial\\AerolineasParcial\\BibliotecaEntidades\\BibliotecaEntidades.csproj": {
+              "projectPath": "A:\\UNIVERSIDAD\\PROGRAMACION\\PROGRA-LABO II\\Guia.Leandro.PrimerParcial\\AerolineasParcial\\BibliotecaEntidades\\BibliotecaEntidades.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

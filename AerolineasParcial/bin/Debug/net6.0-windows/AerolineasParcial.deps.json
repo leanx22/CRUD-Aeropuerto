@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "AerolineasParcial/1.0.0": {
+        "dependencies": {
+          "BibliotecaEntidades": "1.0.0"
+        },
+        "runtime": {
+          "AerolineasParcial.dll": {}
+        }
+      },
+      "BibliotecaEntidades/1.0.0": {
+        "runtime": {
+          "BibliotecaEntidades.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AerolineasParcial/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BibliotecaEntidades/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
