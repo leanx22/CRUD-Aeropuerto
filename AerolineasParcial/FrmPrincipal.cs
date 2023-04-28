@@ -14,18 +14,39 @@ namespace AerolineasParcial
     public partial class FrmPrincipal : Form
     {
         Usuario usuario;
-        public FrmPrincipal(Usuario usuario)
+        public FrmPrincipal()
         {
-            this.usuario = usuario;
+            usuario = new Usuario();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.Gainsboro;
-            this.IsMdiContainer = true; //Testear
             InitializeComponent();
         }
+
+        public Usuario Usuario { get { return this.usuario; } set { this.usuario = value; } }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             menuStrip1.BackColor = Color.GhostWhite;
+
+            tBoxInfoBar.Text = "Se debe iniciar sesion para iniciar con las operaciones.";
+            tBoxInfoBar.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom;
+            tBoxInfoBar.Enabled = false;
+            tBoxInfoBar.BorderStyle = BorderStyle.Fixed3D;
+
+            FrmInicioSesion ventanaSesion = new FrmInicioSesion();
+            DialogResult result = ventanaSesion.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.usuario = ventanaSesion.usuario;
+                tBoxInfoBar.Text = "Hola, " + this.usuario.apellido + " " + this.usuario.nombre + " - - " +
+                  "Fecha de sesion: " + DateTime.Now.ToShortDateString();
+            }
+            else
+            {
+                MessageBox.Show("Hubo un error en el inicio de sesion!", "ERROR",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }

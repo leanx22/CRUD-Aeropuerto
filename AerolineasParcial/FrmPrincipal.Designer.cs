@@ -36,16 +36,19 @@
             modificarViajeToolStripMenuItem = new ToolStripMenuItem();
             modificarAeronaveToolStripMenuItem = new ToolStripMenuItem();
             eliminarToolStripMenuItem = new ToolStripMenuItem();
-            aeronavesToolStripMenuItem = new ToolStripMenuItem();
-            informaciónToolStripMenuItem = new ToolStripMenuItem();
-            viajesToolStripMenuItem = new ToolStripMenuItem();
-            estadísticasToolStripMenuItem = new ToolStripMenuItem();
             agregarToolStripMenuItem = new ToolStripMenuItem();
             modificarToolStripMenuItem1 = new ToolStripMenuItem();
             eliminarToolStripMenuItem1 = new ToolStripMenuItem();
+            aeronavesToolStripMenuItem = new ToolStripMenuItem();
             agregarToolStripMenuItem1 = new ToolStripMenuItem();
             modificarToolStripMenuItem2 = new ToolStripMenuItem();
             eliminarToolStripMenuItem2 = new ToolStripMenuItem();
+            informaciónToolStripMenuItem = new ToolStripMenuItem();
+            viajesToolStripMenuItem = new ToolStripMenuItem();
+            estadísticasToolStripMenuItem = new ToolStripMenuItem();
+            tBoxInfoBar = new TextBox();
+            modificarToolStripMenuItem3 = new ToolStripMenuItem();
+            nuevaBajaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,16 +63,16 @@
             // 
             // crearToolStripMenuItem
             // 
-            crearToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevaVentaToolStripMenuItem });
+            crearToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevaVentaToolStripMenuItem, modificarToolStripMenuItem3, nuevaBajaToolStripMenuItem });
             crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            crearToolStripMenuItem.Size = new Size(53, 20);
-            crearToolStripMenuItem.Text = "Ventas";
+            crearToolStripMenuItem.Size = new Size(50, 20);
+            crearToolStripMenuItem.Text = "CRUD";
             // 
             // nuevaVentaToolStripMenuItem
             // 
             nuevaVentaToolStripMenuItem.Name = "nuevaVentaToolStripMenuItem";
-            nuevaVentaToolStripMenuItem.Size = new Size(140, 22);
-            nuevaVentaToolStripMenuItem.Text = "Nueva venta";
+            nuevaVentaToolStripMenuItem.Size = new Size(180, 22);
+            nuevaVentaToolStripMenuItem.Text = "Nueva alta";
             // 
             // modificarToolStripMenuItem
             // 
@@ -103,12 +106,48 @@
             eliminarToolStripMenuItem.Size = new Size(54, 20);
             eliminarToolStripMenuItem.Text = "Vuelos";
             // 
+            // agregarToolStripMenuItem
+            // 
+            agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
+            agregarToolStripMenuItem.Size = new Size(125, 22);
+            agregarToolStripMenuItem.Text = "Agregar";
+            // 
+            // modificarToolStripMenuItem1
+            // 
+            modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
+            modificarToolStripMenuItem1.Size = new Size(125, 22);
+            modificarToolStripMenuItem1.Text = "Modificar";
+            // 
+            // eliminarToolStripMenuItem1
+            // 
+            eliminarToolStripMenuItem1.Name = "eliminarToolStripMenuItem1";
+            eliminarToolStripMenuItem1.Size = new Size(125, 22);
+            eliminarToolStripMenuItem1.Text = "Eliminar";
+            // 
             // aeronavesToolStripMenuItem
             // 
             aeronavesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { agregarToolStripMenuItem1, modificarToolStripMenuItem2, eliminarToolStripMenuItem2 });
             aeronavesToolStripMenuItem.Name = "aeronavesToolStripMenuItem";
             aeronavesToolStripMenuItem.Size = new Size(74, 20);
             aeronavesToolStripMenuItem.Text = "Aeronaves";
+            // 
+            // agregarToolStripMenuItem1
+            // 
+            agregarToolStripMenuItem1.Name = "agregarToolStripMenuItem1";
+            agregarToolStripMenuItem1.Size = new Size(125, 22);
+            agregarToolStripMenuItem1.Text = "Agregar";
+            // 
+            // modificarToolStripMenuItem2
+            // 
+            modificarToolStripMenuItem2.Name = "modificarToolStripMenuItem2";
+            modificarToolStripMenuItem2.Size = new Size(125, 22);
+            modificarToolStripMenuItem2.Text = "Modificar";
+            // 
+            // eliminarToolStripMenuItem2
+            // 
+            eliminarToolStripMenuItem2.Name = "eliminarToolStripMenuItem2";
+            eliminarToolStripMenuItem2.Size = new Size(125, 22);
+            eliminarToolStripMenuItem2.Text = "Eliminar";
             // 
             // informaciónToolStripMenuItem
             // 
@@ -120,56 +159,42 @@
             // viajesToolStripMenuItem
             // 
             viajesToolStripMenuItem.Name = "viajesToolStripMenuItem";
-            viajesToolStripMenuItem.Size = new Size(180, 22);
+            viajesToolStripMenuItem.Size = new Size(134, 22);
             viajesToolStripMenuItem.Text = "Viajes";
             // 
             // estadísticasToolStripMenuItem
             // 
             estadísticasToolStripMenuItem.Name = "estadísticasToolStripMenuItem";
-            estadísticasToolStripMenuItem.Size = new Size(180, 22);
+            estadísticasToolStripMenuItem.Size = new Size(134, 22);
             estadísticasToolStripMenuItem.Text = "Estadísticas";
             // 
-            // agregarToolStripMenuItem
+            // tBoxInfoBar
             // 
-            agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            agregarToolStripMenuItem.Size = new Size(180, 22);
-            agregarToolStripMenuItem.Text = "Agregar";
+            tBoxInfoBar.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            tBoxInfoBar.Location = new Point(0, 598);
+            tBoxInfoBar.Name = "tBoxInfoBar";
+            tBoxInfoBar.Size = new Size(1028, 29);
+            tBoxInfoBar.TabIndex = 1;
+            tBoxInfoBar.Text = "Prueba";
             // 
-            // modificarToolStripMenuItem1
+            // modificarToolStripMenuItem3
             // 
-            modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            modificarToolStripMenuItem1.Size = new Size(180, 22);
-            modificarToolStripMenuItem1.Text = "Modificar";
+            modificarToolStripMenuItem3.Name = "modificarToolStripMenuItem3";
+            modificarToolStripMenuItem3.Size = new Size(180, 22);
+            modificarToolStripMenuItem3.Text = "Modificar";
             // 
-            // eliminarToolStripMenuItem1
+            // nuevaBajaToolStripMenuItem
             // 
-            eliminarToolStripMenuItem1.Name = "eliminarToolStripMenuItem1";
-            eliminarToolStripMenuItem1.Size = new Size(180, 22);
-            eliminarToolStripMenuItem1.Text = "Eliminar";
-            // 
-            // agregarToolStripMenuItem1
-            // 
-            agregarToolStripMenuItem1.Name = "agregarToolStripMenuItem1";
-            agregarToolStripMenuItem1.Size = new Size(180, 22);
-            agregarToolStripMenuItem1.Text = "Agregar";
-            // 
-            // modificarToolStripMenuItem2
-            // 
-            modificarToolStripMenuItem2.Name = "modificarToolStripMenuItem2";
-            modificarToolStripMenuItem2.Size = new Size(180, 22);
-            modificarToolStripMenuItem2.Text = "Modificar";
-            // 
-            // eliminarToolStripMenuItem2
-            // 
-            eliminarToolStripMenuItem2.Name = "eliminarToolStripMenuItem2";
-            eliminarToolStripMenuItem2.Size = new Size(180, 22);
-            eliminarToolStripMenuItem2.Text = "Eliminar";
+            nuevaBajaToolStripMenuItem.Name = "nuevaBajaToolStripMenuItem";
+            nuevaBajaToolStripMenuItem.Size = new Size(180, 22);
+            nuevaBajaToolStripMenuItem.Text = "Nueva baja";
             // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1028, 623);
+            Controls.Add(tBoxInfoBar);
             Controls.Add(menuStrip1);
             Name = "FrmPrincipal";
             Text = "FrmPrincipal";
@@ -200,5 +225,8 @@
         private ToolStripMenuItem agregarToolStripMenuItem1;
         private ToolStripMenuItem modificarToolStripMenuItem2;
         private ToolStripMenuItem eliminarToolStripMenuItem2;
+        private TextBox tBoxInfoBar;
+        private ToolStripMenuItem modificarToolStripMenuItem3;
+        private ToolStripMenuItem nuevaBajaToolStripMenuItem;
     }
 }

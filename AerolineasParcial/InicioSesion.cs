@@ -2,14 +2,16 @@ using BibliotecaEntidades;
 using System.Reflection.Metadata;
 using System.Text.Json;
 using System.IO;
+using System.Text.Json.Serialization;
 
 namespace AerolineasParcial
 {
     public partial class FrmInicioSesion : Form
     {
         private string path;
-        private Usuario usuario;
         private List<Usuario> listaUsers;
+        private JsonSerializerOptions jSonOptions;
+        public Usuario usuario;
         public FrmInicioSesion()
         {
             this.StartPosition = FormStartPosition.CenterScreen;//Para que aparezca en el centro.
@@ -17,14 +19,15 @@ namespace AerolineasParcial
             this.MaximizeBox = false; //Para evitar que se maximice.
 
             path = Environment.CurrentDirectory;
-            this.usuario = new Usuario();
             listaUsers = new List<Usuario>();
+            jSonOptions = new JsonSerializerOptions();
+            usuario = new Usuario();
 
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {           
+        {
             tBoxUser.PlaceholderText = "empleado@mail.com";
             tBoxPswrd.PlaceholderText = "1234";
 
@@ -45,9 +48,10 @@ namespace AerolineasParcial
                 using (StreamReader reader = new StreamReader(path + @"\MOCK_DATA.json"))
                 {
                     jsonText = reader.ReadToEnd();
-                    //MessageBox.Show(jsonText);
-                    this.listaUsers = (List<Usuario>)JsonSerializer.Deserialize(jsonText, typeof(List<Usuario>));
-                    //MessageBox.Show("Deserealizado OK");
+
+                    //Nueva opcion para que pueda deserealizar los strings como enum.
+                    jSonOptions.Converters.Add(new JsonStringEnumConverter());
+                    this.listaUsers = (List<Usuario>)JsonSerializer.Deserialize(jsonText, typeof(List<Usuario>), jSonOptions);
                 }
             }
             catch (Exception ex)
@@ -61,26 +65,28 @@ namespace AerolineasParcial
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             string usuario;
-            string contrasena;           
+            string contrasena;
             usuario = tBoxUser.Text;
             contrasena = tBoxPswrd.Text;
-            
+
             foreach (Usuario us in listaUsers)
             {
                 if (us.correo == usuario && us.clave == contrasena)
                 {
-                    MessageBox.Show("Inicio correcto!");
+                    MessageBox.Show("IS: Inicio correcto!");
                     this.usuario = us;
-                    //nuevo form principal.
-                    FrmPrincipal ventana = new FrmPrincipal(this.usuario);
-                    ventana.Show();
-                    this.Hide();//No me convence. Creo que sigue ocupando memoria.
-                    return;  
+                    this.DialogResult = DialogResult.OK;
+                    return;//Creo que no hace falta, ya que dResult cierra el form.
                 }
             }
 
-            MessageBox.Show("El usuario o contraseña son incorrectos","No se pudo iniciar sesion",
-                MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("El usuario o contraseña son incorrectos", "No se pudo iniciar sesion",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
 
         }
     }

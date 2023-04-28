@@ -1,15 +1,8 @@
 ﻿using System.Text;
+using System.Text.Json.Serialization;
 
 namespace BibliotecaEntidades
-{
-    public enum EPerfiles
-    {
-        NA, //no asignado.
-        vendedor,
-        supervisor,
-        administrador
-    }
-   
+{   
     public class Usuario
     {
         private string Apellido;
@@ -17,8 +10,8 @@ namespace BibliotecaEntidades
         private int Legajo;
         private string Correo;
         private string Clave;
-        private string Perfil;
-        private EPerfiles eperfil;
+        //private string Perfil;
+        private EPerfil Perfil;
 
         public Usuario()
         {
@@ -27,11 +20,12 @@ namespace BibliotecaEntidades
             this.Legajo = -1;
             this.Correo = "Sin correo";
             this.Clave = "Sin clave";
-            this.Perfil = "No asignado";
-            this.eperfil = EPerfiles.NA;
+            //this.Perfil = "No asignado";
+            this.Perfil = EPerfil.vendedor;
+            //this.eperfil = EPerfiles.NA;
         }
 
-        public Usuario(string apellido, string nombre, int legajo, string correo, string clave, string perfil) : this()
+        public Usuario(string apellido, string nombre, int legajo, string correo, string clave, EPerfil perfil) : this()
         {
             this.Apellido = apellido;
             this.Nombre = nombre;
@@ -46,7 +40,7 @@ namespace BibliotecaEntidades
         public int legajo { get { return Legajo; } set { Legajo = value; } }
         public string correo { get { return Correo; } set { Correo = value; } }
         public string clave { get { return Clave; } set { Clave = value; } }
-        public string perfil { get { return Perfil; } set { Perfil = value; } }
+        public EPerfil perfil { get { return Perfil; } set { Perfil = value; } }
 
         public string MostrarDatos()
         {
@@ -56,7 +50,7 @@ namespace BibliotecaEntidades
             sb.AppendLine(this.Legajo.ToString());
             sb.AppendLine(this.Correo);
             sb.AppendLine(this.Clave);
-            sb.AppendLine(this.Perfil);
+            sb.AppendLine(this.Perfil.ToString());
             return sb.ToString();
         }
     }

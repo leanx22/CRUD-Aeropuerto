@@ -40,7 +40,7 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(182, 179);
+            btnAceptar.Location = new Point(12, 179);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(151, 52);
             btnAceptar.TabIndex = 0;
@@ -50,12 +50,13 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(12, 179);
+            btnSalir.Location = new Point(186, 179);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(147, 52);
             btnSalir.TabIndex = 1;
             btnSalir.Text = "button1";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // tBoxUser
             // 
