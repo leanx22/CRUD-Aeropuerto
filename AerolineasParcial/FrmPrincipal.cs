@@ -22,24 +22,26 @@ namespace AerolineasParcial
             InitializeComponent();
         }
 
-        public Usuario Usuario { get { return this.usuario; } set { this.usuario = value; } }
+        //public Usuario Usuario { get { return this.usuario; } set { this.usuario = value; } }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            menuStrip1.BackColor = Color.GhostWhite;
+            barraMenu.BackColor = Color.GhostWhite;
 
             tBoxInfoBar.Text = "Se debe iniciar sesion para iniciar con las operaciones.";
             tBoxInfoBar.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom;
             tBoxInfoBar.Enabled = false;
             tBoxInfoBar.BorderStyle = BorderStyle.Fixed3D;
 
+            listVuelos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+
             FrmInicioSesion ventanaSesion = new FrmInicioSesion();
             DialogResult result = ventanaSesion.ShowDialog();
             if (result == DialogResult.OK)
             {
                 this.usuario = ventanaSesion.usuario;
-                tBoxInfoBar.Text = "Hola, " + this.usuario.apellido + " " + this.usuario.nombre + " - - " +
-                  "Fecha de sesion: " + DateTime.Now.ToShortDateString();
+                tBoxInfoBar.Text = this.usuario.apellido + " " + this.usuario.nombre + " - " +
+                  DateTime.Now.ToShortDateString();
             }
             else
             {
@@ -47,6 +49,12 @@ namespace AerolineasParcial
                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
+        }
+
+        private void busquedaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaFrm crud = new ConsultaFrm(this.usuario);
+            crud.Show();//dialog?
         }
     }
 }

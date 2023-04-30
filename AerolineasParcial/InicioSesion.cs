@@ -73,10 +73,10 @@ namespace AerolineasParcial
             {
                 if (us.correo == usuario && us.clave == contrasena)
                 {
-                    MessageBox.Show("IS: Inicio correcto!");
+                    MessageBox.Show("Inicio de sesion correcto!");
                     this.usuario = us;
                     this.DialogResult = DialogResult.OK;
-                    return;//Creo que no hace falta, ya que dResult cierra el form.
+                    return;
                 }
             }
 

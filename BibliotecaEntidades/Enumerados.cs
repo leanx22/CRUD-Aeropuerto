@@ -22,3 +22,13 @@ public enum EInternacional //Destinos internacionales.
     Acapulco,Miami,NA
         //NA = no asignado
 }
+
+public enum EOperacion
+{
+    Alta,Baja,Modificacion
+}
+
+public enum EEntidad
+{
+    Usuario,Pasajero,Vuelo,Aeronave
+}

@@ -28,145 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
-            crearToolStripMenuItem = new ToolStripMenuItem();
-            nuevaVentaToolStripMenuItem = new ToolStripMenuItem();
-            modificarToolStripMenuItem = new ToolStripMenuItem();
-            modificarPasajeroToolStripMenuItem = new ToolStripMenuItem();
-            modificarViajeToolStripMenuItem = new ToolStripMenuItem();
-            modificarAeronaveToolStripMenuItem = new ToolStripMenuItem();
-            eliminarToolStripMenuItem = new ToolStripMenuItem();
-            agregarToolStripMenuItem = new ToolStripMenuItem();
-            modificarToolStripMenuItem1 = new ToolStripMenuItem();
-            eliminarToolStripMenuItem1 = new ToolStripMenuItem();
-            aeronavesToolStripMenuItem = new ToolStripMenuItem();
-            agregarToolStripMenuItem1 = new ToolStripMenuItem();
-            modificarToolStripMenuItem2 = new ToolStripMenuItem();
-            eliminarToolStripMenuItem2 = new ToolStripMenuItem();
-            informaciónToolStripMenuItem = new ToolStripMenuItem();
-            viajesToolStripMenuItem = new ToolStripMenuItem();
-            estadísticasToolStripMenuItem = new ToolStripMenuItem();
-            tBoxInfoBar = new TextBox();
-            modificarToolStripMenuItem3 = new ToolStripMenuItem();
+            barraMenu = new MenuStrip();
+            cRUDToolStripMenuItem = new ToolStripMenuItem();
+            nuevaAltaToolStripMenuItem = new ToolStripMenuItem();
+            nuevaModificacionToolStripMenuItem = new ToolStripMenuItem();
             nuevaBajaToolStripMenuItem = new ToolStripMenuItem();
-            menuStrip1.SuspendLayout();
+            busquedaToolStripMenuItem = new ToolStripMenuItem();
+            tBoxInfoBar = new TextBox();
+            listVuelos = new ListBox();
+            label1 = new Label();
+            barraMenu.SuspendLayout();
             SuspendLayout();
             // 
-            // menuStrip1
+            // barraMenu
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { crearToolStripMenuItem, modificarToolStripMenuItem, eliminarToolStripMenuItem, aeronavesToolStripMenuItem, informaciónToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1028, 24);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "stripMenu";
+            barraMenu.Items.AddRange(new ToolStripItem[] { cRUDToolStripMenuItem, busquedaToolStripMenuItem });
+            barraMenu.Location = new Point(0, 0);
+            barraMenu.Name = "barraMenu";
+            barraMenu.RenderMode = ToolStripRenderMode.Professional;
+            barraMenu.Size = new Size(1028, 24);
+            barraMenu.TabIndex = 0;
+            barraMenu.Text = "stripMenu";
             // 
-            // crearToolStripMenuItem
+            // cRUDToolStripMenuItem
             // 
-            crearToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevaVentaToolStripMenuItem, modificarToolStripMenuItem3, nuevaBajaToolStripMenuItem });
-            crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            crearToolStripMenuItem.Size = new Size(50, 20);
-            crearToolStripMenuItem.Text = "CRUD";
+            cRUDToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevaAltaToolStripMenuItem, nuevaModificacionToolStripMenuItem, nuevaBajaToolStripMenuItem });
+            cRUDToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            cRUDToolStripMenuItem.Name = "cRUDToolStripMenuItem";
+            cRUDToolStripMenuItem.Size = new Size(52, 20);
+            cRUDToolStripMenuItem.Text = "CRUD";
             // 
-            // nuevaVentaToolStripMenuItem
+            // nuevaAltaToolStripMenuItem
             // 
-            nuevaVentaToolStripMenuItem.Name = "nuevaVentaToolStripMenuItem";
-            nuevaVentaToolStripMenuItem.Size = new Size(180, 22);
-            nuevaVentaToolStripMenuItem.Text = "Nueva alta";
+            nuevaAltaToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            nuevaAltaToolStripMenuItem.Name = "nuevaAltaToolStripMenuItem";
+            nuevaAltaToolStripMenuItem.Size = new Size(144, 22);
+            nuevaAltaToolStripMenuItem.Text = "Alta";
             // 
-            // modificarToolStripMenuItem
+            // nuevaModificacionToolStripMenuItem
             // 
-            modificarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { modificarPasajeroToolStripMenuItem, modificarViajeToolStripMenuItem, modificarAeronaveToolStripMenuItem });
-            modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            modificarToolStripMenuItem.Size = new Size(68, 20);
-            modificarToolStripMenuItem.Text = "Pasajeros";
+            nuevaModificacionToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            nuevaModificacionToolStripMenuItem.Name = "nuevaModificacionToolStripMenuItem";
+            nuevaModificacionToolStripMenuItem.Size = new Size(144, 22);
+            nuevaModificacionToolStripMenuItem.Text = "Modificación";
             // 
-            // modificarPasajeroToolStripMenuItem
+            // nuevaBajaToolStripMenuItem
             // 
-            modificarPasajeroToolStripMenuItem.Name = "modificarPasajeroToolStripMenuItem";
-            modificarPasajeroToolStripMenuItem.Size = new Size(125, 22);
-            modificarPasajeroToolStripMenuItem.Text = "Agregar";
+            nuevaBajaToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            nuevaBajaToolStripMenuItem.Name = "nuevaBajaToolStripMenuItem";
+            nuevaBajaToolStripMenuItem.Size = new Size(144, 22);
+            nuevaBajaToolStripMenuItem.Text = "Baja";
             // 
-            // modificarViajeToolStripMenuItem
+            // busquedaToolStripMenuItem
             // 
-            modificarViajeToolStripMenuItem.Name = "modificarViajeToolStripMenuItem";
-            modificarViajeToolStripMenuItem.Size = new Size(125, 22);
-            modificarViajeToolStripMenuItem.Text = "Modificar";
-            // 
-            // modificarAeronaveToolStripMenuItem
-            // 
-            modificarAeronaveToolStripMenuItem.Name = "modificarAeronaveToolStripMenuItem";
-            modificarAeronaveToolStripMenuItem.Size = new Size(125, 22);
-            modificarAeronaveToolStripMenuItem.Text = "Eliminar";
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            eliminarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { agregarToolStripMenuItem, modificarToolStripMenuItem1, eliminarToolStripMenuItem1 });
-            eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            eliminarToolStripMenuItem.Size = new Size(54, 20);
-            eliminarToolStripMenuItem.Text = "Vuelos";
-            // 
-            // agregarToolStripMenuItem
-            // 
-            agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            agregarToolStripMenuItem.Size = new Size(125, 22);
-            agregarToolStripMenuItem.Text = "Agregar";
-            // 
-            // modificarToolStripMenuItem1
-            // 
-            modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            modificarToolStripMenuItem1.Size = new Size(125, 22);
-            modificarToolStripMenuItem1.Text = "Modificar";
-            // 
-            // eliminarToolStripMenuItem1
-            // 
-            eliminarToolStripMenuItem1.Name = "eliminarToolStripMenuItem1";
-            eliminarToolStripMenuItem1.Size = new Size(125, 22);
-            eliminarToolStripMenuItem1.Text = "Eliminar";
-            // 
-            // aeronavesToolStripMenuItem
-            // 
-            aeronavesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { agregarToolStripMenuItem1, modificarToolStripMenuItem2, eliminarToolStripMenuItem2 });
-            aeronavesToolStripMenuItem.Name = "aeronavesToolStripMenuItem";
-            aeronavesToolStripMenuItem.Size = new Size(74, 20);
-            aeronavesToolStripMenuItem.Text = "Aeronaves";
-            // 
-            // agregarToolStripMenuItem1
-            // 
-            agregarToolStripMenuItem1.Name = "agregarToolStripMenuItem1";
-            agregarToolStripMenuItem1.Size = new Size(125, 22);
-            agregarToolStripMenuItem1.Text = "Agregar";
-            // 
-            // modificarToolStripMenuItem2
-            // 
-            modificarToolStripMenuItem2.Name = "modificarToolStripMenuItem2";
-            modificarToolStripMenuItem2.Size = new Size(125, 22);
-            modificarToolStripMenuItem2.Text = "Modificar";
-            // 
-            // eliminarToolStripMenuItem2
-            // 
-            eliminarToolStripMenuItem2.Name = "eliminarToolStripMenuItem2";
-            eliminarToolStripMenuItem2.Size = new Size(125, 22);
-            eliminarToolStripMenuItem2.Text = "Eliminar";
-            // 
-            // informaciónToolStripMenuItem
-            // 
-            informaciónToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viajesToolStripMenuItem, estadísticasToolStripMenuItem });
-            informaciónToolStripMenuItem.Name = "informaciónToolStripMenuItem";
-            informaciónToolStripMenuItem.Size = new Size(84, 20);
-            informaciónToolStripMenuItem.Text = "Información";
-            // 
-            // viajesToolStripMenuItem
-            // 
-            viajesToolStripMenuItem.Name = "viajesToolStripMenuItem";
-            viajesToolStripMenuItem.Size = new Size(134, 22);
-            viajesToolStripMenuItem.Text = "Viajes";
-            // 
-            // estadísticasToolStripMenuItem
-            // 
-            estadísticasToolStripMenuItem.Name = "estadísticasToolStripMenuItem";
-            estadísticasToolStripMenuItem.Size = new Size(134, 22);
-            estadísticasToolStripMenuItem.Text = "Estadísticas";
+            busquedaToolStripMenuItem.Name = "busquedaToolStripMenuItem";
+            busquedaToolStripMenuItem.Size = new Size(66, 20);
+            busquedaToolStripMenuItem.Text = "Consulta";
+            busquedaToolStripMenuItem.Click += busquedaToolStripMenuItem_Click;
             // 
             // tBoxInfoBar
             // 
@@ -177,56 +95,53 @@
             tBoxInfoBar.TabIndex = 1;
             tBoxInfoBar.Text = "Prueba";
             // 
-            // modificarToolStripMenuItem3
+            // listVuelos
             // 
-            modificarToolStripMenuItem3.Name = "modificarToolStripMenuItem3";
-            modificarToolStripMenuItem3.Size = new Size(180, 22);
-            modificarToolStripMenuItem3.Text = "Modificar";
+            listVuelos.FormattingEnabled = true;
+            listVuelos.ItemHeight = 15;
+            listVuelos.Location = new Point(12, 63);
+            listVuelos.Name = "listVuelos";
+            listVuelos.Size = new Size(370, 514);
+            listVuelos.TabIndex = 0;
             // 
-            // nuevaBajaToolStripMenuItem
+            // label1
             // 
-            nuevaBajaToolStripMenuItem.Name = "nuevaBajaToolStripMenuItem";
-            nuevaBajaToolStripMenuItem.Size = new Size(180, 22);
-            nuevaBajaToolStripMenuItem.Text = "Nueva baja";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(12, 39);
+            label1.Name = "label1";
+            label1.Size = new Size(158, 21);
+            label1.TabIndex = 2;
+            label1.Text = "PRÓXIMOS VUELOS";
             // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1028, 623);
+            Controls.Add(label1);
+            Controls.Add(listVuelos);
             Controls.Add(tBoxInfoBar);
-            Controls.Add(menuStrip1);
+            Controls.Add(barraMenu);
             Name = "FrmPrincipal";
             Text = "FrmPrincipal";
             Load += FrmPrincipal_Load;
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            barraMenu.ResumeLayout(false);
+            barraMenu.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem crearToolStripMenuItem;
-        private ToolStripMenuItem modificarToolStripMenuItem;
-        private ToolStripMenuItem modificarPasajeroToolStripMenuItem;
-        private ToolStripMenuItem modificarViajeToolStripMenuItem;
-        private ToolStripMenuItem modificarAeronaveToolStripMenuItem;
-        private ToolStripMenuItem eliminarToolStripMenuItem;
-        private ToolStripMenuItem aeronavesToolStripMenuItem;
-        private ToolStripMenuItem informaciónToolStripMenuItem;
-        private ToolStripMenuItem viajesToolStripMenuItem;
-        private ToolStripMenuItem estadísticasToolStripMenuItem;
-        private ToolStripMenuItem nuevaVentaToolStripMenuItem;
-        private ToolStripMenuItem agregarToolStripMenuItem;
-        private ToolStripMenuItem modificarToolStripMenuItem1;
-        private ToolStripMenuItem eliminarToolStripMenuItem1;
-        private ToolStripMenuItem agregarToolStripMenuItem1;
-        private ToolStripMenuItem modificarToolStripMenuItem2;
-        private ToolStripMenuItem eliminarToolStripMenuItem2;
+        private MenuStrip barraMenu;
         private TextBox tBoxInfoBar;
-        private ToolStripMenuItem modificarToolStripMenuItem3;
+        private ToolStripMenuItem cRUDToolStripMenuItem;
+        private ToolStripMenuItem nuevaAltaToolStripMenuItem;
+        private ToolStripMenuItem nuevaModificacionToolStripMenuItem;
         private ToolStripMenuItem nuevaBajaToolStripMenuItem;
+        private ListBox listVuelos;
+        private Label label1;
+        private ToolStripMenuItem busquedaToolStripMenuItem;
     }
 }

@@ -17,12 +17,12 @@ namespace BibliotecaEntidades
 
         public Aeronave()
         {
-            matricula = "AAAA0000";
-            asientos = 1;
-            banios = 1;
-            internet = false;
-            comida = false;
-            capacidadBodega = 0;
+            this.matricula = "AAAA0000";
+            this.asientos = 1;
+            this.banios = 1;
+            this.internet = false;
+            this.comida = false;
+            this.capacidadBodega = 0;
         }
 
         public Aeronave(string matricula, int asientos, int banios,

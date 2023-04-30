@@ -35,14 +35,15 @@ namespace BibliotecaEntidades
             this.Perfil = perfil;
         }
 
+        #region PROPIEDADES
         public string apellido { get { return Apellido; } set { Apellido = value; } }
         public string nombre { get { return Nombre; } set { Nombre = value; } }
         public int legajo { get { return Legajo; } set { Legajo = value; } }
         public string correo { get { return Correo; } set { Correo = value; } }
         public string clave { get { return Clave; } set { Clave = value; } }
         public EPerfil perfil { get { return Perfil; } set { Perfil = value; } }
-
-        public string MostrarDatos()
+        #endregion
+        public string MostrarDatvos() //Override de ToString?
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(this.Apellido);
@@ -53,5 +54,6 @@ namespace BibliotecaEntidades
             sb.AppendLine(this.Perfil.ToString());
             return sb.ToString();
         }
+
     }
 }
