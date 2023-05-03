@@ -37,7 +37,9 @@
             tBoxInfoBar = new TextBox();
             listVuelos = new ListBox();
             label1 = new Label();
+            dataGridView1 = new DataGridView();
             barraMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // barraMenu
@@ -114,11 +116,21 @@
             label1.TabIndex = 2;
             label1.Text = "PRÓXIMOS VUELOS";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(428, 63);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(389, 337);
+            dataGridView1.TabIndex = 3;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1028, 623);
+            Controls.Add(dataGridView1);
             Controls.Add(label1);
             Controls.Add(listVuelos);
             Controls.Add(tBoxInfoBar);
@@ -128,6 +140,7 @@
             Load += FrmPrincipal_Load;
             barraMenu.ResumeLayout(false);
             barraMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -143,5 +156,6 @@
         private ListBox listVuelos;
         private Label label1;
         private ToolStripMenuItem busquedaToolStripMenuItem;
+        private DataGridView dataGridView1;
     }
 }

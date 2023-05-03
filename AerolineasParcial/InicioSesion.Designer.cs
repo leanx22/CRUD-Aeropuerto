@@ -42,7 +42,7 @@
             // 
             btnAceptar.Location = new Point(12, 179);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(151, 52);
+            btnAceptar.Size = new Size(151, 47);
             btnAceptar.TabIndex = 0;
             btnAceptar.Text = "button1";
             btnAceptar.UseVisualStyleBackColor = true;
@@ -52,7 +52,7 @@
             // 
             btnSalir.Location = new Point(186, 179);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(147, 52);
+            btnSalir.Size = new Size(147, 47);
             btnSalir.TabIndex = 1;
             btnSalir.Text = "button1";
             btnSalir.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(345, 240);
+            ClientSize = new Size(345, 238);
             Controls.Add(GrpBox);
             Controls.Add(btnSalir);
             Controls.Add(btnAceptar);

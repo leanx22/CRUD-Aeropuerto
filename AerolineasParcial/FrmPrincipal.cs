@@ -16,38 +16,24 @@ namespace AerolineasParcial
         Usuario usuario;
         public FrmPrincipal()
         {
+            InitializeComponent();
             usuario = new Usuario();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.Gainsboro;
-            InitializeComponent();
         }
-
-        //public Usuario Usuario { get { return this.usuario; } set { this.usuario = value; } }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             barraMenu.BackColor = Color.GhostWhite;
 
-            tBoxInfoBar.Text = "Se debe iniciar sesion para iniciar con las operaciones.";
+            tBoxInfoBar.Text = "Se debe iniciar sesion para comenzar con las operaciones.";
             tBoxInfoBar.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom;
             tBoxInfoBar.Enabled = false;
-            tBoxInfoBar.BorderStyle = BorderStyle.Fixed3D;
+            tBoxInfoBar.BorderStyle = BorderStyle.FixedSingle;
 
             listVuelos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
 
-            FrmInicioSesion ventanaSesion = new FrmInicioSesion();
-            DialogResult result = ventanaSesion.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                this.usuario = ventanaSesion.usuario;
-                tBoxInfoBar.Text = this.usuario.apellido + " " + this.usuario.nombre + " - " +
-                  DateTime.Now.ToShortDateString();
-            }
-            else
-            {
-                MessageBox.Show("Hubo un error en el inicio de sesion!", "ERROR",
-                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            IniciarSesion();
 
         }
 
@@ -56,5 +42,19 @@ namespace AerolineasParcial
             ConsultaFrm crud = new ConsultaFrm(this.usuario);
             crud.Show();//dialog?
         }
+
+        private void IniciarSesion()
+        {
+            FrmInicioSesion ventanaSesion = new FrmInicioSesion();
+            DialogResult result = ventanaSesion.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.usuario = ventanaSesion.Usuario;
+                tBoxInfoBar.Text = "  " + this.usuario.apellido +
+                  " " + this.usuario.nombre + " - " +
+                  DateTime.Now.ToShortDateString();
+            }
+        }
+
     }
 }

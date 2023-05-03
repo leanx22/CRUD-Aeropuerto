@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace BibliotecaEntidades
@@ -10,7 +12,6 @@ namespace BibliotecaEntidades
         private int Legajo;
         private string Correo;
         private string Clave;
-        //private string Perfil;
         private EPerfil Perfil;
 
         public Usuario()
@@ -43,7 +44,41 @@ namespace BibliotecaEntidades
         public string clave { get { return Clave; } set { Clave = value; } }
         public EPerfil perfil { get { return Perfil; } set { Perfil = value; } }
         #endregion
-        public string MostrarDatvos() //Override de ToString?
+
+        
+        public static bool Deserealizar(string filename,out List<Usuario> lista)
+        {
+            /*Deserealiza el jSon de usuarios en la lista que se le pase por parametro.
+            La inicializa y si realiza la operacion con exito retorna true.
+            Caso contrario la lista queda vacia y se retorna false.*/
+            JsonSerializerOptions jSonOptions = new JsonSerializerOptions();
+            lista = new List<Usuario>();
+            string jsonText;
+            bool ret = false;
+
+            if (File.Exists(filename))
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(filename))
+                    {
+                        jsonText = reader.ReadToEnd();
+
+                        //Nueva opcion para que pueda deserealizar los strings como enum.
+                        jSonOptions.Converters.Add(new JsonStringEnumConverter());
+                        lista = (List<Usuario>)JsonSerializer.Deserialize(jsonText, typeof(List<Usuario>), jSonOptions);
+                        ret = true;
+                    }
+                }
+                catch
+                {
+                    ret = false;
+                }
+            }
+            return ret;
+        }
+
+        public string MostrarDatos() //Override de ToString?
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(this.Apellido);

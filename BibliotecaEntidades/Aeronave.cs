@@ -15,6 +15,8 @@ namespace BibliotecaEntidades
         private bool comida;
         private float capacidadBodega;
 
+        
+
         public Aeronave()
         {
             this.matricula = "AAAA0000";

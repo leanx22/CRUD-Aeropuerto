@@ -8,86 +8,70 @@ namespace AerolineasParcial
 {
     public partial class FrmInicioSesion : Form
     {
-        private string path;
         private List<Usuario> listaUsers;
-        private JsonSerializerOptions jSonOptions;
-        public Usuario usuario;
+        private Usuario usuario;
         public FrmInicioSesion()
         {
-            this.StartPosition = FormStartPosition.CenterScreen;//Para que aparezca en el centro.
-            this.FormBorderStyle = FormBorderStyle.FixedSingle; //Para que no se pueda reescalar.
-            this.MaximizeBox = false; //Para evitar que se maximice.
-
-            path = Environment.CurrentDirectory;
-            listaUsers = new List<Usuario>();
-            jSonOptions = new JsonSerializerOptions();
-            usuario = new Usuario();
-
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;//Para que aparezca en el centro.
+            this.listaUsers = new List<Usuario>();
+            this.usuario = new Usuario();            
         }
+
+        public Usuario Usuario { get { return this.usuario; } }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             tBoxUser.PlaceholderText = "empleado@mail.com";
-            tBoxPswrd.PlaceholderText = "1234";
+            tBoxPswrd.PlaceholderText = "xxxxxx";
 
             btnAceptar.Text = "Iniciar sesion";
             btnSalir.Text = "Salir";
 
-            string jsonText;
-            if (!File.Exists(path + @"\MOCK_DATA.json"))
-            {
-                MessageBox.Show("No se pudo encontrar el json de Usuarios!\n" +
-                    "Se lo esta buscando en: " + (path + @"\MOCK_DATA.json"), "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; //Para que no se pueda reescalar.
+            this.ControlBox = false;
 
-            try
+            if (!Usuario.Deserealizar("MOCK_DATA.json", out this.listaUsers))
             {
-                using (StreamReader reader = new StreamReader(path + @"\MOCK_DATA.json"))
-                {
-                    jsonText = reader.ReadToEnd();
-
-                    //Nueva opcion para que pueda deserealizar los strings como enum.
-                    jSonOptions.Converters.Add(new JsonStringEnumConverter());
-                    this.listaUsers = (List<Usuario>)JsonSerializer.Deserialize(jsonText, typeof(List<Usuario>), jSonOptions);
-                }
+                btnAceptar.Enabled = false;
+                MessageBox.Show("Hubo un error al intentar deserealizar el archivo de users.",
+                    "No puede continuar",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Hubo un error al intentar DESerializar: " + ex.Message,
-                            "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            string usuario;
-            string contrasena;
-            usuario = tBoxUser.Text;
-            contrasena = tBoxPswrd.Text;
-
-            foreach (Usuario us in listaUsers)
+            if (ValidarCredenciales(tBoxUser.Text, tBoxPswrd.Text))
             {
-                if (us.correo == usuario && us.clave == contrasena)
-                {
-                    MessageBox.Show("Inicio de sesion correcto!");
-                    this.usuario = us;
-                    this.DialogResult = DialogResult.OK;
-                    return;
-                }
+                this.DialogResult = DialogResult.OK;
             }
-
-            MessageBox.Show("El usuario o contraseña son incorrectos", "No se pudo iniciar sesion",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            else
+            {
+                MessageBox.Show("El usuario o contraseña ingresados son incorrectos o no existen.",
+                    "Fallo al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            Application.Exit();//Es correcto su uso?
+        }
+        
+        private bool ValidarCredenciales(string mail, string contrasena)
+        {
+            //Recorre la lista y busca coincidencia de correo&clave
+            bool ret = false;
 
+            foreach (Usuario us in this.listaUsers)
+            {
+                if (us.correo == mail && us.clave==contrasena)
+                {
+                    this.usuario = us;
+                    ret = true;
+                    break;
+                }
+            }
+            return ret;
         }
     }
 }
