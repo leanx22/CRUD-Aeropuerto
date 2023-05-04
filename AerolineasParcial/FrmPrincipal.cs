@@ -14,10 +14,16 @@ namespace AerolineasParcial
     public partial class FrmPrincipal : Form
     {
         Usuario usuario;
+        List<Pasajero> listaPasajeros;
+        List<Viaje> listaViajes;
+        List<Aeronave> listaAeronave;
         public FrmPrincipal()
         {
             InitializeComponent();
             usuario = new Usuario();
+            listaPasajeros = new List<Pasajero>();
+            listaViajes = new List<Viaje>();
+            listaAeronave = new List<Aeronave>();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.Gainsboro;
         }
@@ -39,8 +45,8 @@ namespace AerolineasParcial
 
         private void busquedaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConsultaFrm crud = new ConsultaFrm(this.usuario);
-            crud.Show();//dialog?
+            ConsultaFrm consulta = new ConsultaFrm();
+            consulta.Show();//dialog?
         }
 
         private void IniciarSesion()
@@ -49,6 +55,11 @@ namespace AerolineasParcial
             DialogResult result = ventanaSesion.ShowDialog();
             if (result == DialogResult.OK)
             {
+                dataGridView1.DataSource = ventanaSesion.listaUsers;
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridView1.ReadOnly = true;
+                dataGridView1.AllowUserToResizeRows = false;
+
                 this.usuario = ventanaSesion.Usuario;
                 tBoxInfoBar.Text = "  " + this.usuario.apellido +
                   " " + this.usuario.nombre + " - " +

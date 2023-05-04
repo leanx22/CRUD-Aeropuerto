@@ -5,19 +5,19 @@ using System.Text.Json.Serialization;
 
 namespace BibliotecaEntidades
 {   
-    public class Usuario
+    public class Usuario:Persona
     {
-        private string Apellido;
-        private string Nombre;
+        //private string Apellido;
+        //private string Nombre;
         private int Legajo;
         private string Correo;
         private string Clave;
         private EPerfil Perfil;
 
-        public Usuario()
+        public Usuario():base()
         {
-            this.Apellido = "Sin apellido";
-            this.Nombre = "Sin nombre";
+            //this.Apellido = "Sin apellido";
+            //this.Nombre = "Sin nombre";
             this.Legajo = -1;
             this.Correo = "Sin correo";
             this.Clave = "Sin clave";
@@ -26,10 +26,11 @@ namespace BibliotecaEntidades
             //this.eperfil = EPerfiles.NA;
         }
 
-        public Usuario(string apellido, string nombre, int legajo, string correo, string clave, EPerfil perfil) : this()
+        public Usuario(string apellido, string nombre, int legajo, string correo,
+            string clave, EPerfil perfil) : base(nombre,apellido)
         {
-            this.Apellido = apellido;
-            this.Nombre = nombre;
+            //this.Apellido = apellido;
+            //this.Nombre = nombre;
             this.Legajo = legajo;
             this.Correo = correo;
             this.Clave = clave;
@@ -37,8 +38,8 @@ namespace BibliotecaEntidades
         }
 
         #region PROPIEDADES
-        public string apellido { get { return Apellido; } set { Apellido = value; } }
-        public string nombre { get { return Nombre; } set { Nombre = value; } }
+        //public string apellido { get { return Apellido; } set { Apellido = value; } }
+        //public string nombre { get { return Nombre; } set { Nombre = value; } }
         public int legajo { get { return Legajo; } set { Legajo = value; } }
         public string correo { get { return Correo; } set { Correo = value; } }
         public string clave { get { return Clave; } set { Clave = value; } }
@@ -78,11 +79,11 @@ namespace BibliotecaEntidades
             return ret;
         }
 
-        public string MostrarDatos() //Override de ToString?
+        public override string ObtenerDatos() //Override de ToString?
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(this.Apellido);
-            sb.AppendLine(this.Nombre);
+            sb.AppendLine(this.apellido);
+            sb.AppendLine(this.nombre);
             sb.AppendLine(this.Legajo.ToString());
             sb.AppendLine(this.Correo);
             sb.AppendLine(this.Clave);

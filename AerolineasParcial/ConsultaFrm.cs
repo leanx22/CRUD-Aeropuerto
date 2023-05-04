@@ -14,21 +14,71 @@ namespace AerolineasParcial
     public partial class ConsultaFrm : Form
     {
         EEntidad entidad;
-        public ConsultaFrm(Usuario user)
+        private static ConsultaFrm? instancia;
+        public ConsultaFrm()
         {
+            if (instancia == null)
+            {
+                instancia = this;
+            }
+            else
+            {
+                instancia.Close();
+                instancia = this;
+            }
             this.StartPosition = FormStartPosition.CenterScreen;
-            entidad = EEntidad.Pasajero; //Busqueda por defecto
+            entidad = EEntidad.Pasajero; //Busqueda por defecto.
             InitializeComponent();
         }
 
         private void CRUDform_Load(object sender, EventArgs e)
         {
             this.Text = "Nueva consulta";
-            this.txtTitulo.Text = "Consulta de Datos";
-            this.FormBorderStyle = FormBorderStyle.Fixed3D;
-            this.MaximizeBox = false;
+            this.txtTitulo.Text = "Consulta de datos";
             this.btnAceptar.Text = "Listo";
-            this.btnPasajero.TabIndex = 0; //Para que este seleccionado por defecto
+            this.btnPasajero.TabIndex = 0; //Para que este seleccionado por defecto.
+
+            this.MinimumSize = new Size(650, 480); //Tamanio minimo del formulario.
+
+            gridPasajeros.ReadOnly = true;
+            gridPasajeros.AllowUserToResizeRows = false;
+            #region AnchorStyles
+            this.txtTitulo.Anchor = AnchorStyles.Left | AnchorStyles.Top;
+            this.btnPasajero.Anchor = AnchorStyles.Left | AnchorStyles.Top;
+            this.btnViaje.Anchor = AnchorStyles.Left | AnchorStyles.Top;
+            this.btnAeronave.Anchor = AnchorStyles.Left | AnchorStyles.Top;
+            this.btnAceptar.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+            this.gridPasajeros.Anchor = AnchorStyles.Top | AnchorStyles.Bottom |
+                                        AnchorStyles.Left | AnchorStyles.Right;
+            #endregion
+
+
+        }
+
+        private void btnPasajero_Click(object sender, EventArgs e)
+        {
+            BuscadorPasajero ventana = new BuscadorPasajero();
+            DialogResult res = ventana.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                gridPasajeros.DataSource = ventana.Resultados;
+            }
+        }
+
+        private void btnViaje_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void btnAeronave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

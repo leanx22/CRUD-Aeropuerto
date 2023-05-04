@@ -8,7 +8,7 @@ namespace AerolineasParcial
 {
     public partial class FrmInicioSesion : Form
     {
-        private List<Usuario> listaUsers;
+        public List<Usuario> listaUsers; //pasar a private
         private Usuario usuario;
         public FrmInicioSesion()
         {
@@ -23,12 +23,14 @@ namespace AerolineasParcial
         private void Form1_Load(object sender, EventArgs e)
         {
             tBoxUser.PlaceholderText = "empleado@mail.com";
-            tBoxPswrd.PlaceholderText = "xxxxxx";
+            tBoxPswrd.PlaceholderText = "Ingrese aqui su contrasena";
+            tBoxPswrd.PasswordChar = 'x';
 
             btnAceptar.Text = "Iniciar sesion";
             btnSalir.Text = "Salir";
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle; //Para que no se pueda reescalar.
+            this.MaximizeBox = false;
             this.ControlBox = false;
 
             if (!Usuario.Deserealizar("MOCK_DATA.json", out this.listaUsers))

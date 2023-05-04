@@ -20,7 +20,7 @@ namespace BibliotecaEntidades
         private float costoPremium;
         private float costoTurista;
         private float duracion;
-        //LISTA DE PASAJEROS!
+        private List<Pasajero> listaPasajeros;
 
         public Viaje()
         {
@@ -36,11 +36,12 @@ namespace BibliotecaEntidades
             this.costoPremium = 0;
             this.costoTurista = 0;
             this.duracion = 0;
+            this.listaPasajeros = new List<Pasajero>();
         }
 
         public Viaje(bool esInternacional, string partida, string destino, string fechaDeVuelo,
             Aeronave avionAsignado, int asientosPremium, int asientosTurista, float costoPremium,
-            float costoTurista, float duracion)
+            float costoTurista, float duracion,List<Pasajero> listaPasajeros)
         {
             this.esInternacional = esInternacional;
             this.partida = partida;
@@ -54,6 +55,7 @@ namespace BibliotecaEntidades
             this.costoPremium = costoPremium;
             this.costoTurista = costoTurista;
             this.duracion = duracion;
+            this.listaPasajeros = listaPasajeros;
         }
 
         #region PROPIEDADES
@@ -67,6 +69,7 @@ namespace BibliotecaEntidades
         public float CostoPremium { get { return costoPremium; } set { costoPremium = value; } }
         public float CostoTurista { get { return costoTurista; } set { costoTurista = value; } }
         public float Duracion { get { return duracion; }set { duracion = value; } }
+        public List<Pasajero> ListaPasajeros { get { return listaPasajeros; } set { listaPasajeros = value; } }
         #endregion
     }
 }
