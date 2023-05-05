@@ -46,7 +46,21 @@ namespace BibliotecaEntidades
         public EPerfil perfil { get { return Perfil; } set { Perfil = value; } }
         #endregion
 
-        
+        public static List<Pasajero> BuscarPasajero(long dni, string nombre, string apellido, List<Pasajero> lista)
+        {
+            List<Pasajero> resultados = new List<Pasajero>();
+            foreach (Pasajero p in lista)
+            {
+                if ((dni == 0 || p.DNI == dni) &&
+                    (nombre == string.Empty || p.nombre == nombre) &&
+                    apellido == string.Empty || p.apellido == apellido)
+                {
+                    resultados.Add(p);
+                }
+            }
+            return resultados;
+        }
+
         public static bool Deserealizar(string filename,out List<Usuario> lista)
         {
             /*Deserealiza el jSon de usuarios en la lista que se le pase por parametro.
@@ -81,6 +95,7 @@ namespace BibliotecaEntidades
 
         public override string ObtenerDatos() //Override de ToString?
         {
+            //base.ObtenerDatos +
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(this.apellido);
             sb.AppendLine(this.nombre);
@@ -91,5 +106,11 @@ namespace BibliotecaEntidades
             return sb.ToString();
         }
 
+        public Pasajero AltaDePasajero(string nombre, string apellido, long dni, short edad, ETipoEquipaje equipaje, int cantidad)
+        {
+            Dictionary<ETipoEquipaje, int> dicEquipaje = new Dictionary<ETipoEquipaje, int>();
+            dicEquipaje.Add(equipaje, cantidad);
+            return new Pasajero(nombre,apellido,dni,edad,dicEquipaje);
+        }
     }
 }

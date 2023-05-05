@@ -12,7 +12,7 @@ namespace BibliotecaEntidades
         //private string nombre;
         private long dni;
         private short edad;
-        private Dictionary<string, int> equipaje;
+        private Dictionary<ETipoEquipaje, int> equipaje;
 
         public Pasajero() : base()
         {
@@ -20,11 +20,11 @@ namespace BibliotecaEntidades
             //this.nombre = "Sin nombre";
             this.dni = 00112233;
             this.edad = 0;
-            this.equipaje = new Dictionary<string, int>();
+            this.equipaje = new Dictionary<ETipoEquipaje, int>();
         }
 
         public Pasajero(string nombre, string apellido, long dni,
-            short edad, Dictionary<string,int> equipaje):base(nombre,apellido)
+            short edad, Dictionary<ETipoEquipaje,int> equipaje):base(nombre,apellido)
         {
             //this.nombre = nombre;
             //this.apellido = apellido;
@@ -57,7 +57,7 @@ namespace BibliotecaEntidades
             get { return edad; }
             set { edad = value; }
         }
-        public Dictionary<string, int> Equipaje
+        public Dictionary<ETipoEquipaje, int> Equipaje
         {
             get { return equipaje; }
             set { equipaje = value; }
@@ -73,20 +73,35 @@ namespace BibliotecaEntidades
 
         public static bool GuardarJson(List<Pasajero> lista) { return false; }
 
-        public static List<Pasajero> BuscarPasajero(long dni,string nombre, string apellido, List<Pasajero> lista)
+
+
+        public static bool operator ==(Pasajero p1, Pasajero p2)
         {
-            List<Pasajero> resultados = new List<Pasajero>();
-            foreach (Pasajero p in lista)
+            bool ret = false;
+            
+            if (p1.dni == p2.dni)
             {
-                if ((dni == 0 || p.dni == dni) &&
-                    (nombre==string.Empty || p.nombre == nombre) &&
-                    apellido==string.Empty || p.apellido == apellido)
-                {
-                    resultados.Add(p);
-                }
+                ret = true;
             }
-            return resultados;
+            return ret;
+        }
+        public static bool operator !=(Pasajero p1, Pasajero p2)
+        {
+            bool ret = false;
+            if (!(p1 == p2))
+            { ret = true; }
+            return ret;
         }
 
+        public override bool Equals(object? obj)
+        {
+            Pasajero pasajero = (Pasajero)obj;
+            return pasajero is not null && this == pasajero;
+        }
+        public override int GetHashCode() //ojo
+        {
+            return base.GetHashCode();
+        }
+        
     }
 }

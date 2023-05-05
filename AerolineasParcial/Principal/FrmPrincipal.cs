@@ -1,4 +1,5 @@
-﻿using BibliotecaEntidades;
+﻿using AerolineasParcial.CRUD;
+using BibliotecaEntidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,16 +15,13 @@ namespace AerolineasParcial
     public partial class FrmPrincipal : Form
     {
         Usuario usuario;
-        List<Pasajero> listaPasajeros;
-        List<Viaje> listaViajes;
-        List<Aeronave> listaAeronave;
+        Aeropuerto aeropuerto;
+
         public FrmPrincipal()
         {
             InitializeComponent();
             usuario = new Usuario();
-            listaPasajeros = new List<Pasajero>();
-            listaViajes = new List<Viaje>();
-            listaAeronave = new List<Aeronave>();
+            aeropuerto = new Aeropuerto();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.Gainsboro;
         }
@@ -45,7 +43,7 @@ namespace AerolineasParcial
 
         private void busquedaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConsultaFrm consulta = new ConsultaFrm();
+            ConsultaFrm consulta = new ConsultaFrm(this.aeropuerto);
             consulta.Show();//dialog?
         }
 
@@ -55,10 +53,12 @@ namespace AerolineasParcial
             DialogResult result = ventanaSesion.ShowDialog();
             if (result == DialogResult.OK)
             {
+                #region PRUEBA DATA_GRID
                 dataGridView1.DataSource = ventanaSesion.listaUsers;
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 dataGridView1.ReadOnly = true;
                 dataGridView1.AllowUserToResizeRows = false;
+                #endregion
 
                 this.usuario = ventanaSesion.Usuario;
                 tBoxInfoBar.Text = "  " + this.usuario.apellido +
@@ -67,5 +67,10 @@ namespace AerolineasParcial
             }
         }
 
+        private void nuevoPasajeroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAltaPasajero ventana = new FormAltaPasajero(this.aeropuerto);
+            ventana.ShowDialog();
+        }
     }
 }

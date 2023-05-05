@@ -16,15 +16,15 @@ namespace AerolineasParcial
         private long dni;
         private string nombre;
         private string apellido;
-        private List<Pasajero> listaPasajeros;
+        private List<Pasajero>  listaPasajeros;
         private List<Pasajero> resultados;
-        public BuscadorPasajero()
+        public BuscadorPasajero(List<Pasajero> listaPasajeros)
         {
             InitializeComponent();
             dni = 0;
             nombre = "Sin nombre";
             apellido = "Sin apellido";
-            listaPasajeros = new List<Pasajero>();
+            this.listaPasajeros = listaPasajeros;
             resultados = new List<Pasajero>();
         }
 
@@ -45,12 +45,12 @@ namespace AerolineasParcial
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            //hardcode de testeo
-            listaPasajeros.Add(new Pasajero("Leandro","Guia",44338249,20,new Dictionary<string, int> { { "sas", 1 } }));
-            listaPasajeros.Add(new Pasajero("Leandro", "Emanuel", 55449350, 19, new Dictionary<string, int> { { "sas", 1 } }));
-            listaPasajeros.Add(new Pasajero("Sett", "Capo", 11223344, 30, new Dictionary<string, int> { { "sas", 1 } }));
-            listaPasajeros.Add(new Pasajero("Darius", "Gil", 55667788, 40, new Dictionary<string, int> { { "sas", 1 } }));
-
+            /*hardcode de testeo
+            listaPasajeros.Add(new Pasajero("Leandro","Guia",44338249,20,new Dictionary<ETipoEquipaje, int> { { ETipoEquipaje.Bodega, 1 } }));
+            listaPasajeros.Add(new Pasajero("Leandro", "Emanuel", 55449350, 19, new Dictionary<ETipoEquipaje, int> { { ETipoEquipaje.Mano, 1 } }));
+            listaPasajeros.Add(new Pasajero("Sett", "Capo", 11223344, 30, new Dictionary<ETipoEquipaje, int> { { ETipoEquipaje.Bodega, 1 } }));
+            listaPasajeros.Add(new Pasajero("Darius", "Gil", 55667788, 40, new Dictionary<ETipoEquipaje, int> { { ETipoEquipaje.Mano, 1 } }));
+            */
             if (tBoxDni.Text!=string.Empty && !long.TryParse(tBoxDni.Text, out this.dni))
             {
                 MessageBox.Show("El DNI ingresado no es valido.","Error",
@@ -58,7 +58,7 @@ namespace AerolineasParcial
                 return;
             }
             resultados.Clear();
-            resultados = Pasajero.BuscarPasajero(dni,tBoxNombre.Text,tBoxApellido.Text,listaPasajeros);
+            resultados = Usuario.BuscarPasajero(dni,tBoxNombre.Text,tBoxApellido.Text,listaPasajeros);
             this.DialogResult = DialogResult.OK;
         }
 

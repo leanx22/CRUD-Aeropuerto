@@ -32,3 +32,8 @@ public enum EEntidad
 {
     Usuario,Pasajero,Vuelo,Aeronave
 }
+
+public enum ETipoEquipaje
+{
+    Mano,Bodega
+}

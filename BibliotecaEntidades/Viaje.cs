@@ -13,7 +13,8 @@ namespace BibliotecaEntidades
         private string destino;
         //private EInternacional destinoInternacional;
        //private ENacional detinoNacional;
-        private string fechaDeVuelo;
+        //private string fechaDeVuelo;
+        private DateTime fechaDeVuelo;
         private Aeronave avionAsignado;
         private int asientosPremium;
         private int asientosTurista;
@@ -29,7 +30,7 @@ namespace BibliotecaEntidades
             this.destino = ENacional.NA.ToString(); //utilizar .ToString() en el enum al asignar.
             //destinoInternacional = EInternacional.NA;
             //detinoNacional = ENacional.NA;
-            this.fechaDeVuelo = DateTime.Now.ToString();
+            this.fechaDeVuelo = DateTime.Now;
             this.avionAsignado = new Aeronave();
             this.asientosPremium = 0;
             this.asientosTurista = 0;
@@ -39,7 +40,7 @@ namespace BibliotecaEntidades
             this.listaPasajeros = new List<Pasajero>();
         }
 
-        public Viaje(bool esInternacional, string partida, string destino, string fechaDeVuelo,
+        public Viaje(bool esInternacional, string partida, string destino, DateTime fechaDeVuelo,
             Aeronave avionAsignado, int asientosPremium, int asientosTurista, float costoPremium,
             float costoTurista, float duracion,List<Pasajero> listaPasajeros)
         {
@@ -62,7 +63,7 @@ namespace BibliotecaEntidades
         public bool EsInternacional { get { return esInternacional; }set { esInternacional = value; } }
         public string Partida { get { return partida; } set { partida = value; } }
         public string Destino { get {  return destino; } set {  destino = value; } }
-        public string FechaDeVuelo { get {  return fechaDeVuelo; } set {  fechaDeVuelo = value; } }
+        public DateTime FechaDeVuelo { get {  return fechaDeVuelo; } set {  fechaDeVuelo = value; } }
         public Aeronave AvionAsignado { get { return avionAsignado; } set { avionAsignado = value; } }
         public int AsientosPremium { get { return asientosPremium; } set { asientosPremium = value; } }
         public int AsientosTurista { get {  return asientosTurista; } set { asientosTurista= value; } }

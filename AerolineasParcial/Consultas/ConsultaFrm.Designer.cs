@@ -125,8 +125,8 @@
         private Button btnPasajero;
         private Button btnViaje;
         private Button btnAeronave;
-        private Button btnAceptar;
-        private Label txtTitulo;
         private DataGridView gridPasajeros;
+        private Label txtTitulo;
+        private Button btnAceptar;
     }
 }

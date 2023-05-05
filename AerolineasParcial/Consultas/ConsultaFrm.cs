@@ -14,8 +14,9 @@ namespace AerolineasParcial
     public partial class ConsultaFrm : Form
     {
         EEntidad entidad;
+        Aeropuerto aeropuerto;
         private static ConsultaFrm? instancia;
-        public ConsultaFrm()
+        public ConsultaFrm(Aeropuerto aeropuerto)
         {
             if (instancia == null)
             {
@@ -28,6 +29,7 @@ namespace AerolineasParcial
             }
             this.StartPosition = FormStartPosition.CenterScreen;
             entidad = EEntidad.Pasajero; //Busqueda por defecto.
+            this.aeropuerto = aeropuerto;
             InitializeComponent();
         }
 
@@ -57,7 +59,7 @@ namespace AerolineasParcial
 
         private void btnPasajero_Click(object sender, EventArgs e)
         {
-            BuscadorPasajero ventana = new BuscadorPasajero();
+            BuscadorPasajero ventana = new BuscadorPasajero(this.aeropuerto.Pasajeros);
             DialogResult res = ventana.ShowDialog();
             if (res == DialogResult.OK)
             {

@@ -21,3 +21,4 @@ A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\Aerolineas
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.FrmPrincipal.resources
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.ConsultaFrm.resources
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.BuscadorPasajero.resources
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.CRUD.FormAltaPasajero.resources

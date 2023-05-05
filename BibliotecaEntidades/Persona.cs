@@ -29,7 +29,10 @@ namespace BibliotecaEntidades
         public string apellido { get { return Apellido; } set { Apellido = value; } }
         #endregion
 
-        public abstract string ObtenerDatos();
+        public virtual string ObtenerDatos()
+        {
+            return "implementar";
+        }
 
     }
 }
