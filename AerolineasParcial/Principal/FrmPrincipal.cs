@@ -77,11 +77,12 @@ namespace AerolineasParcial
                 if (this.aeropuerto != ventana.Pasajero)
                 {
                     this.aeropuerto += ventana.Pasajero;
-                    MessageBox.Show("Alta completada.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Pasajero dado de alto con exito!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo dar de alta!\nRazon: El pasajero ya existe.",
+                    MessageBox.Show("No se puede dar de alta.\n" +
+                        "Ya existe un pasajero con el mismo DNI.",
                         "Operacion cancelada", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
 
@@ -90,8 +91,17 @@ namespace AerolineasParcial
 
         private void editarPasajeroToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Pasajero pasajero;
             FrmEditarPasajero ventana = new FrmEditarPasajero(this.aeropuerto);
-            ventana.Show();
+            DialogResult res = ventana.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                pasajero = ventana.Pasajero;
+                this.aeropuerto -= pasajero;//utiliza equals elimino al pasajero con el mismo dni.
+                this.aeropuerto += pasajero;//lo reemplazo por el que tiene los nuevos datos.
+                MessageBox.Show("Edicion completa!", "Exito!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

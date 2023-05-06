@@ -36,6 +36,10 @@
             lblTitle.Size = new Size(133, 21);
             lblTitle.Text = "Alta de pasajero";
             // 
+            // btnGuardar
+            // 
+            btnGuardar.Text = "Guardar";
+            // 
             // btnBuscar
             // 
             btnBuscar.Location = new Point(496, 83);

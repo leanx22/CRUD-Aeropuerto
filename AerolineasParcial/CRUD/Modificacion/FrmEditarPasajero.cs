@@ -30,8 +30,8 @@ namespace AerolineasParcial.CRUD.Modificacion
         }
 
         protected override void FormAltaPasajero_Load(object sender, EventArgs e)
-        { 
-            base.FormAltaPasajero_Load (sender, e);
+        {
+            base.FormAltaPasajero_Load(sender, e);
             base.lblTitle.Text = "Editar Pasajero";
             base.tBoxNombre.Enabled = false;
             base.tBoxApellido.Enabled = false;
@@ -47,11 +47,11 @@ namespace AerolineasParcial.CRUD.Modificacion
             long dni;
             if (!(tBoxDni.Text != string.Empty && long.TryParse(tBoxDni.Text, out dni)))
             {
-                MessageBox.Show("Dni no valido","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Dni no valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!Usuario.BuscarPasajero(dni,this.aeropuerto,out this.pasajero))
+            if (!Usuario.BuscarPasajero(dni, this.aeropuerto, out this.pasajero))
             {
                 MessageBox.Show("No existe pasajero registrado con ese DNI.",
                     "El pasajero no existe", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -70,11 +70,10 @@ namespace AerolineasParcial.CRUD.Modificacion
 
         private void UpdateUIInfo()
         {
-            base.tBoxNombre.Text = this.pasajero.nombre;            
-            base.tBoxApellido.Text = this.pasajero.apellido;            
-            base.tBoxEdad.Text = this.pasajero.Edad.ToString();            
+            base.tBoxNombre.Text = this.pasajero.nombre;
+            base.tBoxApellido.Text = this.pasajero.apellido;
+            base.tBoxEdad.Text = this.pasajero.Edad.ToString();
         }
-
-
+       
     }
 }
