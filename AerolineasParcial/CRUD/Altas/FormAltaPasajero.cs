@@ -36,9 +36,9 @@ namespace AerolineasParcial.CRUD
 
         }
 
-        public Pasajero Pasajero { get { return this.pasajero; } }
+        public Pasajero Pasajero { get { return this.pasajero; } set { this.pasajero = value; } }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        protected virtual void btnGuardar_Click(object sender, EventArgs e)
         {
             long dni;
             short edad;
@@ -78,7 +78,7 @@ namespace AerolineasParcial.CRUD
         private void btnSalir_Click(object sender, EventArgs e)
         {
             DialogResult res = MessageBox.Show("Seguro que desea cancelar?\nNo se guardara" +
-                " la informacion del pasajero y el formulario se cerrara.", "Salir sin guardar",
+                " ningun cambio y el formulario se cerrara.", "Salir sin guardar",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (res == DialogResult.OK)
             {

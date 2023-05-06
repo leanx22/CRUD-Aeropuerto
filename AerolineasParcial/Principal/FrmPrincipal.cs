@@ -1,4 +1,5 @@
 ﻿using AerolineasParcial.CRUD;
+using AerolineasParcial.CRUD.Bajas;
 using AerolineasParcial.CRUD.Modificacion;
 using BibliotecaEntidades;
 using System;
@@ -102,6 +103,21 @@ namespace AerolineasParcial
                 MessageBox.Show("Edicion completa!", "Exito!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void bajaDePasajeroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pasajero pasajero;
+            FormBajaPasajero ventana = new FormBajaPasajero(this.aeropuerto);
+            DialogResult res = ventana.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                pasajero = ventana.Pasajero;
+                this.aeropuerto -= pasajero;
+                MessageBox.Show("Pasajero eliminado!", "Exito!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
     }
 }

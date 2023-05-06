@@ -46,38 +46,7 @@ namespace BibliotecaEntidades
         public EPerfil perfil { get { return Perfil; } set { Perfil = value; } }
         #endregion
 
-        #region METODOS
-        public static List<Pasajero> BuscarPasajero(long dni, string nombre, string apellido, List<Pasajero> lista)
-        {
-            List<Pasajero> resultados = new List<Pasajero>();
-            foreach (Pasajero p in lista)
-            {
-                if ((dni == 0 || p.DNI == dni) &&
-                    (nombre == string.Empty || p.nombre == nombre) &&
-                    apellido == string.Empty || p.apellido == apellido)
-                {
-                    resultados.Add(p);
-                }
-            }
-            return resultados;
-        }
-
-        public static bool BuscarPasajero(long dni, Aeropuerto aeropuerto,out Pasajero resultado)
-        {
-            resultado = new Pasajero();
-            bool ret = false;
-            
-            foreach (Pasajero p in aeropuerto.Pasajeros)
-            {
-                if (p.DNI==dni)
-                {
-                    ret = true;
-                    resultado = p;
-                    break;
-                }
-            }
-            return ret;
-        }
+        #region METODOS        
 
         public static bool Deserealizar(string filename,out List<Usuario> lista)
         {

@@ -16,15 +16,15 @@ namespace AerolineasParcial
         private long dni;
         private string nombre;
         private string apellido;
-        private List<Pasajero>  listaPasajeros;
+        private Aeropuerto aeropuerto;
         private List<Pasajero> resultados;
-        public BuscadorPasajero(List<Pasajero> listaPasajeros)
+        public BuscadorPasajero(Aeropuerto aeropuerto)
         {
             InitializeComponent();
             dni = 0;
             nombre = "Sin nombre";
             apellido = "Sin apellido";
-            this.listaPasajeros = listaPasajeros;
+            this.aeropuerto = aeropuerto;
             resultados = new List<Pasajero>();
         }
 
@@ -58,7 +58,7 @@ namespace AerolineasParcial
                 return;
             }
             resultados.Clear();
-            resultados = Usuario.BuscarPasajero(dni,tBoxNombre.Text,tBoxApellido.Text,listaPasajeros);
+            resultados = this.aeropuerto.BuscarPasajero(dni,tBoxNombre.Text,tBoxApellido.Text);
             this.DialogResult = DialogResult.OK;
         }
 

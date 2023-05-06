@@ -25,6 +25,41 @@ namespace BibliotecaEntidades
 
         #endregion
 
+        #region METODOS
+
+        public List<Pasajero> BuscarPasajero(long dni, string nombre, string apellido)
+        {
+            List<Pasajero> resultados = new List<Pasajero>();
+            foreach (Pasajero p in this.listaPasajeros)
+            {
+                if ((dni == 0 || p.DNI == dni) &&
+                    (nombre == string.Empty || p.nombre == nombre) &&
+                    apellido == string.Empty || p.apellido == apellido)
+                {
+                    resultados.Add(p);
+                }
+            }
+            return resultados;
+        }
+
+        public bool BuscarPasajero(long dni, out Pasajero resultado)
+        {
+            resultado = new Pasajero();
+            bool ret = false;
+
+            foreach (Pasajero p in this.listaPasajeros)
+            {
+                if (p.DNI == dni)
+                {
+                    ret = true;
+                    resultado = p;
+                    break;
+                }
+            }
+            return ret;
+        }
+
+        #endregion
 
         #region SOBRECARGA_OPERADORES
         public static Aeropuerto operator +(Aeropuerto aeropuerto,Pasajero pasajero)

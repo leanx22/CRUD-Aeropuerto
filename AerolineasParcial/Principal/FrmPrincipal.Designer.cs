@@ -81,20 +81,20 @@
             // nuevoPasajeroToolStripMenuItem
             // 
             nuevoPasajeroToolStripMenuItem.Name = "nuevoPasajeroToolStripMenuItem";
-            nuevoPasajeroToolStripMenuItem.Size = new Size(159, 22);
+            nuevoPasajeroToolStripMenuItem.Size = new Size(180, 22);
             nuevoPasajeroToolStripMenuItem.Text = "Nuevo pasajero";
             nuevoPasajeroToolStripMenuItem.Click += nuevoPasajeroToolStripMenuItem_Click;
             // 
             // nuevoViajeToolStripMenuItem
             // 
             nuevoViajeToolStripMenuItem.Name = "nuevoViajeToolStripMenuItem";
-            nuevoViajeToolStripMenuItem.Size = new Size(159, 22);
+            nuevoViajeToolStripMenuItem.Size = new Size(180, 22);
             nuevoViajeToolStripMenuItem.Text = "Nuevo viaje";
             // 
             // nuevaAeronaveToolStripMenuItem
             // 
             nuevaAeronaveToolStripMenuItem.Name = "nuevaAeronaveToolStripMenuItem";
-            nuevaAeronaveToolStripMenuItem.Size = new Size(159, 22);
+            nuevaAeronaveToolStripMenuItem.Size = new Size(180, 22);
             nuevaAeronaveToolStripMenuItem.Text = "Nueva aeronave";
             // 
             // nuevaModificacionToolStripMenuItem
@@ -108,20 +108,20 @@
             // editarPasajeroToolStripMenuItem
             // 
             editarPasajeroToolStripMenuItem.Name = "editarPasajeroToolStripMenuItem";
-            editarPasajeroToolStripMenuItem.Size = new Size(180, 22);
+            editarPasajeroToolStripMenuItem.Size = new Size(157, 22);
             editarPasajeroToolStripMenuItem.Text = "Editar pasajero";
             editarPasajeroToolStripMenuItem.Click += editarPasajeroToolStripMenuItem_Click;
             // 
             // editarAeronaveToolStripMenuItem
             // 
             editarAeronaveToolStripMenuItem.Name = "editarAeronaveToolStripMenuItem";
-            editarAeronaveToolStripMenuItem.Size = new Size(180, 22);
+            editarAeronaveToolStripMenuItem.Size = new Size(157, 22);
             editarAeronaveToolStripMenuItem.Text = "Editar Aeronave";
             // 
             // editarViajeToolStripMenuItem
             // 
             editarViajeToolStripMenuItem.Name = "editarViajeToolStripMenuItem";
-            editarViajeToolStripMenuItem.Size = new Size(180, 22);
+            editarViajeToolStripMenuItem.Size = new Size(157, 22);
             editarViajeToolStripMenuItem.Text = "Editar Viaje";
             // 
             // nuevaBajaToolStripMenuItem
@@ -135,19 +135,20 @@
             // bajaDePasajeroToolStripMenuItem
             // 
             bajaDePasajeroToolStripMenuItem.Name = "bajaDePasajeroToolStripMenuItem";
-            bajaDePasajeroToolStripMenuItem.Size = new Size(165, 22);
+            bajaDePasajeroToolStripMenuItem.Size = new Size(180, 22);
             bajaDePasajeroToolStripMenuItem.Text = "Baja de Pasajero";
+            bajaDePasajeroToolStripMenuItem.Click += bajaDePasajeroToolStripMenuItem_Click;
             // 
             // bajaDeAeronaveToolStripMenuItem
             // 
             bajaDeAeronaveToolStripMenuItem.Name = "bajaDeAeronaveToolStripMenuItem";
-            bajaDeAeronaveToolStripMenuItem.Size = new Size(165, 22);
+            bajaDeAeronaveToolStripMenuItem.Size = new Size(180, 22);
             bajaDeAeronaveToolStripMenuItem.Text = "Baja de Aeronave";
             // 
             // eliminarViajeToolStripMenuItem
             // 
             eliminarViajeToolStripMenuItem.Name = "eliminarViajeToolStripMenuItem";
-            eliminarViajeToolStripMenuItem.Size = new Size(165, 22);
+            eliminarViajeToolStripMenuItem.Size = new Size(180, 22);
             eliminarViajeToolStripMenuItem.Text = "Eliminar Viaje";
             // 
             // busquedaToolStripMenuItem

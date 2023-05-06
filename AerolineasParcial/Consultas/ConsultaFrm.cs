@@ -59,7 +59,7 @@ namespace AerolineasParcial
 
         private void btnPasajero_Click(object sender, EventArgs e)
         {
-            BuscadorPasajero ventana = new BuscadorPasajero(this.aeropuerto.Pasajeros);
+            BuscadorPasajero ventana = new BuscadorPasajero(this.aeropuerto);
             DialogResult res = ventana.ShowDialog();
             if (res == DialogResult.OK)
             {

@@ -51,7 +51,7 @@ namespace AerolineasParcial.CRUD.Modificacion
                 return;
             }
 
-            if (!Usuario.BuscarPasajero(dni, this.aeropuerto, out this.pasajero))
+            if (!this.aeropuerto.BuscarPasajero(dni, out this.pasajero))
             {
                 MessageBox.Show("No existe pasajero registrado con ese DNI.",
                     "El pasajero no existe", MessageBoxButtons.OK, MessageBoxIcon.Error);
