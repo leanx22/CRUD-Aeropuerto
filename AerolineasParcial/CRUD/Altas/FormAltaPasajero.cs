@@ -13,36 +13,35 @@ namespace AerolineasParcial.CRUD
 {
     public partial class FormAltaPasajero : Form
     {
-        Aeropuerto aeropuerto;
-        public FormAltaPasajero(Aeropuerto aeropuerto)
+        Pasajero pasajero;
+        public FormAltaPasajero()
         {
-            this.aeropuerto = aeropuerto;
+            this.pasajero = new Pasajero();
             this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
 
         }
 
-        private void FormAltaPasajero_Load(object sender, EventArgs e)
+        protected virtual void FormAltaPasajero_Load(object sender, EventArgs e)
         {
             this.Text = "Nueva alta de pasajero";
             lblTitle.Text = "Alta de pasajero";
             btnGuardar.Text = "Guardar";
             btnSalir.Text = "Cancelar";
 
-            cBoxEquipaje.DataSource = Enum.GetValues(typeof(ETipoEquipaje));
-            cBoxEquipaje.SelectedIndex = 0;
-
             this.MaximizeBox = false;
             this.ControlBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
 
+
         }
+
+        public Pasajero Pasajero { get { return this.pasajero; } }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             long dni;
             short edad;
-            Pasajero pasajero;
             Dictionary<ETipoEquipaje, int> dic = new Dictionary<ETipoEquipaje, int>();
 
             if (!long.TryParse(tBoxDni.Text, out dni))
@@ -59,7 +58,7 @@ namespace AerolineasParcial.CRUD
                 return;
             }
 
-            foreach (Control c in this.pnlMain.Controls)
+            foreach (Control c in this.Controls)
             {
                 if (c is TextBox && c.Text == string.Empty)
                 {
@@ -69,42 +68,28 @@ namespace AerolineasParcial.CRUD
                 }
             }
 
-            if (numCantidad.Value == 0)
-            {
-                MessageBox.Show("El pasajero no puede viajar sin equipaje!", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            dic.Add((ETipoEquipaje)cBoxEquipaje.SelectedValue, (int)numCantidad.Value);
-            pasajero = new Pasajero(tBoxNombre.Text, tBoxApellido.Text, dni, edad, dic);
-
-            if (this.aeropuerto + pasajero)
-            {
-                MessageBox.Show("Pasajero dado de alta correctamente!", "Exito!", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-                DialogResult = DialogResult.OK;
-            }
-            else
-            {
-                MessageBox.Show("El pasajero que se trata de agregar ya se ha" +
-                    "dado de alta con anterioridad!", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                DialogResult = DialogResult.Abort;
-            }
-
+            //Al crear el pasajero no tiene equipaje.
+            dic.Add(ETipoEquipaje.Mano, 0);
+            dic.Add(ETipoEquipaje.Bodega,0);
+            this.pasajero = new Pasajero(tBoxNombre.Text, tBoxApellido.Text, dni, edad, dic);
+            this.DialogResult = DialogResult.OK;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             DialogResult res = MessageBox.Show("Seguro que desea cancelar?\nNo se guardara" +
-                " la informacion del pasajero y el formulario se cerrara.","Salir sin guardar",
-                MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+                " la informacion del pasajero y el formulario se cerrara.", "Salir sin guardar",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (res == DialogResult.OK)
             {
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

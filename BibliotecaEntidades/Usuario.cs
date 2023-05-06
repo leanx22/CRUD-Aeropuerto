@@ -46,6 +46,7 @@ namespace BibliotecaEntidades
         public EPerfil perfil { get { return Perfil; } set { Perfil = value; } }
         #endregion
 
+        #region METODOS
         public static List<Pasajero> BuscarPasajero(long dni, string nombre, string apellido, List<Pasajero> lista)
         {
             List<Pasajero> resultados = new List<Pasajero>();
@@ -59,6 +60,23 @@ namespace BibliotecaEntidades
                 }
             }
             return resultados;
+        }
+
+        public static bool BuscarPasajero(long dni, Aeropuerto aeropuerto,out Pasajero resultado)
+        {
+            resultado = new Pasajero();
+            bool ret = false;
+            
+            foreach (Pasajero p in aeropuerto.Pasajeros)
+            {
+                if (p.DNI==dni)
+                {
+                    ret = true;
+                    resultado = p;
+                    break;
+                }
+            }
+            return ret;
         }
 
         public static bool Deserealizar(string filename,out List<Usuario> lista)
@@ -105,12 +123,6 @@ namespace BibliotecaEntidades
             sb.AppendLine(this.Perfil.ToString());
             return sb.ToString();
         }
-
-        public Pasajero AltaDePasajero(string nombre, string apellido, long dni, short edad, ETipoEquipaje equipaje, int cantidad)
-        {
-            Dictionary<ETipoEquipaje, int> dicEquipaje = new Dictionary<ETipoEquipaje, int>();
-            dicEquipaje.Add(equipaje, cantidad);
-            return new Pasajero(nombre,apellido,dni,edad,dicEquipaje);
-        }
+        #endregion
     }
 }

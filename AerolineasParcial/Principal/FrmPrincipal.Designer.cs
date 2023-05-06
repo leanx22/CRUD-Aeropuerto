@@ -37,20 +37,19 @@
             nuevoViajeToolStripMenuItem = new ToolStripMenuItem();
             nuevaAeronaveToolStripMenuItem = new ToolStripMenuItem();
             nuevaModificacionToolStripMenuItem = new ToolStripMenuItem();
-            nuevaBajaToolStripMenuItem = new ToolStripMenuItem();
-            busquedaToolStripMenuItem = new ToolStripMenuItem();
-            tBoxInfoBar = new TextBox();
-            listVuelos = new ListBox();
-            label1 = new Label();
-            dataGridView1 = new DataGridView();
             editarPasajeroToolStripMenuItem = new ToolStripMenuItem();
             editarAeronaveToolStripMenuItem = new ToolStripMenuItem();
             editarViajeToolStripMenuItem = new ToolStripMenuItem();
+            nuevaBajaToolStripMenuItem = new ToolStripMenuItem();
             bajaDePasajeroToolStripMenuItem = new ToolStripMenuItem();
             bajaDeAeronaveToolStripMenuItem = new ToolStripMenuItem();
             eliminarViajeToolStripMenuItem = new ToolStripMenuItem();
+            busquedaToolStripMenuItem = new ToolStripMenuItem();
+            tBoxInfoBar = new TextBox();
+            label1 = new Label();
+            gridVuelos = new DataGridView();
             barraMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridVuelos).BeginInit();
             SuspendLayout();
             // 
             // barraMenu
@@ -82,20 +81,20 @@
             // nuevoPasajeroToolStripMenuItem
             // 
             nuevoPasajeroToolStripMenuItem.Name = "nuevoPasajeroToolStripMenuItem";
-            nuevoPasajeroToolStripMenuItem.Size = new Size(180, 22);
+            nuevoPasajeroToolStripMenuItem.Size = new Size(159, 22);
             nuevoPasajeroToolStripMenuItem.Text = "Nuevo pasajero";
             nuevoPasajeroToolStripMenuItem.Click += nuevoPasajeroToolStripMenuItem_Click;
             // 
             // nuevoViajeToolStripMenuItem
             // 
             nuevoViajeToolStripMenuItem.Name = "nuevoViajeToolStripMenuItem";
-            nuevoViajeToolStripMenuItem.Size = new Size(180, 22);
+            nuevoViajeToolStripMenuItem.Size = new Size(159, 22);
             nuevoViajeToolStripMenuItem.Text = "Nuevo viaje";
             // 
             // nuevaAeronaveToolStripMenuItem
             // 
             nuevaAeronaveToolStripMenuItem.Name = "nuevaAeronaveToolStripMenuItem";
-            nuevaAeronaveToolStripMenuItem.Size = new Size(180, 22);
+            nuevaAeronaveToolStripMenuItem.Size = new Size(159, 22);
             nuevaAeronaveToolStripMenuItem.Text = "Nueva aeronave";
             // 
             // nuevaModificacionToolStripMenuItem
@@ -106,6 +105,25 @@
             nuevaModificacionToolStripMenuItem.Size = new Size(180, 22);
             nuevaModificacionToolStripMenuItem.Text = "Modificación";
             // 
+            // editarPasajeroToolStripMenuItem
+            // 
+            editarPasajeroToolStripMenuItem.Name = "editarPasajeroToolStripMenuItem";
+            editarPasajeroToolStripMenuItem.Size = new Size(180, 22);
+            editarPasajeroToolStripMenuItem.Text = "Editar pasajero";
+            editarPasajeroToolStripMenuItem.Click += editarPasajeroToolStripMenuItem_Click;
+            // 
+            // editarAeronaveToolStripMenuItem
+            // 
+            editarAeronaveToolStripMenuItem.Name = "editarAeronaveToolStripMenuItem";
+            editarAeronaveToolStripMenuItem.Size = new Size(180, 22);
+            editarAeronaveToolStripMenuItem.Text = "Editar Aeronave";
+            // 
+            // editarViajeToolStripMenuItem
+            // 
+            editarViajeToolStripMenuItem.Name = "editarViajeToolStripMenuItem";
+            editarViajeToolStripMenuItem.Size = new Size(180, 22);
+            editarViajeToolStripMenuItem.Text = "Editar Viaje";
+            // 
             // nuevaBajaToolStripMenuItem
             // 
             nuevaBajaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { bajaDePasajeroToolStripMenuItem, bajaDeAeronaveToolStripMenuItem, eliminarViajeToolStripMenuItem });
@@ -113,6 +131,24 @@
             nuevaBajaToolStripMenuItem.Name = "nuevaBajaToolStripMenuItem";
             nuevaBajaToolStripMenuItem.Size = new Size(180, 22);
             nuevaBajaToolStripMenuItem.Text = "Baja";
+            // 
+            // bajaDePasajeroToolStripMenuItem
+            // 
+            bajaDePasajeroToolStripMenuItem.Name = "bajaDePasajeroToolStripMenuItem";
+            bajaDePasajeroToolStripMenuItem.Size = new Size(165, 22);
+            bajaDePasajeroToolStripMenuItem.Text = "Baja de Pasajero";
+            // 
+            // bajaDeAeronaveToolStripMenuItem
+            // 
+            bajaDeAeronaveToolStripMenuItem.Name = "bajaDeAeronaveToolStripMenuItem";
+            bajaDeAeronaveToolStripMenuItem.Size = new Size(165, 22);
+            bajaDeAeronaveToolStripMenuItem.Text = "Baja de Aeronave";
+            // 
+            // eliminarViajeToolStripMenuItem
+            // 
+            eliminarViajeToolStripMenuItem.Name = "eliminarViajeToolStripMenuItem";
+            eliminarViajeToolStripMenuItem.Size = new Size(165, 22);
+            eliminarViajeToolStripMenuItem.Text = "Eliminar Viaje";
             // 
             // busquedaToolStripMenuItem
             // 
@@ -130,15 +166,6 @@
             tBoxInfoBar.TabIndex = 1;
             tBoxInfoBar.Text = "Prueba";
             // 
-            // listVuelos
-            // 
-            listVuelos.FormattingEnabled = true;
-            listVuelos.ItemHeight = 15;
-            listVuelos.Location = new Point(12, 63);
-            listVuelos.Name = "listVuelos";
-            listVuelos.Size = new Size(370, 514);
-            listVuelos.TabIndex = 0;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -149,9 +176,9 @@
             label1.TabIndex = 2;
             label1.Text = "PRÓXIMOS VUELOS";
             // 
-            // dataGridView1
+            // gridVuelos
             // 
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            gridVuelos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.RosyBrown;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
@@ -159,8 +186,8 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.IndianRed;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridVuelos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            gridVuelos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.Pink;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -168,59 +195,22 @@
             dataGridViewCellStyle2.SelectionBackColor = Color.Crimson;
             dataGridViewCellStyle2.SelectionForeColor = Color.White;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(428, 63);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(389, 337);
-            dataGridView1.TabIndex = 3;
-            // 
-            // editarPasajeroToolStripMenuItem
-            // 
-            editarPasajeroToolStripMenuItem.Name = "editarPasajeroToolStripMenuItem";
-            editarPasajeroToolStripMenuItem.Size = new Size(180, 22);
-            editarPasajeroToolStripMenuItem.Text = "Editar pasajero";
-            // 
-            // editarAeronaveToolStripMenuItem
-            // 
-            editarAeronaveToolStripMenuItem.Name = "editarAeronaveToolStripMenuItem";
-            editarAeronaveToolStripMenuItem.Size = new Size(180, 22);
-            editarAeronaveToolStripMenuItem.Text = "Editar Aeronave";
-            // 
-            // editarViajeToolStripMenuItem
-            // 
-            editarViajeToolStripMenuItem.Name = "editarViajeToolStripMenuItem";
-            editarViajeToolStripMenuItem.Size = new Size(180, 22);
-            editarViajeToolStripMenuItem.Text = "Editar Viaje";
-            // 
-            // bajaDePasajeroToolStripMenuItem
-            // 
-            bajaDePasajeroToolStripMenuItem.Name = "bajaDePasajeroToolStripMenuItem";
-            bajaDePasajeroToolStripMenuItem.Size = new Size(180, 22);
-            bajaDePasajeroToolStripMenuItem.Text = "Baja de Pasajero";
-            // 
-            // bajaDeAeronaveToolStripMenuItem
-            // 
-            bajaDeAeronaveToolStripMenuItem.Name = "bajaDeAeronaveToolStripMenuItem";
-            bajaDeAeronaveToolStripMenuItem.Size = new Size(180, 22);
-            bajaDeAeronaveToolStripMenuItem.Text = "Baja de Aeronave";
-            // 
-            // eliminarViajeToolStripMenuItem
-            // 
-            eliminarViajeToolStripMenuItem.Name = "eliminarViajeToolStripMenuItem";
-            eliminarViajeToolStripMenuItem.Size = new Size(180, 22);
-            eliminarViajeToolStripMenuItem.Text = "Eliminar Viaje";
+            gridVuelos.DefaultCellStyle = dataGridViewCellStyle2;
+            gridVuelos.EnableHeadersVisualStyles = false;
+            gridVuelos.Location = new Point(12, 63);
+            gridVuelos.Name = "gridVuelos";
+            gridVuelos.RowHeadersVisible = false;
+            gridVuelos.RowTemplate.Height = 25;
+            gridVuelos.Size = new Size(367, 529);
+            gridVuelos.TabIndex = 3;
             // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1028, 623);
-            Controls.Add(dataGridView1);
+            Controls.Add(gridVuelos);
             Controls.Add(label1);
-            Controls.Add(listVuelos);
             Controls.Add(tBoxInfoBar);
             Controls.Add(barraMenu);
             Name = "FrmPrincipal";
@@ -228,7 +218,7 @@
             Load += FrmPrincipal_Load;
             barraMenu.ResumeLayout(false);
             barraMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridVuelos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -241,10 +231,9 @@
         private ToolStripMenuItem nuevaAltaToolStripMenuItem;
         private ToolStripMenuItem nuevaModificacionToolStripMenuItem;
         private ToolStripMenuItem nuevaBajaToolStripMenuItem;
-        private ListBox listVuelos;
         private Label label1;
         private ToolStripMenuItem busquedaToolStripMenuItem;
-        private DataGridView dataGridView1;
+        private DataGridView gridVuelos;
         private ToolStripMenuItem nuevoPasajeroToolStripMenuItem;
         private ToolStripMenuItem nuevoViajeToolStripMenuItem;
         private ToolStripMenuItem nuevaAeronaveToolStripMenuItem;

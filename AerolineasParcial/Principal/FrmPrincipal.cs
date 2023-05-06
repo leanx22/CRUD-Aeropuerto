@@ -1,4 +1,5 @@
 ﻿using AerolineasParcial.CRUD;
+using AerolineasParcial.CRUD.Modificacion;
 using BibliotecaEntidades;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace AerolineasParcial
             tBoxInfoBar.Enabled = false;
             tBoxInfoBar.BorderStyle = BorderStyle.FixedSingle;
 
-            listVuelos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            gridVuelos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
 
             IniciarSesion();
 
@@ -54,10 +55,10 @@ namespace AerolineasParcial
             if (result == DialogResult.OK)
             {
                 #region PRUEBA DATA_GRID
-                dataGridView1.DataSource = ventanaSesion.listaUsers;
-                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                dataGridView1.ReadOnly = true;
-                dataGridView1.AllowUserToResizeRows = false;
+                gridVuelos.DataSource = ventanaSesion.listaUsers;
+                gridVuelos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                gridVuelos.ReadOnly = true;
+                gridVuelos.AllowUserToResizeRows = false;
                 #endregion
 
                 this.usuario = ventanaSesion.Usuario;
@@ -69,8 +70,28 @@ namespace AerolineasParcial
 
         private void nuevoPasajeroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAltaPasajero ventana = new FormAltaPasajero(this.aeropuerto);
-            ventana.ShowDialog();
+            FormAltaPasajero ventana = new FormAltaPasajero();
+            DialogResult res = ventana.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                if (this.aeropuerto != ventana.Pasajero)
+                {
+                    this.aeropuerto += ventana.Pasajero;
+                    MessageBox.Show("Alta completada.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo dar de alta!\nRazon: El pasajero ya existe.",
+                        "Operacion cancelada", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
+
+            }
+        }
+
+        private void editarPasajeroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEditarPasajero ventana = new FrmEditarPasajero(this.aeropuerto);
+            ventana.Show();
         }
     }
 }

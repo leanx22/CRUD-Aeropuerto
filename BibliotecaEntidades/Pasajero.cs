@@ -13,6 +13,7 @@ namespace BibliotecaEntidades
         private long dni;
         private short edad;
         private Dictionary<ETipoEquipaje, int> equipaje;
+        
 
         public Pasajero() : base()
         {

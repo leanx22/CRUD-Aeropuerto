@@ -32,22 +32,15 @@
             lblTitle = new Label();
             btnSalir = new Button();
             btnGuardar = new Button();
-            pnlMain = new Panel();
-            numCantidad = new NumericUpDown();
-            lblCantidad = new Label();
-            cBoxEquipaje = new ComboBox();
             tBoxEdad = new TextBox();
             tBoxApellido = new TextBox();
             tBoxNombre = new TextBox();
-            lbl = new Label();
             label2 = new Label();
             label1 = new Label();
             lblNombre = new Label();
             tBoxDni = new TextBox();
             lblDni = new Label();
             pnlMenu.SuspendLayout();
-            pnlMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numCantidad).BeginInit();
             SuspendLayout();
             // 
             // pnlMenu
@@ -97,126 +90,72 @@
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
             // 
-            // pnlMain
-            // 
-            pnlMain.Controls.Add(numCantidad);
-            pnlMain.Controls.Add(lblCantidad);
-            pnlMain.Controls.Add(cBoxEquipaje);
-            pnlMain.Controls.Add(tBoxEdad);
-            pnlMain.Controls.Add(tBoxApellido);
-            pnlMain.Controls.Add(tBoxNombre);
-            pnlMain.Controls.Add(lbl);
-            pnlMain.Controls.Add(label2);
-            pnlMain.Controls.Add(label1);
-            pnlMain.Controls.Add(lblNombre);
-            pnlMain.Controls.Add(tBoxDni);
-            pnlMain.Controls.Add(lblDni);
-            pnlMain.Dock = DockStyle.Fill;
-            pnlMain.Location = new Point(168, 0);
-            pnlMain.Name = "pnlMain";
-            pnlMain.Size = new Size(466, 441);
-            pnlMain.TabIndex = 1;
-            // 
-            // numCantidad
-            // 
-            numCantidad.Location = new Point(384, 267);
-            numCantidad.Name = "numCantidad";
-            numCantidad.Size = new Size(41, 23);
-            numCantidad.TabIndex = 11;
-            // 
-            // lblCantidad
-            // 
-            lblCantidad.AutoSize = true;
-            lblCantidad.Location = new Point(320, 271);
-            lblCantidad.Name = "lblCantidad";
-            lblCantidad.Size = new Size(58, 15);
-            lblCantidad.TabIndex = 10;
-            lblCantidad.Text = "Cantidad:";
-            // 
-            // cBoxEquipaje
-            // 
-            cBoxEquipaje.FormattingEnabled = true;
-            cBoxEquipaje.Location = new Point(193, 267);
-            cBoxEquipaje.Name = "cBoxEquipaje";
-            cBoxEquipaje.Size = new Size(121, 23);
-            cBoxEquipaje.TabIndex = 9;
-            // 
             // tBoxEdad
             // 
-            tBoxEdad.Location = new Point(177, 219);
+            tBoxEdad.Location = new Point(337, 219);
             tBoxEdad.Name = "tBoxEdad";
             tBoxEdad.Size = new Size(153, 23);
-            tBoxEdad.TabIndex = 8;
+            tBoxEdad.TabIndex = 20;
             // 
             // tBoxApellido
             // 
-            tBoxApellido.Location = new Point(177, 176);
+            tBoxApellido.Location = new Point(337, 176);
             tBoxApellido.Name = "tBoxApellido";
             tBoxApellido.Size = new Size(153, 23);
-            tBoxApellido.TabIndex = 7;
+            tBoxApellido.TabIndex = 19;
             // 
             // tBoxNombre
             // 
-            tBoxNombre.Location = new Point(177, 132);
+            tBoxNombre.Location = new Point(337, 132);
             tBoxNombre.Name = "tBoxNombre";
             tBoxNombre.Size = new Size(153, 23);
-            tBoxNombre.TabIndex = 6;
-            // 
-            // lbl
-            // 
-            lbl.AutoSize = true;
-            lbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl.Location = new Point(74, 265);
-            lbl.Name = "lbl";
-            lbl.Size = new Size(81, 21);
-            lbl.TabIndex = 5;
-            lbl.Text = "Equipaje:";
+            tBoxNombre.TabIndex = 18;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(74, 217);
+            label2.Location = new Point(234, 217);
             label2.Name = "label2";
             label2.Size = new Size(52, 21);
-            label2.TabIndex = 4;
+            label2.TabIndex = 16;
             label2.Text = "Edad:";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(74, 174);
+            label1.Location = new Point(234, 174);
             label1.Name = "label1";
             label1.Size = new Size(79, 21);
-            label1.TabIndex = 3;
+            label1.TabIndex = 15;
             label1.Text = "Apellido:";
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblNombre.Location = new Point(74, 130);
+            lblNombre.Location = new Point(234, 130);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(77, 21);
-            lblNombre.TabIndex = 2;
+            lblNombre.TabIndex = 14;
             lblNombre.Text = "Nombre:";
             // 
             // tBoxDni
             // 
-            tBoxDni.Location = new Point(177, 83);
+            tBoxDni.Location = new Point(337, 83);
             tBoxDni.Name = "tBoxDni";
             tBoxDni.Size = new Size(153, 23);
-            tBoxDni.TabIndex = 1;
+            tBoxDni.TabIndex = 13;
             // 
             // lblDni
             // 
             lblDni.AutoSize = true;
             lblDni.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDni.Location = new Point(74, 81);
+            lblDni.Location = new Point(234, 81);
             lblDni.Name = "lblDni";
             lblDni.Size = new Size(44, 21);
-            lblDni.TabIndex = 0;
+            lblDni.TabIndex = 12;
             lblDni.Text = "DNI:";
             // 
             // FormAltaPasajero
@@ -224,7 +163,14 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(634, 441);
-            Controls.Add(pnlMain);
+            Controls.Add(tBoxEdad);
+            Controls.Add(tBoxApellido);
+            Controls.Add(tBoxNombre);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(lblNombre);
+            Controls.Add(tBoxDni);
+            Controls.Add(lblDni);
             Controls.Add(pnlMenu);
             MinimumSize = new Size(650, 480);
             Name = "FormAltaPasajero";
@@ -232,30 +178,23 @@
             Load += FormAltaPasajero_Load;
             pnlMenu.ResumeLayout(false);
             pnlMenu.PerformLayout();
-            pnlMain.ResumeLayout(false);
-            pnlMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numCantidad).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Panel pnlMenu;
-        private Button btnGuardar;
         private Button btnSalir;
-        private Panel pnlMain;
-        private Label lblTitle;
+        protected Label lblTitle;
+        protected TextBox tBoxEdad;
+        protected TextBox tBoxApellido;
+        private Label label2;
         private Label label1;
         private Label lblNombre;
-        private TextBox tBoxDni;
+        protected TextBox tBoxDni;
         private Label lblDni;
-        private Label label2;
-        private Label lbl;
-        private ComboBox cBoxEquipaje;
-        private TextBox tBoxEdad;
-        private TextBox tBoxApellido;
-        private TextBox tBoxNombre;
-        private NumericUpDown numCantidad;
-        private Label lblCantidad;
+        protected TextBox tBoxNombre;
+        protected Button btnGuardar;
     }
 }

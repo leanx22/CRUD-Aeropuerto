@@ -27,32 +27,37 @@ namespace BibliotecaEntidades
 
 
         #region SOBRECARGA_OPERADORES
-        public static bool operator +(Aeropuerto aeropuerto,Pasajero pasajero)
+        public static Aeropuerto operator +(Aeropuerto aeropuerto,Pasajero pasajero)
         {
-            bool ret = false;
-            if (!aeropuerto.listaPasajeros.Contains(pasajero))
-            {
-                aeropuerto.listaPasajeros.Add(pasajero);
-                ret = true;
-            }
-            return ret;
-        }
-        public static bool operator +(Aeropuerto aeropuerto, Viaje viaje)
-        {
-            return true;
+            aeropuerto.listaPasajeros.Add(pasajero);
+            return aeropuerto;
         }
 
-        public static bool operator -(Aeropuerto aeropuerto, Pasajero pasajero)
+        public static Aeropuerto operator -(Aeropuerto aeropuerto, Pasajero pasajero)
         {
-            bool ret=false;
-            if (aeropuerto.listaPasajeros.Contains(pasajero))
-            {
-                aeropuerto.listaPasajeros.Remove(pasajero);
-                ret = true;
-            }
-            return ret;
+            aeropuerto.listaPasajeros.Remove(pasajero);
+            return aeropuerto;
         }
 
+        public static bool operator ==(Aeropuerto aeropuerto, Pasajero pasajero)
+        {
+            return aeropuerto.listaPasajeros.Contains(pasajero);
+        }
+
+        public static bool operator !=(Aeropuerto aeropuerto, Pasajero pasajero)
+        {
+            return !(aeropuerto == pasajero);
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
         #endregion
     }
 }
