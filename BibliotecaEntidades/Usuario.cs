@@ -47,12 +47,14 @@ namespace BibliotecaEntidades
         #endregion
 
         #region METODOS        
-
+        /// <summary>
+        /// Deserealiza el jSon de usuarios en la lista que se le pase por parametro y la inicializa.
+        /// </summary>
+        /// <param name="filename">Nombre del archivo a deserealizar.</param>
+        /// <param name="lista">Salida de la lista deserealizada.</param>
+        /// <returns>Retorna true o false dependiendo del exito de la operacion.</returns>
         public static bool Deserealizar(string filename,out List<Usuario> lista)
         {
-            /*Deserealiza el jSon de usuarios en la lista que se le pase por parametro.
-            La inicializa y si realiza la operacion con exito retorna true.
-            Caso contrario la lista queda vacia y se retorna false.*/
             JsonSerializerOptions jSonOptions = new JsonSerializerOptions();
             lista = new List<Usuario>();
             string jsonText;

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BibliotecaEntidades.Persona">
+    <Position X="2.25" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAQAAACEAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persona.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BibliotecaEntidades.Usuario">
+    <Position X="4" Y="3.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAABAAAAAQAABAAAAIQAAACAQAAQAAAAEAA=</HashCode>
+      <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BibliotecaEntidades.Pasajero">
+    <Position X="0.5" Y="3.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAABAAAAAAAAgAAAAAAAACEAAoAAACMAAAABAiA=</HashCode>
+      <FileName>Pasajero.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BibliotecaEntidades.Aeropuerto">
+    <Position X="9" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAwAERAAAAAAAAAICAAAAQAAAAAiA=</HashCode>
+      <FileName>Aeropuerto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BibliotecaEntidades.Viaje">
+    <Position X="9" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAQABEAEAARCgIABAACQAQAAsiAAAKI=</HashCode>
+      <FileName>Viaje.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BibliotecaEntidades.Aeronave">
+    <Position X="11.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAQACAAECAAAAAAAABAAAAACAAgCAgAIAgAAAAAAAA=</HashCode>
+      <FileName>Aeronave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="EPerfil">
+    <Position X="2.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAIAA=</HashCode>
+      <FileName>Enumerados.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ENacional">
+    <Position X="5.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAABAAIoCAAIQAAAAAAAogQMAAAACAAAAA=</HashCode>
+      <FileName>Enumerados.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EInternacional">
+    <Position X="0.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAIAAAAAAAAAAAEAAAAAAAAIAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Enumerados.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EOperacion">
+    <Position X="2.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAQAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Enumerados.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EEntidad">
+    <Position X="4" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAQAAAAAAQAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Enumerados.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ETipoEquipaje">
+    <Position X="4" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Enumerados.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

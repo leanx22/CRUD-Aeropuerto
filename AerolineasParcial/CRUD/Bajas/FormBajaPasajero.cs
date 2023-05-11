@@ -37,7 +37,8 @@ namespace AerolineasParcial.CRUD.Bajas
 
         protected override void btnGuardar_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Esta seguro de ELIMINAR a este pasajero?",
+            DialogResult res = MessageBox.Show("Esta seguro de ELIMINAR al pasajero?\n" +
+                "DNI: "+base.Pasajero.DNI.ToString(),
                 "Confirmar",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
             if (res == DialogResult.OK)
             {

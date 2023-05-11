@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace BibliotecaEntidades
@@ -35,19 +37,6 @@ namespace BibliotecaEntidades
         }
 
         #region PROPIEDADES
-        /*
-        public string Apellido
-        {
-            get { return apellido; }
-            set { apellido = value; }
-        }
-        
-        public string Nombre
-        {
-            get { return nombre; }
-            set { nombre = value; }
-        }
-       */
         public long DNI
         {
             get { return dni; }
@@ -65,17 +54,15 @@ namespace BibliotecaEntidades
         }
         #endregion
 
+        #region METODOS
         public override string ObtenerDatos()
         {
             throw new NotImplementedException();
         }
-
-        public static  List<Pasajero> CargarJson() { return null; }
-
-        public static bool GuardarJson(List<Pasajero> lista) { return false; }
-
-
-
+        
+        #endregion
+        
+        #region SOBRECARGA DE OPERADORES
         public static bool operator ==(Pasajero p1, Pasajero p2)
         {
             bool ret = false;
@@ -93,7 +80,8 @@ namespace BibliotecaEntidades
             { ret = true; }
             return ret;
         }
-
+        #endregion
+        
         public override bool Equals(object? obj)
         {
             Pasajero pasajero = (Pasajero)obj;
