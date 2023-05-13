@@ -7,6 +7,9 @@
     <Compile Update="Consultas\ConsultaFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CRUD\Altas\FormAltaAeronave.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="CRUD\Altas\FormAltaPasajero.cs">
       <SubType>Form</SubType>
     </Compile>

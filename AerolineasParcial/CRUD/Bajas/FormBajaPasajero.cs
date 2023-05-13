@@ -15,7 +15,7 @@ namespace AerolineasParcial.CRUD.Bajas
     public partial class FormBajaPasajero : FormAltaPasajero
     {
         Aeropuerto aeropuerto;
-        public FormBajaPasajero(Aeropuerto aeropuerto)
+        public FormBajaPasajero(Aeropuerto aeropuerto):base()
         {
             InitializeComponent();
             this.aeropuerto = aeropuerto;
@@ -54,14 +54,13 @@ namespace AerolineasParcial.CRUD.Bajas
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             long dni;
-            Pasajero pasajero;
             if (!(tBoxDni.Text != string.Empty && long.TryParse(tBoxDni.Text, out dni)))
             {
                 MessageBox.Show("Dni no valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!this.aeropuerto.BuscarPasajero(dni, out pasajero))
+            if (!this.aeropuerto.BuscarPasajero(dni, out base.pasajero))
             {
                 MessageBox.Show("No existe pasajero registrado con ese DNI.",
                     "El pasajero no existe", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -69,7 +68,6 @@ namespace AerolineasParcial.CRUD.Bajas
             }
 
             base.btnGuardar.Enabled = true;
-            base.Pasajero = pasajero;
             UpdateUIInfo();
         }
 

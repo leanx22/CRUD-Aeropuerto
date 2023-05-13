@@ -46,9 +46,64 @@ namespace BibliotecaEntidades
         /// <returns></returns>
         public static bool GuardarPasajeros(List<Pasajero> lista)
         {
+            bool ret = false;
+            string jSon;
+            jSon = JsonSerializer.Serialize(lista);
+            using (StreamWriter sw = new StreamWriter("PASAJEROS.json"))
+            {
+                sw.WriteLine(jSon);            
+                ret = true;
+            }
+            return ret;
+        }
 
+        #endregion
 
-            return false;
+        #region AERONAVES
+        /// <summary>
+        /// Deserealiza el archivo donde se guarda la lista de aeronaves.
+        /// </summary>
+        /// <returns>Retorna la lista de aeronaves deserealizada</returns>
+        public static List<Aeronave> CargarAeronaves()
+        {
+            string filename = "AERONAVES.json";
+            string jsonText;
+            List<Aeronave> nuevaLista = new List<Aeronave>();
+
+            if (File.Exists(filename))
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(filename))
+                    {
+                        jsonText = reader.ReadToEnd();
+                        nuevaLista = (List<Aeronave>)JsonSerializer.Deserialize(jsonText, typeof(List<Aeronave>));
+                    }
+                }
+                catch
+                {
+                    nuevaLista = new List<Aeronave>();
+                }
+            }
+            return nuevaLista;
+        }
+
+        /// <summary>
+        /// Serializa la lista de aeronaves en formato jSon.
+        /// </summary>
+        /// <param name="lista">Lista de aeronaves que se quiera guardar</param>
+        /// <returns></returns>
+        public static bool GuardarAeronaves(List<Aeronave> lista)
+        {
+            bool ret = false;
+            string jSon;
+            jSon = JsonSerializer.Serialize(lista);
+            using (StreamWriter sw = new StreamWriter("AERONAVES.json"))
+            {
+                sw.WriteLine(jSon);
+                ret = true;
+            }
+            return ret;
         }
 
         #endregion

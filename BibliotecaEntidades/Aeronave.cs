@@ -13,7 +13,7 @@ namespace BibliotecaEntidades
         private int banios;
         private bool internet;
         private bool comida;
-        private float capacidadBodega;
+        private int capacidadBodega;
 
         
 
@@ -28,7 +28,7 @@ namespace BibliotecaEntidades
         }
 
         public Aeronave(string matricula, int asientos, int banios,
-            bool internet, bool comida, float bodega)
+            bool internet, bool comida, int bodega)
         {
             this.matricula = matricula;
             this.asientos = asientos;
@@ -38,6 +38,44 @@ namespace BibliotecaEntidades
             this.capacidadBodega = bodega;
         }
 
+        #region METODOS
+        
+        /// <summary>
+        /// Esta funcion valida la cadena pasada por parametros, verificando que
+        /// esta tenga 8 caracteres, ademas debe tener, por lo menos, un numero y una letra.
+        /// </summary>
+        /// <param name="matricula"> Cadena que se quiera validar. </param>
+        /// <returns>Retorna true si la cadena es valida para usarse como matricula de una aeronave.</returns>
+        public static bool ValidarMatricula(string matricula)
+        {
+            bool tieneLetras = false;
+            bool tieneNumeros = false;
+            int caracteres=0;
+            foreach (char c in matricula)
+            {
+                if (!char.IsLetterOrDigit(c)) //En caso de no ser una letra o numero break y todo false.
+                {
+                    tieneLetras = false;
+                    tieneNumeros = false;
+                    break; 
+                }
+
+                caracteres++; //Sumo cada caracter.
+                if (char.IsDigit(c)) //Si el caracter es un numero.
+                {
+                    tieneNumeros = true;
+                }
+                else if (char.IsLetter(c))//Si el caracter es una letra.
+                {
+                    tieneLetras = true;
+                }
+            }
+            //Si tiene letras y numeros, y si caracteres es igual a 8.
+            return (tieneLetras && tieneNumeros) && caracteres==8;
+        }
+
+
+        #endregion
 
         #region PROPIEDADES
         public string Matricula
@@ -65,13 +103,32 @@ namespace BibliotecaEntidades
             get { return comida; }
             set { comida = value; }
         }
-        public float bodega
+        public int bodega
         {
             get { return capacidadBodega; }
             set { capacidadBodega = value; } //no puede ser negativo o 0.
         }
         #endregion
 
+        #region SOBRECARGA DE OPs
+        public static bool operator ==(Aeronave a1, Aeronave a2)
+        {
+            return a1.matricula == a2.matricula;
+        }
+        public static bool operator !=(Aeronave a1, Aeronave a2)
+        {
+            return !(a1 == a2);
+        }
+        #endregion
 
+        public override bool Equals(object? obj)
+        {
+            Aeronave aeronave = (Aeronave)obj;
+            return aeronave is not null && this == aeronave;
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

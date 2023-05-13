@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             btnBuscarPasajero = new Button();
             btnViaje = new Button();
             btnAeronave = new Button();
@@ -85,12 +89,46 @@
             // 
             // gridDatos
             // 
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.CadetBlue;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.SelectionBackColor = Color.RoyalBlue;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            gridDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             gridDatos.Anchor = AnchorStyles.None;
             gridDatos.BackgroundColor = SystemColors.ControlLight;
-            gridDatos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            gridDatos.BorderStyle = BorderStyle.Fixed3D;
+            gridDatos.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical;
+            gridDatos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.CornflowerBlue;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            gridDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             gridDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.LightBlue;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            gridDatos.DefaultCellStyle = dataGridViewCellStyle3;
+            gridDatos.EnableHeadersVisualStyles = false;
             gridDatos.Location = new Point(12, 161);
             gridDatos.Name = "gridDatos";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            gridDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            gridDatos.RowHeadersVisible = false;
             gridDatos.RowTemplate.Height = 25;
             gridDatos.Size = new Size(772, 458);
             gridDatos.TabIndex = 10;
@@ -110,6 +148,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.BackColor = Color.Transparent;
             tabPage1.Controls.Add(btnLimpiar);
             tabPage1.Controls.Add(lblApellido);
             tabPage1.Controls.Add(lblNombre);
@@ -125,7 +164,6 @@
             tabPage1.Size = new Size(788, 115);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "PASAJEROS";
-            tabPage1.UseVisualStyleBackColor = true;
             // 
             // btnLimpiar
             // 

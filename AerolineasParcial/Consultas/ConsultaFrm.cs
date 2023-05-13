@@ -14,7 +14,6 @@ namespace AerolineasParcial
 {
     public partial class ConsultaFrm : Form
     {
-        EEntidad entidad;
         Aeropuerto aeropuerto;
         private static ConsultaFrm? instancia;
         public ConsultaFrm(Aeropuerto aeropuerto)
@@ -29,7 +28,6 @@ namespace AerolineasParcial
                 instancia = this;
             }
             this.StartPosition = FormStartPosition.CenterScreen;
-            entidad = EEntidad.Pasajero; //Busqueda por defecto.
             this.aeropuerto = aeropuerto;
             InitializeComponent();
         }
@@ -45,9 +43,8 @@ namespace AerolineasParcial
             gridDatos.ReadOnly = true;
             gridDatos.AllowUserToResizeRows = false;
             gridDatos.DataSource = aeropuerto.Pasajeros;
-
-
-
+            gridDatos.EnableHeadersVisualStyles = true;
+            gridDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             #region AnchorStyles
 
             this.btnLimpiar.Anchor = AnchorStyles.Left;
@@ -105,14 +102,14 @@ namespace AerolineasParcial
         {
             switch (tabControl.SelectedIndex)
             {
-                case 0:
+                case 0://Pasajeros
                     gridDatos.DataSource = aeropuerto.Pasajeros;
                     break;
-                case 1:
+                case 1://Viajes
                     gridDatos.DataSource = null;
                     break;
-                case 2:
-                    gridDatos.DataSource = null;
+                case 2://Aeronaves
+                    gridDatos.DataSource = aeropuerto.Aeronaves;
                     break;
             }
         }

@@ -14,32 +14,27 @@ namespace AerolineasParcial.CRUD.Modificacion
     public partial class FrmEditarPasajero : FormAltaPasajero
     {
         Aeropuerto aeropuerto;
-        Pasajero pasajero;
-        long dni;
+        //Pasajero pasajero;
+        
         public FrmEditarPasajero(Aeropuerto aeropuerto) : base()
         {
             InitializeComponent();
             this.aeropuerto = aeropuerto;
-            this.pasajero = new Pasajero();
+            //this.pasajero = new Pasajero();
         }
 
-        public FrmEditarPasajero(Aeropuerto aeropuerto, long dni) : this(aeropuerto)
-        {
-            this.dni = dni;
-            tBoxDni.Text = dni.ToString();
-        }
 
         protected override void FormAltaPasajero_Load(object sender, EventArgs e)
         {
             base.FormAltaPasajero_Load(sender, e);
             base.lblTitle.Text = "Editar Pasajero";
+            this.btnBuscar.Text = "Buscar";
+            this.Text = "Editar Informacion";
+
             base.tBoxNombre.Enabled = false;
             base.tBoxApellido.Enabled = false;
             base.tBoxEdad.Enabled = false;
             base.btnGuardar.Enabled = false;
-            this.btnBuscar.Text = "Buscar";
-            this.Text = "Editar Informacion";
-
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -51,7 +46,7 @@ namespace AerolineasParcial.CRUD.Modificacion
                 return;
             }
 
-            if (!this.aeropuerto.BuscarPasajero(dni, out this.pasajero))
+            if (!this.aeropuerto.BuscarPasajero(dni, out base.pasajero))
             {
                 MessageBox.Show("No existe pasajero registrado con ese DNI.",
                     "El pasajero no existe", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -16,14 +16,16 @@ namespace BibliotecaEntidades
 
         public Aeropuerto()
         {
-            listaAeronaves = new List<Aeronave>();
+            //Si los archivos no existen, retorna una new list();
+            listaAeronaves = Archivos.CargarAeronaves();
             listaViajes = new List<Viaje>();
             listaPasajeros = Archivos.CargarPasajeros();
         }
 
         #region PROPIEDADES
         public List<Pasajero> Pasajeros { get { return listaPasajeros; } }
-
+        public List<Aeronave> Aeronaves { get { return listaAeronaves; } }
+        public List<Viaje> Viajes { get { return listaViajes; } }
         #endregion
 
         #region METODOS
@@ -81,21 +83,38 @@ namespace BibliotecaEntidades
             aeropuerto.listaPasajeros.Add(pasajero);
             return aeropuerto;
         }
-
         public static Aeropuerto operator -(Aeropuerto aeropuerto, Pasajero pasajero)
         {
             aeropuerto.listaPasajeros.Remove(pasajero);
             return aeropuerto;
         }
-
         public static bool operator ==(Aeropuerto aeropuerto, Pasajero pasajero)
         {
             return aeropuerto.listaPasajeros.Contains(pasajero);
         }
-
         public static bool operator !=(Aeropuerto aeropuerto, Pasajero pasajero)
         {
             return !(aeropuerto == pasajero);
+        }
+
+
+        public static Aeropuerto operator +(Aeropuerto aeropuerto, Aeronave aeronave)
+        {
+            aeropuerto.listaAeronaves.Add(aeronave);
+            return aeropuerto;
+        }
+        public static Aeropuerto operator -(Aeropuerto aeropuerto, Aeronave aeronave)
+        {
+            aeropuerto.listaAeronaves.Remove(aeronave);
+            return aeropuerto;
+        }
+        public static bool operator ==(Aeropuerto aeropuerto,Aeronave aeronave)
+        {
+            return aeropuerto.listaAeronaves.Contains(aeronave);
+        }
+        public static bool operator !=(Aeropuerto aeropuerto, Aeronave aeronave)
+        {
+            return !(aeropuerto == aeronave);
         }
 
         public override bool Equals(object? obj)

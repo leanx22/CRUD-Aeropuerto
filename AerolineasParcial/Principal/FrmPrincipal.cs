@@ -1,4 +1,5 @@
 ﻿using AerolineasParcial.CRUD;
+using AerolineasParcial.CRUD.Altas;
 using AerolineasParcial.CRUD.Bajas;
 using AerolineasParcial.CRUD.Modificacion;
 using BibliotecaEntidades;
@@ -69,6 +70,7 @@ namespace AerolineasParcial
             }
         }
 
+        #region PASAJERO
         private void nuevoPasajeroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAltaPasajero ventana = new FormAltaPasajero();
@@ -78,7 +80,9 @@ namespace AerolineasParcial
                 if (this.aeropuerto != ventana.Pasajero)
                 {
                     this.aeropuerto += ventana.Pasajero;
-                    MessageBox.Show("Pasajero dado de alto con exito!", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Archivos.GuardarPasajeros(this.aeropuerto.Pasajeros);
+                    MessageBox.Show("Pasajero dado de alta con exito!", "Exito!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -100,6 +104,7 @@ namespace AerolineasParcial
                 pasajero = ventana.Pasajero;
                 this.aeropuerto -= pasajero;//utiliza equals elimino al pasajero con el mismo dni.
                 this.aeropuerto += pasajero;//lo reemplazo por el que tiene los nuevos datos.
+                Archivos.GuardarPasajeros(this.aeropuerto.Pasajeros);
                 MessageBox.Show("Edicion completa!", "Exito!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -114,10 +119,37 @@ namespace AerolineasParcial
             {
                 pasajero = ventana.Pasajero;
                 this.aeropuerto -= pasajero;
+                Archivos.GuardarPasajeros(this.aeropuerto.Pasajeros);
                 MessageBox.Show("Pasajero eliminado!", "Exito!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
+        #endregion
+
+        #region AERONAVE
+        private void nuevaAeronaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAltaAeronave ventana = new FormAltaAeronave();
+            DialogResult res = ventana.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                if (aeropuerto != ventana.Aeronave)
+                {
+                    this.aeropuerto += ventana.Aeronave;
+                    Archivos.GuardarAeronaves(this.aeropuerto.Aeronaves);
+                    MessageBox.Show("Alta exitosa","Exito!",MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo dar de alta. La aeronave ya existe!", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Hand);
+                }
+            }
+        }
+        #endregion
+
+
     }
 }

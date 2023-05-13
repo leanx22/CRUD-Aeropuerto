@@ -96,6 +96,7 @@
             nuevaAeronaveToolStripMenuItem.Name = "nuevaAeronaveToolStripMenuItem";
             nuevaAeronaveToolStripMenuItem.Size = new Size(180, 22);
             nuevaAeronaveToolStripMenuItem.Text = "Nueva aeronave";
+            nuevaAeronaveToolStripMenuItem.Click += nuevaAeronaveToolStripMenuItem_Click;
             // 
             // nuevaModificacionToolStripMenuItem
             // 
@@ -135,27 +136,27 @@
             // bajaDePasajeroToolStripMenuItem
             // 
             bajaDePasajeroToolStripMenuItem.Name = "bajaDePasajeroToolStripMenuItem";
-            bajaDePasajeroToolStripMenuItem.Size = new Size(180, 22);
+            bajaDePasajeroToolStripMenuItem.Size = new Size(165, 22);
             bajaDePasajeroToolStripMenuItem.Text = "Baja de Pasajero";
             bajaDePasajeroToolStripMenuItem.Click += bajaDePasajeroToolStripMenuItem_Click;
             // 
             // bajaDeAeronaveToolStripMenuItem
             // 
             bajaDeAeronaveToolStripMenuItem.Name = "bajaDeAeronaveToolStripMenuItem";
-            bajaDeAeronaveToolStripMenuItem.Size = new Size(180, 22);
+            bajaDeAeronaveToolStripMenuItem.Size = new Size(165, 22);
             bajaDeAeronaveToolStripMenuItem.Text = "Baja de Aeronave";
             // 
             // eliminarViajeToolStripMenuItem
             // 
             eliminarViajeToolStripMenuItem.Name = "eliminarViajeToolStripMenuItem";
-            eliminarViajeToolStripMenuItem.Size = new Size(180, 22);
+            eliminarViajeToolStripMenuItem.Size = new Size(165, 22);
             eliminarViajeToolStripMenuItem.Text = "Eliminar Viaje";
             // 
             // busquedaToolStripMenuItem
             // 
             busquedaToolStripMenuItem.Name = "busquedaToolStripMenuItem";
-            busquedaToolStripMenuItem.Size = new Size(66, 20);
-            busquedaToolStripMenuItem.Text = "Consulta";
+            busquedaToolStripMenuItem.Size = new Size(62, 20);
+            busquedaToolStripMenuItem.Text = "Listados";
             busquedaToolStripMenuItem.Click += busquedaToolStripMenuItem_Click;
             // 
             // tBoxInfoBar

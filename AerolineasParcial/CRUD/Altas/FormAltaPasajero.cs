@@ -13,7 +13,7 @@ namespace AerolineasParcial.CRUD
 {
     public partial class FormAltaPasajero : Form
     {
-        Pasajero pasajero;
+        protected Pasajero pasajero;
         public FormAltaPasajero()
         {
             this.pasajero = new Pasajero();

@@ -17,29 +17,36 @@
   <Class Name="BibliotecaEntidades.Pasajero">
     <Position X="0.5" Y="3.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>ACAAAAABAAAAAAAAgAAAAAAAACEAAoAAACMAAAABAiA=</HashCode>
+      <HashCode>ACAAAAABAAAAAAAAgAAAAAAAAAEAAoAAAAMAAAABAiA=</HashCode>
       <FileName>Pasajero.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BibliotecaEntidades.Aeropuerto">
-    <Position X="9" Y="0.5" Width="2.5" />
+    <Position X="13" Y="3.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAwAERAAAAAAAAAICAAAAQAAAAAiA=</HashCode>
+      <HashCode>AAAgAAAAAAAAAAAAwAERAAAAAAQAAICAAAAQAAAAAiA=</HashCode>
       <FileName>Aeropuerto.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BibliotecaEntidades.Viaje">
-    <Position X="9" Y="4.5" Width="2.5" />
+    <Position X="7.75" Y="3.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAAQABEAEAARCgIABAACQAQAAsiAAAKI=</HashCode>
       <FileName>Viaje.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BibliotecaEntidades.Aeronave">
-    <Position X="11.75" Y="2.25" Width="1.5" />
+    <Position X="10.5" Y="3.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>IAAQACAAECAAAAAAAABAAAAACAAgCAgAIAgAAAAAAAA=</HashCode>
       <FileName>Aeronave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BibliotecaEntidades.Archivos">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Archivos.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="EPerfil">
