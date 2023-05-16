@@ -84,7 +84,7 @@ namespace AerolineasParcial
         private void btnBuscarAeronave_Click(object sender, EventArgs e)
         {
             Aeronave aeronave;
-            List<Aeronave> lista=new List<Aeronave>();
+            List<Aeronave> lista = new List<Aeronave>();
             if (this.tBoxMatricula.Text == string.Empty)
             {
                 MessageBox.Show("Se debe ingresar una matricula.", "Error",

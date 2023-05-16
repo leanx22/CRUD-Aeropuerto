@@ -33,55 +33,7 @@ namespace AerolineasParcial.CRUD.Modificacion
             base.lblTitulo.Text = "Editar viaje";
             #endregion
 
-            EstadoControles(false);
-        }
-
-        /// <summary>
-        /// Esta funcion cambia la propiedad enabled de los controles principales de este formulario.
-        /// </summary>
-        /// <param name="estado">
-        /// True para activarlos, False para desactivarlos.
-        /// </param>
-        private void EstadoControles(bool estado)
-        {
-            base.cBoxDestinos.Enabled = estado;
-            base.tBoxPartida.Enabled = estado;
-            base.dateTimePicker.Enabled = estado;
-            base.btnAsignarAeronave.Enabled = estado;
-            base.chbxInternacional.Enabled = estado;
-            base.btnOK.Enabled = estado;
-        }
-
-        /// <summary>
-        /// Esta funcion actualiza los datos de los controladores.
-        /// 
-        /// </summary>
-        private void ActualizarElementos()
-        {
-            int asientosP;
-            int asientosT;
-
-            
-            base.chbxInternacional.Checked = base.viaje.EsInternacional;
-            if (chbxInternacional.Checked)
-            {
-                base.cBoxDestinos.SelectedIndex = (int)Enum.Parse(typeof(EInternacional), base.viaje.Destino);
-            }
-            else
-            {
-                base.cBoxDestinos.SelectedIndex = (int)Enum.Parse(typeof(ENacional), base.viaje.Destino);
-            }
-            base.tBoxPartida.Text = base.viaje.Partida;
-            base.tBoxPartida.Enabled = !base.chbxInternacional.Checked;
-            base.dateTimePicker.Value = base.viaje.FechaDeVuelo.Date;//.value?
-            base.tBoxAeronave.Text = base.viaje.AvionAsignado;
-            base.tBoxDuracion.Text = base.viaje.Duracion.ToString();
-            //No valido la busqueda porque si o si va a estar bien, ya que no se puede modificar.
-            base.aeropuerto.BuscarAeronave(base.viaje.AvionAsignado, out base.aeronave);
-            Viaje.ObtenerAsientos(base.aeronave, out asientosP, out asientosT);
-            base.lblCantPremium.Text = asientosP.ToString();
-            base.lblCantTurista.Text = asientosT.ToString();
-            base.ActualizarPrecio();
+            base.EstadoControles(false);
         }
 
         private void btnBuscarViaje_Click(object sender, EventArgs e)
@@ -91,9 +43,9 @@ namespace AerolineasParcial.CRUD.Modificacion
             if (res == DialogResult.OK)
             {
                 base.viaje = ventana.Viaje;
-                EstadoControles(true);
+                base.EstadoControles(true);
                 this.bufferFecha = base.viaje.FechaDeVuelo.Date;
-                ActualizarElementos();
+                base.ActualizarElementos();
             }
         }
 

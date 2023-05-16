@@ -30,6 +30,8 @@
         {
             btnBuscar = new Button();
             ((System.ComponentModel.ISupportInitialize)numBodega).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numAsientos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numBanios).BeginInit();
             SuspendLayout();
             // 
             // numBodega
@@ -46,6 +48,27 @@
             chbxInternet.Size = new Size(76, 19);
             chbxInternet.Text = "Internet.";
             // 
+            // lblTitulo
+            // 
+            lblTitulo.Size = new Size(141, 21);
+            lblTitulo.Text = "Alta de Aeronave";
+            // 
+            // numAsientos
+            // 
+            numAsientos.Maximum = new decimal(new int[] { 800, 0, 0, 0 });
+            numAsientos.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
+            numAsientos.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            // 
+            // numBanios
+            // 
+            numBanios.Maximum = new decimal(new int[] { 8, 0, 0, 0 });
+            numBanios.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numBanios.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // btnOK
+            // 
+            btnOK.Text = "Guardar";
+            // 
             // btnBuscar
             // 
             btnBuscar.Location = new Point(545, 77);
@@ -60,13 +83,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(648, 450);
             ControlBox = false;
             Controls.Add(btnBuscar);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "FrmEditarAeronave";
             Text = "FrmEditarAeronave";
+            Controls.SetChildIndex(numAsientos, 0);
+            Controls.SetChildIndex(numBanios, 0);
             Controls.SetChildIndex(tBoxMatricula, 0);
             Controls.SetChildIndex(numBodega, 0);
             Controls.SetChildIndex(chbxComida, 0);
@@ -76,6 +101,8 @@
             Controls.SetChildIndex(lblMaxAsientos, 0);
             Controls.SetChildIndex(btnBuscar, 0);
             ((System.ComponentModel.ISupportInitialize)numBodega).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numAsientos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numBanios).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

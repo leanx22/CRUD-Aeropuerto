@@ -31,6 +31,9 @@ namespace AerolineasParcial.Consultas
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Anchor = AnchorStyles.Left | AnchorStyles.Right |
                 AnchorStyles.Top | AnchorStyles.Bottom;
+
+            this.btnModificar.Anchor = AnchorStyles.Right;
+            this.btnOK.Anchor = AnchorStyles.Right;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

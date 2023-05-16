@@ -60,6 +60,8 @@
             // 
             // dataGrid
             // 
+            dataGrid.AllowUserToResizeColumns = false;
+            dataGrid.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.CadetBlue;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -67,6 +69,7 @@
             dataGridViewCellStyle1.SelectionForeColor = Color.White;
             dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGrid.Anchor = AnchorStyles.None;
+            dataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGrid.BackgroundColor = SystemColors.ControlLight;
             dataGrid.BorderStyle = BorderStyle.Fixed3D;
             dataGrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical;
@@ -89,8 +92,10 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             dataGrid.EnableHeadersVisualStyles = false;
-            dataGrid.Location = new Point(12, 12);
+            dataGrid.Location = new Point(13, 13);
+            dataGrid.MultiSelect = false;
             dataGrid.Name = "dataGrid";
+            dataGrid.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = SystemColors.ButtonFace;
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -108,10 +113,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(857, 565);
+            ClientSize = new Size(859, 566);
             Controls.Add(dataGrid);
             Controls.Add(btnOK);
             Controls.Add(btnModificar);
+            MinimumSize = new Size(875, 605);
             Name = "FormViajes";
             Text = "FormViajes";
             Load += FormViajes_Load;

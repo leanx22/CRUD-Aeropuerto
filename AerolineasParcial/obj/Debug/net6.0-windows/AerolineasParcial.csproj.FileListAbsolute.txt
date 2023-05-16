@@ -32,3 +32,4 @@ A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\Aerolineas
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.Consultas.FrmSelectorAeronaves.resources
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.Consultas.FormViajes.resources
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.CRUD.Modificacion.FrmEditarViaje.resources
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.CRUD.Bajas.FrmBajaViaje.resources

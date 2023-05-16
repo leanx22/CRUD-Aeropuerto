@@ -107,5 +107,55 @@ namespace BibliotecaEntidades
         }
 
         #endregion
+
+        #region VIAJES
+
+        /// <summary>
+        /// Deserealiza el archivo donde se guarda la lista de viajes.
+        /// </summary>
+        /// <returns>Retorna la lista de viajes deserealizada</returns>
+        public static List<Viaje> CargarViajes()
+        {
+            string filename = "VIAJES.json";
+            string jsonText;
+            List<Viaje> nuevaLista = new List<Viaje>();
+
+            if (File.Exists(filename))
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(filename))
+                    {
+                        jsonText = reader.ReadToEnd();
+                        nuevaLista = (List<Viaje>)JsonSerializer.Deserialize(jsonText, typeof(List<Viaje>));
+                    }
+                }
+                catch
+                {
+                    nuevaLista = new List<Viaje>();
+                }
+            }
+            return nuevaLista;
+        }
+
+        /// <summary>
+        /// Serializa la lista de viajes en formato jSon.
+        /// </summary>
+        /// <param name="lista">Lista de viajes que se quiera guardar</param>
+        /// <returns></returns>
+        public static bool GuardarViajes(List<Viaje> lista)
+        {
+            bool ret = false;
+            string jSon;
+            jSon = JsonSerializer.Serialize(lista);
+            using (StreamWriter sw = new StreamWriter("VIAJES.json"))
+            {
+                sw.WriteLine(jSon);
+                ret = true;
+            }
+            return ret;
+        }
+
+        #endregion
     }
 }

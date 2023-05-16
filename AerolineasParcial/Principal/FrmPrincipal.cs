@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,35 +27,37 @@ namespace AerolineasParcial
             usuario = new Usuario();
             aeropuerto = new Aeropuerto();
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.BackColor = Color.Gainsboro;
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            barraMenu.BackColor = Color.GhostWhite;
+            lblUsuario.Text = "No se inicio sesion.";
+            lblUsuario.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
 
-            tBoxInfoBar.Text = "Se debe iniciar sesion para comenzar con las operaciones.";
-            tBoxInfoBar.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom;
-            tBoxInfoBar.Enabled = false;
-            tBoxInfoBar.BorderStyle = BorderStyle.FixedSingle;
+            #region Anchors
+            tabControl.Anchor = AnchorStyles.Left | AnchorStyles.Right |
+                                AnchorStyles.Top | AnchorStyles.Bottom;
+            lblUsuario.Anchor = AnchorStyles.Left;
+            btnVenta.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            btnEstadisticas.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            #endregion
 
-            gridVuelos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            #region TEXTOS
+            btnAltaPasajero.Text = "ALTA\nPASAJERO";
+            btnAltaAeronave.Text = "ALTA\nAERONAVE";
+            btnAltaViaje.Text = "ALTA\nVIAJE";
 
-            #region DATA_GRID
-            gridVuelos.DataSource = this.aeropuerto.Viajes;
-            gridVuelos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            gridVuelos.ReadOnly = true;
-            gridVuelos.AllowUserToResizeRows = false;
+            btnModificarPasajero.Text = "EDITAR\nPASAJERO";
+            btnModificarAeronave.Text = "EDITAR\nAERONAVE";
+            btnModificarViaje.Text = "EDITAR\nVIAJE";
+
+            btnBajaPasajero.Text = "BAJA\nPASAJERO";
+            btnBajaAeronave.Text = "BAJA\nAERONAVE";
+            btnBajaViaje.Text = "BAJA\nVIAJE";
             #endregion
 
             IniciarSesion();
-
-        }
-
-        private void busquedaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ConsultaFrm consulta = new ConsultaFrm(this.aeropuerto);
-            consulta.Show();//dialog?
+            EstablecerOperaciones();
         }
 
         private void IniciarSesion()
@@ -64,14 +67,36 @@ namespace AerolineasParcial
             if (result == DialogResult.OK)
             {
                 this.usuario = ventanaSesion.Usuario;
-                tBoxInfoBar.Text = "  " + this.usuario.apellido +
+
+                this.lblUsuario.Text = " Sesion: " + this.usuario.apellido +
                   " " + this.usuario.nombre + " - " +
                   DateTime.Now.ToShortDateString();
             }
         }
 
+        private void EstablecerOperaciones()
+        {
+
+        }
+
+        private void btnAltas_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedIndex = 0;//ALTAS
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedIndex = 1;//Modificar
+        }
+
+        private void btnBajas_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedIndex = 2;//Baja
+        }
+
         #region PASAJERO
-        private void nuevoPasajeroToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void btnAltaPasajero_Click(object sender, EventArgs e)
         {
             FormAltaPasajero ventana = new FormAltaPasajero();
             DialogResult res = ventana.ShowDialog();
@@ -94,7 +119,7 @@ namespace AerolineasParcial
             }
         }
 
-        private void editarPasajeroToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnModificarPasajero_Click(object sender, EventArgs e)
         {
             Pasajero pasajero;
             FrmEditarPasajero ventana = new FrmEditarPasajero(this.aeropuerto);
@@ -110,7 +135,7 @@ namespace AerolineasParcial
             }
         }
 
-        private void bajaDePasajeroToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnBajaPasajero_Click(object sender, EventArgs e)
         {
             Pasajero pasajero;
             FormBajaPasajero ventana = new FormBajaPasajero(this.aeropuerto);
@@ -123,12 +148,12 @@ namespace AerolineasParcial
                 MessageBox.Show("Pasajero eliminado!", "Exito!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
+
         #endregion
 
         #region AERONAVE
-        private void nuevaAeronaveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnAltaAeronave_Click(object sender, EventArgs e)
         {
             FormAltaAeronave ventana = new FormAltaAeronave();
             DialogResult res = ventana.ShowDialog();
@@ -149,7 +174,7 @@ namespace AerolineasParcial
             }
         }
 
-        private void editarAeronaveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnModificarAeronave_Click(object sender, EventArgs e)
         {
             Aeronave aeronave;
             FrmEditarAeronave ventana = new FrmEditarAeronave(this.aeropuerto);
@@ -165,7 +190,7 @@ namespace AerolineasParcial
             }
         }
 
-        private void bajaDeAeronaveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnBajaAeronave_Click(object sender, EventArgs e)
         {
             Aeronave aeronave;
             FrmBajaAeronave ventana = new FrmBajaAeronave(this.aeropuerto);
@@ -179,11 +204,10 @@ namespace AerolineasParcial
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         #endregion
 
         #region VIAJE
-        private void nuevoViajeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnAltaViaje_Click(object sender, EventArgs e)
         {
             FormAltaViaje ventana = new FormAltaViaje(this.aeropuerto);
             DialogResult res = ventana.ShowDialog();
@@ -192,7 +216,7 @@ namespace AerolineasParcial
                 if (this.aeropuerto != ventana.Viaje)
                 {
                     this.aeropuerto += ventana.Viaje;
-                    //Archivos.GuardarViajes(this.aeropuerto.Viajes);
+                    Archivos.GuardarViajes(this.aeropuerto.Viajes);
                     MessageBox.Show("Alta exitosa", "Exito!", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                 }
@@ -203,10 +227,9 @@ namespace AerolineasParcial
                 }
 
             }
-
         }
 
-        private void editarViajeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnModificarViaje_Click(object sender, EventArgs e)
         {
             FrmEditarViaje ventana = new FrmEditarViaje(this.aeropuerto);
             DialogResult res = ventana.ShowDialog();
@@ -215,15 +238,36 @@ namespace AerolineasParcial
                 if (this.aeropuerto != ventana.Viaje)
                 {
                     this.aeropuerto += ventana.Viaje;
-                    //Archivos.GuardarViajes(this.aeropuerto.Viajes);
+                    Archivos.GuardarViajes(this.aeropuerto.Viajes);
                     MessageBox.Show("Edicion completa", "Exito!", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                 }
             }
         }
 
+        private void btnBajaViaje_Click(object sender, EventArgs e)
+        {
+            FrmBajaViaje ventana = new FrmBajaViaje(this.aeropuerto);
+            DialogResult res = ventana.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                this.aeropuerto -= ventana.Viaje;
+
+                Archivos.GuardarViajes(this.aeropuerto.Viajes);
+                MessageBox.Show("Viaje eliminado!", "Exito!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+        }
+
         #endregion
 
+        private void btnListado_Click(object sender, EventArgs e)
+        {
+            ConsultaFrm consulta = new ConsultaFrm(this.aeropuerto);
+            consulta.Show(this);//dialog?
+        }
 
+        
     }
 }

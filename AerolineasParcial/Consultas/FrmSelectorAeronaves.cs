@@ -19,7 +19,7 @@ namespace AerolineasParcial.Consultas
         public FrmSelectorAeronaves(Aeropuerto aeropuerto)
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;            
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.aeropuerto = aeropuerto;
             this.aeronave = new Aeronave();
         }
@@ -48,7 +48,7 @@ namespace AerolineasParcial.Consultas
             {
                 MessageBox.Show("Primero debe seleccionar una nave en la lista.",
                      "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;                
+                return;
             }
 
             //obtengo el indice de la seleccion.            
@@ -61,7 +61,7 @@ namespace AerolineasParcial.Consultas
                     "Posiblemente, este asignada a otro vuelo.", "Error", MessageBoxButtons.OK);
                 return;
             }
-                      
+
             this.DialogResult = DialogResult.OK;
         }
 

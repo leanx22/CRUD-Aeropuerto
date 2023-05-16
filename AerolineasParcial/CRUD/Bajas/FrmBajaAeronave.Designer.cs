@@ -83,7 +83,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(667, 450);
             ControlBox = false;
             Controls.Add(btnBuscar);
             FormBorderStyle = FormBorderStyle.FixedSingle;

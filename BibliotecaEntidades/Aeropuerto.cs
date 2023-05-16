@@ -19,7 +19,7 @@ namespace BibliotecaEntidades
         {
             //Si los archivos no existen, retorna una new list();
             listaAeronaves = Archivos.CargarAeronaves();
-            listaViajes = new List<Viaje>();
+            listaViajes = Archivos.CargarViajes();
             listaPasajeros = Archivos.CargarPasajeros();
         }
 

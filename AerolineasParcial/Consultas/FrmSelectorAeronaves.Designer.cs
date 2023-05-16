@@ -36,7 +36,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(436, 403);
+            btnCancelar.Location = new Point(621, 403);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(83, 30);
             btnCancelar.TabIndex = 1;
@@ -46,7 +46,7 @@
             // 
             // btnSelect
             // 
-            btnSelect.Location = new Point(347, 403);
+            btnSelect.Location = new Point(532, 403);
             btnSelect.Name = "btnSelect";
             btnSelect.Size = new Size(83, 30);
             btnSelect.TabIndex = 2;
@@ -56,18 +56,24 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = SystemColors.ControlLight;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 12);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(507, 385);
+            dataGridView1.Size = new Size(692, 385);
             dataGridView1.TabIndex = 6;
             // 
             // FrmSelectorAeronaves
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(523, 445);
+            ClientSize = new Size(716, 445);
             Controls.Add(dataGridView1);
             Controls.Add(btnSelect);
             Controls.Add(btnCancelar);

@@ -38,7 +38,7 @@ namespace AerolineasParcial.CRUD.Bajas
         protected override void btnOK_Click(object sender, EventArgs e)
         {
             DialogResult res = MessageBox.Show("Seguro que desea eliminar la siguiente aeronave?:\n" +
-                "Matricula: "+base.aeronave.Matricula,"Confirmar",MessageBoxButtons.OKCancel,
+                "Matricula: " + base.aeronave.Matricula, "Confirmar", MessageBoxButtons.OKCancel,
                 MessageBoxIcon.Warning);
             if (res == DialogResult.OK)
             {
@@ -48,7 +48,7 @@ namespace AerolineasParcial.CRUD.Bajas
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
-        {           
+        {
             if (!Aeronave.ValidarMatricula(tBoxMatricula.Text))
             {
                 MessageBox.Show("Matricula no valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

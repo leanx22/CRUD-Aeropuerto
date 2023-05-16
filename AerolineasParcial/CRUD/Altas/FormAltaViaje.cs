@@ -35,6 +35,7 @@ namespace AerolineasParcial.CRUD.Altas
 
         protected virtual void FormAltaViaje_Load(object sender, EventArgs e)
         {
+            
             #region FORMULARIO
             this.MaximizeBox = false;
             this.ControlBox = false;
@@ -115,7 +116,6 @@ namespace AerolineasParcial.CRUD.Altas
 
         protected virtual void btnOK_Click(object sender, EventArgs e)
         {
-            //OJO, LA AERONAVE SELECCIONADA DEBE CAMBIAR A NO DISPONIBLE!
             if (cBoxDestinos.SelectedItem == null)
             {
                 MessageBox.Show("Se debe seleccionar un destino", "Error",
@@ -168,5 +168,54 @@ namespace AerolineasParcial.CRUD.Altas
             this.lblPrecioPremium.Text = precioPremium.ToString();
 
         }
+
+        /// <summary>
+        /// Esta funcion cambia la propiedad enabled de los controles principales de este formulario.
+        /// </summary>
+        /// <param name="estado">
+        /// True para activarlos, False para desactivarlos.
+        /// </param>
+        protected void EstadoControles(bool estado)
+        {
+            this.cBoxDestinos.Enabled = estado;
+            this.tBoxPartida.Enabled = estado;
+            this.dateTimePicker.Enabled = estado;
+            this.btnAsignarAeronave.Enabled = estado;
+            this.chbxInternacional.Enabled = estado;
+            this.btnOK.Enabled = estado;
+        }
+
+        /// <summary>
+        /// Esta funcion actualiza los datos de los controladores.
+        /// 
+        /// </summary>
+        protected void ActualizarElementos()
+        {
+            int asientosP;
+            int asientosT;
+
+
+            this.chbxInternacional.Checked = this.viaje.EsInternacional;
+            if (chbxInternacional.Checked)
+            {
+                this.cBoxDestinos.SelectedIndex = (int)Enum.Parse(typeof(EInternacional), this.viaje.Destino);
+            }
+            else
+            {
+                this.cBoxDestinos.SelectedIndex = (int)Enum.Parse(typeof(ENacional), this.viaje.Destino);
+            }
+            this.tBoxPartida.Text = this.viaje.Partida;
+            this.tBoxPartida.Enabled = !this.chbxInternacional.Checked;
+            this.dateTimePicker.Value = this.viaje.FechaDeVuelo.Date;//.value?
+            this.tBoxAeronave.Text = this.viaje.AvionAsignado;
+            this.tBoxDuracion.Text = this.viaje.Duracion.ToString();
+            //No valido la busqueda porque si o si va a estar bien, ya que no se puede modificar.
+            this.aeropuerto.BuscarAeronave(this.viaje.AvionAsignado, out this.aeronave);
+            Viaje.ObtenerAsientos(this.aeronave, out asientosP, out asientosT);
+            this.lblCantPremium.Text = asientosP.ToString();
+            this.lblCantTurista.Text = asientosT.ToString();
+            this.ActualizarPrecio();
+        }
+
     }
 }
