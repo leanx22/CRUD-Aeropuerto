@@ -54,6 +54,7 @@
             lblPrecioPremium = new Label();
             label3 = new Label();
             tBoxDuracion = new TextBox();
+            label4 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -79,6 +80,7 @@
             btnCancel.TabIndex = 2;
             btnCancel.Text = "button2";
             btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // btnOK
             // 
@@ -90,6 +92,7 @@
             btnOK.TabIndex = 1;
             btnOK.Text = "button1";
             btnOK.UseVisualStyleBackColor = false;
+            btnOK.Click += btnOK_Click;
             // 
             // lblTitulo
             // 
@@ -191,6 +194,7 @@
             btnAsignarAeronave.TabIndex = 10;
             btnAsignarAeronave.Text = "button1";
             btnAsignarAeronave.UseVisualStyleBackColor = true;
+            btnAsignarAeronave.Click += btnAsignarAeronave_Click;
             // 
             // label2
             // 
@@ -268,15 +272,15 @@
             lblPrecio.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             lblPrecio.Location = new Point(458, 287);
             lblPrecio.Name = "lblPrecio";
-            lblPrecio.Size = new Size(44, 17);
+            lblPrecio.Size = new Size(81, 17);
             lblPrecio.TabIndex = 18;
-            lblPrecio.Text = "Precio";
+            lblPrecio.Text = "Precio (USD)";
             // 
             // lblPrecioTurista
             // 
             lblPrecioTurista.AutoSize = true;
             lblPrecioTurista.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblPrecioTurista.Location = new Point(470, 319);
+            lblPrecioTurista.Location = new Point(488, 319);
             lblPrecioTurista.Name = "lblPrecioTurista";
             lblPrecioTurista.Size = new Size(14, 15);
             lblPrecioTurista.TabIndex = 19;
@@ -287,7 +291,7 @@
             // 
             lblPrecioPremium.AutoSize = true;
             lblPrecioPremium.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblPrecioPremium.Location = new Point(470, 343);
+            lblPrecioPremium.Location = new Point(488, 343);
             lblPrecioPremium.Name = "lblPrecioPremium";
             lblPrecioPremium.Size = new Size(14, 15);
             lblPrecioPremium.TabIndex = 20;
@@ -306,16 +310,27 @@
             // 
             // tBoxDuracion
             // 
-            tBoxDuracion.Location = new Point(371, 375);
+            tBoxDuracion.Location = new Point(371, 379);
             tBoxDuracion.Name = "tBoxDuracion";
-            tBoxDuracion.Size = new Size(121, 23);
+            tBoxDuracion.Size = new Size(38, 23);
             tBoxDuracion.TabIndex = 22;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Enabled = false;
+            label4.Location = new Point(415, 387);
+            label4.Name = "label4";
+            label4.Size = new Size(22, 15);
+            label4.TabIndex = 23;
+            label4.Text = "hs.";
             // 
             // FormAltaViaje
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(624, 441);
+            Controls.Add(label4);
             Controls.Add(tBoxDuracion);
             Controls.Add(label3);
             Controls.Add(lblPrecioPremium);
@@ -377,5 +392,6 @@
         private Label lblPrecioPremium;
         private Label label3;
         private TextBox tBoxDuracion;
+        private Label label4;
     }
 }

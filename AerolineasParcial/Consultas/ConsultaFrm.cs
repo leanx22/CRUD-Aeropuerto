@@ -38,19 +38,20 @@ namespace AerolineasParcial
 
             this.MinimumSize = new Size(812, 670); //Tamanio minimo del formulario.
 
-            tabControl.SelectedIndex = 0;
+            this.tabControl.SelectedIndex = 0;
 
             #region DATAGRID
-            gridDatos.ReadOnly = true;
-            gridDatos.AllowUserToResizeRows = false;
-            gridDatos.DataSource = aeropuerto.Pasajeros;
-            gridDatos.EnableHeadersVisualStyles = true;
-            gridDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.gridDatos.ReadOnly = true;
+            this.gridDatos.AllowUserToResizeRows = false;
+            this.gridDatos.DataSource = aeropuerto.Pasajeros;
+            this.gridDatos.EnableHeadersVisualStyles = true;
+            this.gridDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.gridDatos.MultiSelect = false;
             #endregion
 
             #region AnchorStyles
 
-            this.btnLimpiar.Anchor = AnchorStyles.Left;
+            this.btnLimpiar.Anchor = AnchorStyles.Right | AnchorStyles.Top;
             this.btnBuscarPasajero.Anchor = AnchorStyles.Left;
             this.lblDNI.Anchor = AnchorStyles.Left;
             this.lblNombre.Anchor = AnchorStyles.Left;
@@ -71,20 +72,20 @@ namespace AerolineasParcial
         {
             long dni = 0;
 
-            if (tBoxDNI.Text != string.Empty && !long.TryParse(tBoxDNI.Text, out dni))
+            if (this.tBoxDNI.Text != string.Empty && !long.TryParse(this.tBoxDNI.Text, out dni))
             {
                 MessageBox.Show("El DNI ingresado no es valido.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            gridDatos.DataSource = this.aeropuerto.BuscarPasajero(dni, tBoxNombre.Text, tBoxApellido.Text);
+            this.gridDatos.DataSource = this.aeropuerto.BuscarPasajero(dni, this.tBoxNombre.Text, this.tBoxApellido.Text);
         }
 
         private void btnBuscarAeronave_Click(object sender, EventArgs e)
         {
             Aeronave aeronave;
             List<Aeronave> lista=new List<Aeronave>();
-            if (tBoxMatricula.Text == string.Empty)
+            if (this.tBoxMatricula.Text == string.Empty)
             {
                 MessageBox.Show("Se debe ingresar una matricula.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -94,11 +95,11 @@ namespace AerolineasParcial
             if (this.aeropuerto.BuscarAeronave(tBoxMatricula.Text, out aeronave))
             {
                 lista.Add(aeronave);
-                gridDatos.DataSource = lista;
+                this.gridDatos.DataSource = lista;
             }
             else
             {
-                gridDatos.DataSource = null;
+                this.gridDatos.DataSource = null;
             }
         }
 
@@ -117,24 +118,24 @@ namespace AerolineasParcial
             switch (tabControl.SelectedIndex)
             {
                 case 0://Pasajeros
-                    gridDatos.DataSource = aeropuerto.Pasajeros;
+                    this.gridDatos.DataSource = this.aeropuerto.Pasajeros;
                     break;
                 case 1://Viajes
-                    gridDatos.DataSource = null;
+                    this.gridDatos.DataSource = this.aeropuerto.Viajes;
                     break;
                 case 2://Aeronaves
-                    gridDatos.DataSource = aeropuerto.Aeronaves;
+                    this.gridDatos.DataSource = this.aeropuerto.Aeronaves;
                     break;
             }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e) //Probar
         {
-            tBoxNombre.Text = string.Empty;
-            tBoxApellido.Text = string.Empty;
-            tBoxDNI.Text = string.Empty;
+            this.tBoxNombre.Text = string.Empty;
+            this.tBoxApellido.Text = string.Empty;
+            this.tBoxDNI.Text = string.Empty;
 
-            tBoxMatricula.Text = string.Empty;
+            this.tBoxMatricula.Text = string.Empty;
 
             //"simulo" que cambie de pestania para que se actualize el datasource.
             tabControl_SelectedIndexChanged(sender, e);

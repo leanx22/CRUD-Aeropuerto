@@ -1,1 +1,1 @@
-[{"Matricula":"ABCD1234","Asientos":800,"Banios":8,"Internet":false,"Comida":false,"bodega":15000},{"Matricula":"LVMM4444","Asientos":500,"Banios":3,"Internet":true,"Comida":true,"bodega":14500}]
+[{"Matricula":"ABCD1234","Asientos":800,"Banios":8,"Internet":false,"Comida":false,"bodega":15000,"Disponible":true},{"Matricula":"LVMM4444","Asientos":500,"Banios":3,"Internet":true,"Comida":true,"bodega":14500,"Disponible":true},{"Matricula":"YTPH1234","Asientos":750,"Banios":5,"Internet":true,"Comida":true,"bodega":7000,"Disponible":true}]

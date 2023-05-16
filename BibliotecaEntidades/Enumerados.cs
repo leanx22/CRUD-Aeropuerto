@@ -12,14 +12,14 @@ public enum ENacional //Destinos nacionales.
     Bariloche,Neuquen,Trelew,
     Corrientes,Posadas,Tucuman,
     Cordoba,Iguazu,PuertoMadryn,
-    Jujuy,Salta,Ushuaia,NA
+    Jujuy,Salta,Ushuaia
     //NA = no asignado
 }
 
 public enum EInternacional //Destinos internacionales.
 {
     Recife,Roma,
-    Acapulco,Miami,NA
+    Acapulco,Miami
         //NA = no asignado
 }
 
@@ -36,4 +36,9 @@ public enum EEntidad//sacar
 public enum ETipoEquipaje
 {
     Mano,Bodega
+}
+
+public enum EEstadoDeVuelo
+{
+    Pendiente,EnProgreso,Finalizado
 }

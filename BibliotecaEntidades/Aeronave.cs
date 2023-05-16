@@ -14,7 +14,7 @@ namespace BibliotecaEntidades
         private bool internet;
         private bool comida;
         private int capacidadBodega;
-
+        private bool disponible;
         
 
         public Aeronave()
@@ -25,10 +25,11 @@ namespace BibliotecaEntidades
             this.internet = false;
             this.comida = false;
             this.capacidadBodega = 0;
+            this.disponible = true;
         }
 
         public Aeronave(string matricula, int asientos, int banios,
-            bool internet, bool comida, int bodega)
+            bool internet, bool comida, int bodega,bool disponible)
         {
             this.matricula = matricula;
             this.asientos = asientos;
@@ -36,6 +37,7 @@ namespace BibliotecaEntidades
             this.internet = internet;
             this.comida = comida;
             this.capacidadBodega = bodega;
+            this.disponible = disponible;
         }
 
         #region METODOS
@@ -108,6 +110,7 @@ namespace BibliotecaEntidades
             get { return capacidadBodega; }
             set { capacidadBodega = value; } //no puede ser negativo o 0.
         }
+        public bool Disponible { get { return this.disponible; } set { this.disponible = value; } }
         #endregion
 
         #region SOBRECARGA DE OPs

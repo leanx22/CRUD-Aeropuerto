@@ -69,7 +69,7 @@ namespace AerolineasParcial.CRUD.Altas
 
             //Los asientos, banios y bodega ya se validan con las propiedades minimum y max en el load.
             this.aeronave = new Aeronave(tBoxMatricula.Text.ToUpper(), (int)numAsientos.Value, (int)numBanios.Value,
-                chbxInternet.Checked, chbxComida.Checked, (int)numBodega.Value);
+                chbxInternet.Checked, chbxComida.Checked, (int)numBodega.Value,true);
             this.DialogResult = DialogResult.OK;
         }
 

@@ -40,6 +40,13 @@ namespace AerolineasParcial
 
             gridVuelos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
 
+            #region DATA_GRID
+            gridVuelos.DataSource = this.aeropuerto.Viajes;
+            gridVuelos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gridVuelos.ReadOnly = true;
+            gridVuelos.AllowUserToResizeRows = false;
+            #endregion
+
             IniciarSesion();
 
         }
@@ -56,13 +63,6 @@ namespace AerolineasParcial
             DialogResult result = ventanaSesion.ShowDialog();
             if (result == DialogResult.OK)
             {
-                #region PRUEBA DATA_GRID
-                gridVuelos.DataSource = ventanaSesion.listaUsers;
-                gridVuelos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                gridVuelos.ReadOnly = true;
-                gridVuelos.AllowUserToResizeRows = false;
-                #endregion
-
                 this.usuario = ventanaSesion.Usuario;
                 tBoxInfoBar.Text = "  " + this.usuario.apellido +
                   " " + this.usuario.nombre + " - " +
@@ -185,8 +185,25 @@ namespace AerolineasParcial
         #region VIAJE
         private void nuevoViajeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAltaViaje ventana = new FormAltaViaje();
-            ventana.ShowDialog();
+            FormAltaViaje ventana = new FormAltaViaje(this.aeropuerto);
+            DialogResult res = ventana.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                if (this.aeropuerto != ventana.Viaje)
+                {
+                    this.aeropuerto += ventana.Viaje;
+                    //Archivos.GuardarViajes(this.aeropuerto.Viajes);
+                    MessageBox.Show("Alta exitosa", "Exito!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo dar de alta. El viaje ya existe!", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Hand);
+                }
+
+            }
+
         }
 
         #endregion

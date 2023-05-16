@@ -145,6 +145,25 @@ namespace BibliotecaEntidades
             return !(aeropuerto == aeronave);
         }
 
+        public static Aeropuerto operator +(Aeropuerto aeropuerto, Viaje viaje)
+        {
+            aeropuerto.listaViajes.Add(viaje);
+            return aeropuerto;
+        }
+        public static Aeropuerto operator -(Aeropuerto aeropuerto, Viaje viaje)
+        {
+            aeropuerto.listaViajes.Remove(viaje);
+            return aeropuerto;
+        }
+        public static bool operator ==(Aeropuerto aeropuerto, Viaje viaje)
+        {
+            return aeropuerto.listaViajes.Contains(viaje);
+        }
+        public static bool operator !=(Aeropuerto aeropuerto, Viaje viaje)
+        {
+            return !(aeropuerto == viaje);
+        }
+
         public override bool Equals(object? obj)
         {
             return base.Equals(obj);
