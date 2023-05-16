@@ -254,8 +254,6 @@
 
         private Panel panel1;
         private Button btnCancel;
-        private Button btnOK;
-        private Label lblTitulo;
         protected TextBox tBoxMatricula;
         private Label lblMatricula;
         private Label lblAsientos;
@@ -264,10 +262,12 @@
         protected NumericUpDown numBodega;
         protected CheckBox chbxComida;
         protected CheckBox chbxInternet;
-        private NumericUpDown numAsientos;
-        private NumericUpDown numBanios;
         protected Label lblMaxBodega;
         protected Label lblMaxBanios;
         protected Label lblMaxAsientos;
+        protected Label lblTitulo;
+        protected NumericUpDown numAsientos;
+        protected NumericUpDown numBanios;
+        protected Button btnOK;
     }
 }

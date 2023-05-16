@@ -40,11 +40,14 @@ namespace AerolineasParcial
 
             tabControl.SelectedIndex = 0;
 
+            #region DATAGRID
             gridDatos.ReadOnly = true;
             gridDatos.AllowUserToResizeRows = false;
             gridDatos.DataSource = aeropuerto.Pasajeros;
             gridDatos.EnableHeadersVisualStyles = true;
             gridDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            #endregion
+
             #region AnchorStyles
 
             this.btnLimpiar.Anchor = AnchorStyles.Left;
@@ -77,15 +80,26 @@ namespace AerolineasParcial
             gridDatos.DataSource = this.aeropuerto.BuscarPasajero(dni, tBoxNombre.Text, tBoxApellido.Text);
         }
 
-        private void btnViaje_Click(object sender, EventArgs e)//busqueda de viaje
+        private void btnBuscarAeronave_Click(object sender, EventArgs e)
         {
+            Aeronave aeronave;
+            List<Aeronave> lista=new List<Aeronave>();
+            if (tBoxMatricula.Text == string.Empty)
+            {
+                MessageBox.Show("Se debe ingresar una matricula.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-
-        }
-
-        private void btnAeronave_Click(object sender, EventArgs e)//busqueda de aeronave
-        {
-
+            if (this.aeropuerto.BuscarAeronave(tBoxMatricula.Text, out aeronave))
+            {
+                lista.Add(aeronave);
+                gridDatos.DataSource = lista;
+            }
+            else
+            {
+                gridDatos.DataSource = null;
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)//eliminar
@@ -120,9 +134,13 @@ namespace AerolineasParcial
             tBoxApellido.Text = string.Empty;
             tBoxDNI.Text = string.Empty;
 
+            tBoxMatricula.Text = string.Empty;
+
             //"simulo" que cambie de pestania para que se actualize el datasource.
             tabControl_SelectedIndexChanged(sender, e);
 
         }
+
+
     }
 }

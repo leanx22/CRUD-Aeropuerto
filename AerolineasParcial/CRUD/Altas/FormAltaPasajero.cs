@@ -87,5 +87,11 @@ namespace AerolineasParcial.CRUD
             }
         }
 
+        protected virtual void UpdateUIInfo()
+        {
+            this.tBoxNombre.Text = this.pasajero.nombre;
+            this.tBoxApellido.Text = this.pasajero.apellido;
+            this.tBoxEdad.Text = this.pasajero.Edad.ToString();
+        }
     }
 }

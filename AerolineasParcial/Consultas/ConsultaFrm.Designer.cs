@@ -38,7 +38,6 @@
             gridDatos = new DataGridView();
             tabControl = new TabControl();
             tabPage1 = new TabPage();
-            btnLimpiar = new Button();
             lblApellido = new Label();
             lblNombre = new Label();
             lblDNI = new Label();
@@ -47,6 +46,10 @@
             tBoxDNI = new TextBox();
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
+            btnBuscarAeronave = new Button();
+            label1 = new Label();
+            tBoxMatricula = new TextBox();
+            btnLimpiar = new Button();
             ((System.ComponentModel.ISupportInitialize)gridDatos).BeginInit();
             tabControl.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -57,7 +60,7 @@
             // btnBuscarPasajero
             // 
             btnBuscarPasajero.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnBuscarPasajero.Location = new Point(684, 33);
+            btnBuscarPasajero.Location = new Point(673, 38);
             btnBuscarPasajero.Name = "btnBuscarPasajero";
             btnBuscarPasajero.Size = new Size(78, 23);
             btnBuscarPasajero.TabIndex = 1;
@@ -74,7 +77,6 @@
             btnViaje.TabIndex = 2;
             btnViaje.Text = "VIAJE";
             btnViaje.UseVisualStyleBackColor = true;
-            btnViaje.Click += btnViaje_Click;
             // 
             // btnAeronave
             // 
@@ -85,7 +87,6 @@
             btnAeronave.TabIndex = 3;
             btnAeronave.Text = "AERONAVE";
             btnAeronave.UseVisualStyleBackColor = true;
-            btnAeronave.Click += btnAeronave_Click;
             // 
             // gridDatos
             // 
@@ -142,14 +143,13 @@
             tabControl.Location = new Point(0, 0);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
-            tabControl.Size = new Size(796, 143);
+            tabControl.Size = new Size(796, 126);
             tabControl.TabIndex = 0;
             tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
             // 
             // tabPage1
             // 
             tabPage1.BackColor = Color.Transparent;
-            tabPage1.Controls.Add(btnLimpiar);
             tabPage1.Controls.Add(lblApellido);
             tabPage1.Controls.Add(lblNombre);
             tabPage1.Controls.Add(lblDNI);
@@ -161,24 +161,14 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(788, 115);
+            tabPage1.Size = new Size(788, 98);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "PASAJEROS";
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.Location = new Point(684, 62);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(78, 23);
-            btnLimpiar.TabIndex = 17;
-            btnLimpiar.Text = "Reiniciar";
-            btnLimpiar.UseVisualStyleBackColor = true;
-            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // lblApellido
             // 
             lblApellido.AutoSize = true;
-            lblApellido.Location = new Point(451, 50);
+            lblApellido.Location = new Point(440, 41);
             lblApellido.Name = "lblApellido";
             lblApellido.Size = new Size(55, 15);
             lblApellido.TabIndex = 16;
@@ -187,7 +177,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(221, 50);
+            lblNombre.Location = new Point(209, 41);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(56, 15);
             lblNombre.TabIndex = 15;
@@ -196,7 +186,7 @@
             // lblDNI
             // 
             lblDNI.AutoSize = true;
-            lblDNI.Location = new Point(19, 50);
+            lblDNI.Location = new Point(8, 41);
             lblDNI.Name = "lblDNI";
             lblDNI.Size = new Size(32, 15);
             lblDNI.TabIndex = 14;
@@ -204,21 +194,21 @@
             // 
             // tBoxApellido
             // 
-            tBoxApellido.Location = new Point(512, 47);
+            tBoxApellido.Location = new Point(501, 38);
             tBoxApellido.Name = "tBoxApellido";
             tBoxApellido.Size = new Size(128, 23);
             tBoxApellido.TabIndex = 13;
             // 
             // tBoxNombre
             // 
-            tBoxNombre.Location = new Point(283, 47);
+            tBoxNombre.Location = new Point(271, 38);
             tBoxNombre.Name = "tBoxNombre";
             tBoxNombre.Size = new Size(128, 23);
             tBoxNombre.TabIndex = 12;
             // 
             // tBoxDNI
             // 
-            tBoxDNI.Location = new Point(57, 47);
+            tBoxDNI.Location = new Point(46, 38);
             tBoxDNI.Name = "tBoxDNI";
             tBoxDNI.Size = new Size(128, 23);
             tBoxDNI.TabIndex = 11;
@@ -230,27 +220,67 @@
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(788, 115);
+            tabPage2.Size = new Size(788, 98);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "VIAJE";
             tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(btnBuscarAeronave);
             tabPage3.Controls.Add(btnAeronave);
+            tabPage3.Controls.Add(label1);
+            tabPage3.Controls.Add(tBoxMatricula);
             tabPage3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(788, 115);
+            tabPage3.Size = new Size(788, 98);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "AERONAVE";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscarAeronave
+            // 
+            btnBuscarAeronave.Location = new Point(215, 38);
+            btnBuscarAeronave.Name = "btnBuscarAeronave";
+            btnBuscarAeronave.Size = new Size(75, 23);
+            btnBuscarAeronave.TabIndex = 5;
+            btnBuscarAeronave.Text = "Buscar";
+            btnBuscarAeronave.UseVisualStyleBackColor = true;
+            btnBuscarAeronave.Click += btnBuscarAeronave_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(8, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(62, 15);
+            label1.TabIndex = 3;
+            label1.Text = "Matricula:";
+            // 
+            // tBoxMatricula
+            // 
+            tBoxMatricula.Location = new Point(76, 38);
+            tBoxMatricula.Name = "tBoxMatricula";
+            tBoxMatricula.Size = new Size(122, 23);
+            tBoxMatricula.TabIndex = 4;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Location = new Point(706, 132);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(78, 23);
+            btnLimpiar.TabIndex = 17;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // ConsultaFrm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(796, 631);
+            Controls.Add(btnLimpiar);
             Controls.Add(tabControl);
             Controls.Add(gridDatos);
             Name = "ConsultaFrm";
@@ -262,6 +292,7 @@
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -281,5 +312,8 @@
         private TextBox tBoxNombre;
         private TextBox tBoxDNI;
         private TabPage tabPage3;
+        private Button btnBuscarAeronave;
+        private TextBox tBoxMatricula;
+        private Label label1;
     }
 }

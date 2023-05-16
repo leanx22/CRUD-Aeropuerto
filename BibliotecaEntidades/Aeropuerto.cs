@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
@@ -51,6 +52,7 @@ namespace BibliotecaEntidades
             }
             return resultados;
         }
+        
         /// <summary>
         /// Busca si algun pasajero en la lista coincide con el DNI. Deben ser iguales.
         /// El pasajero es retornado con OUT en caso de existir.
@@ -74,6 +76,32 @@ namespace BibliotecaEntidades
             }
             return ret;
         }
+
+        /// <summary>
+        /// Busca si alguna aeronave en la lista coincide con la matricula. Deben ser iguales.
+        /// La aeronave es retornada con OUT en caso de existir.
+        /// </summary>
+        /// <param name="matricula">Matricula de la aeronave que se desee encontrar.</param>
+        /// <param name="resultado">Parametro de salida donde se retornara una aeronave si se la encuentra.</param>
+        /// <returns>Retorna true o false, si encontro o no una aeronave coincidente.</returns>
+        public bool BuscarAeronave(string matricula, out Aeronave resultado)
+        {
+            resultado = new Aeronave();
+            bool ret = false;
+
+            foreach (Aeronave a in this.listaAeronaves)
+            {
+                if (a.Matricula == matricula.ToUpper())
+                {
+                    ret = true;
+                    resultado = a;
+                    break;
+                }
+            }
+            return ret;
+        }
+
+
 
         #endregion
 

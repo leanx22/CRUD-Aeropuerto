@@ -26,3 +26,6 @@ A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\Aerolineas
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.Properties.Resources.resources
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.CRUD.Bajas.FormBajaPasajero.resources
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.CRUD.Altas.FormAltaAeronave.resources
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.CRUD.Modificacion.FrmEditarAeronave.resources
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.CRUD.Bajas.FrmBajaAeronave.resources
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.CRUD.Altas.FormAltaViaje.resources

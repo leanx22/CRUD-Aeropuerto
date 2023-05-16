@@ -23,12 +23,12 @@ public enum EInternacional //Destinos internacionales.
         //NA = no asignado
 }
 
-public enum EOperacion
+public enum EOperacion//sacar
 {
     Alta,Baja,Modificacion
 }
 
-public enum EEntidad
+public enum EEntidad//sacar
 {
     Usuario,Pasajero,Vuelo,Aeronave
 }

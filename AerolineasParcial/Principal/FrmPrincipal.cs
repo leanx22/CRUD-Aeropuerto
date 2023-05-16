@@ -138,7 +138,7 @@ namespace AerolineasParcial
                 {
                     this.aeropuerto += ventana.Aeronave;
                     Archivos.GuardarAeronaves(this.aeropuerto.Aeronaves);
-                    MessageBox.Show("Alta exitosa","Exito!",MessageBoxButtons.OK,
+                    MessageBox.Show("Alta exitosa", "Exito!", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                 }
                 else
@@ -148,8 +148,47 @@ namespace AerolineasParcial
                 }
             }
         }
+
+        private void editarAeronaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Aeronave aeronave;
+            FrmEditarAeronave ventana = new FrmEditarAeronave(this.aeropuerto);
+            DialogResult res = ventana.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                aeronave = ventana.Aeronave;
+                this.aeropuerto -= aeronave;//utiliza equals elimino a la aeronave con la misma matric.
+                this.aeropuerto += aeronave;//lo reemplazo por la que tiene los nuevos datos.
+                Archivos.GuardarAeronaves(this.aeropuerto.Aeronaves);
+                MessageBox.Show("Edicion completa!", "Exito!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void bajaDeAeronaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Aeronave aeronave;
+            FrmBajaAeronave ventana = new FrmBajaAeronave(this.aeropuerto);
+            DialogResult res = ventana.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                aeronave = ventana.Aeronave;
+                this.aeropuerto -= aeronave;
+                Archivos.GuardarAeronaves(this.aeropuerto.Aeronaves);
+                MessageBox.Show("Aeronave eliminada!", "Exito!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         #endregion
 
+        #region VIAJE
+        private void nuevoViajeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAltaViaje ventana = new FormAltaViaje();
+            ventana.ShowDialog();
+        }
 
+        #endregion
     }
 }

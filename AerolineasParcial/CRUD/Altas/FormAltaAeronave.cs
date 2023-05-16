@@ -13,7 +13,7 @@ namespace AerolineasParcial.CRUD.Altas
 {
     public partial class FormAltaAeronave : Form
     {
-        Aeronave aeronave;
+        protected Aeronave aeronave;
         public FormAltaAeronave()
         {
             InitializeComponent();
@@ -44,7 +44,7 @@ namespace AerolineasParcial.CRUD.Altas
             this.numBanios.Maximum = 8; // Mayor cantidad que pueden tener segun Google.
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
+        protected virtual void btnOK_Click(object sender, EventArgs e)
         {
             if (!Aeronave.ValidarMatricula(tBoxMatricula.Text))
             {
@@ -83,7 +83,13 @@ namespace AerolineasParcial.CRUD.Altas
                 this.Close();
             }
         }
-
-
+        protected void UpdateUIInfo()
+        {
+            this.numAsientos.Value = this.aeronave.Asientos;
+            this.numBanios.Value = this.aeronave.Banios;
+            this.numBodega.Value = this.aeronave.bodega;
+            this.chbxComida.Checked = this.aeronave.Comida;
+            this.chbxInternet.Checked = this.aeronave.Internet;
+        }
     }
 }

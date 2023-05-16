@@ -68,14 +68,7 @@ namespace AerolineasParcial.CRUD.Bajas
             }
 
             base.btnGuardar.Enabled = true;
-            UpdateUIInfo();
-        }
-
-        private void UpdateUIInfo()
-        {
-            base.tBoxNombre.Text = base.Pasajero.nombre;
-            base.tBoxApellido.Text = base.Pasajero.apellido;
-            base.tBoxEdad.Text = base.Pasajero.Edad.ToString();
+            base.UpdateUIInfo();
         }
 
     }

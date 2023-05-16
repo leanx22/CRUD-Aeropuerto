@@ -1,1 +1,1 @@
-[{"Matricula":"ABCD1234","Asientos":2,"Banios":1,"Internet":false,"Comida":true,"bodega":5000}]
+[{"Matricula":"ABCD1234","Asientos":800,"Banios":8,"Internet":false,"Comida":false,"bodega":15000},{"Matricula":"LVMM4444","Asientos":500,"Banios":3,"Internet":true,"Comida":true,"bodega":14500}]

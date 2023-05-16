@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace BibliotecaEntidades
 {
-    public class Viaje
+    public class Viaje//(o vuelo)
     {
         private bool esInternacional;
         private string partida;
         private string destino;
-        //private EInternacional destinoInternacional;
-       //private ENacional detinoNacional;
-        //private string fechaDeVuelo;
         private DateTime fechaDeVuelo;
         private Aeronave avionAsignado;
         private int asientosPremium;
@@ -23,13 +20,15 @@ namespace BibliotecaEntidades
         private float duracion;
         private List<Pasajero> listaPasajeros;
 
+        private Random rand;
+
         public Viaje()
         {
+            rand = new Random();
+
             this.esInternacional = false;
             this.partida = "No especificada";
             this.destino = ENacional.NA.ToString(); //utilizar .ToString() en el enum al asignar.
-            //destinoInternacional = EInternacional.NA;
-            //detinoNacional = ENacional.NA;
             this.fechaDeVuelo = DateTime.Now;
             this.avionAsignado = new Aeronave();
             this.asientosPremium = 0;
@@ -42,13 +41,11 @@ namespace BibliotecaEntidades
 
         public Viaje(bool esInternacional, string partida, string destino, DateTime fechaDeVuelo,
             Aeronave avionAsignado, int asientosPremium, int asientosTurista, float costoPremium,
-            float costoTurista, float duracion,List<Pasajero> listaPasajeros)
+            float costoTurista, float duracion,List<Pasajero> listaPasajeros):this()
         {
             this.esInternacional = esInternacional;
             this.partida = partida;
             this.destino = destino;
-            //destinoInternacional = EInternacional.NA;
-            //detinoNacional = ENacional.NA;
             this.fechaDeVuelo = fechaDeVuelo;
             this.avionAsignado = avionAsignado;
             this.asientosPremium = asientosPremium;

@@ -54,20 +54,13 @@ namespace AerolineasParcial.CRUD.Modificacion
             }
 
             tBoxDni.Enabled = false;
-            UpdateUIInfo();
+            base.UpdateUIInfo();
             base.btnGuardar.Enabled = true;
             base.tBoxNombre.Enabled = true;
             base.tBoxApellido.Enabled = true;
             base.tBoxEdad.Enabled = true;
             this.btnBuscar.Enabled = false;
 
-        }
-
-        private void UpdateUIInfo()
-        {
-            base.tBoxNombre.Text = this.pasajero.nombre;
-            base.tBoxApellido.Text = this.pasajero.apellido;
-            base.tBoxEdad.Text = this.pasajero.Edad.ToString();
         }
        
     }
