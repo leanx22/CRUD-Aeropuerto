@@ -14,9 +14,9 @@ namespace AerolineasParcial.CRUD.Altas
 {
     public partial class FormAltaViaje : Form
     {
-        Aeropuerto aeropuerto;
-        Aeronave aeronave;
-        Viaje viaje;
+        protected Aeropuerto aeropuerto;
+        protected Aeronave aeronave;
+        protected Viaje viaje;
         public FormAltaViaje()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace AerolineasParcial.CRUD.Altas
 
         public Viaje Viaje { get { return this.viaje; } }
 
-        private void FormAltaViaje_Load(object sender, EventArgs e)
+        protected virtual void FormAltaViaje_Load(object sender, EventArgs e)
         {
             #region FORMULARIO
             this.MaximizeBox = false;
@@ -43,7 +43,7 @@ namespace AerolineasParcial.CRUD.Altas
 
             #region TEXTOS
             this.Text = "Alta de viaje";
-            this.lblTitulo.Text = "Destino";
+            this.lblTitulo.Text = "Nuevo viaje";
             this.btnOK.Text = "Guardar";
             this.btnCancel.Text = "Cancel";
             this.chbxInternacional.Text = "Internacional";
@@ -51,7 +51,7 @@ namespace AerolineasParcial.CRUD.Altas
             #endregion
 
             #region CONTROLES
-            this.dateTimePicker.MinDate = DateTime.Now; //No se puede crear un viaje en el pasado.
+            this.dateTimePicker.MinDate = DateTime.Today; //No se puede crear un viaje en el pasado.
             this.chbxInternacional.Checked = false;//Por defecto, el viaje sera con destino nacional.
             this.cBoxDestinos.DataSource = Enum.GetValues(typeof(ENacional));//Por defecto, el comboBox mostrara los destinos nacionales.
             this.tBoxDuracion.Enabled = false;
@@ -113,13 +113,13 @@ namespace AerolineasParcial.CRUD.Altas
             }
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
+        protected virtual void btnOK_Click(object sender, EventArgs e)
         {
             //OJO, LA AERONAVE SELECCIONADA DEBE CAMBIAR A NO DISPONIBLE!
-            if (cBoxDestinos.SelectedItem==null)
+            if (cBoxDestinos.SelectedItem == null)
             {
-                MessageBox.Show("Se debe seleccionar un destino","Error",
-                    MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Se debe seleccionar un destino", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -137,18 +137,27 @@ namespace AerolineasParcial.CRUD.Altas
                 return;
             }
 
-            this.aeronave.Disponible = false;
-            this.viaje = new Viaje(this.chbxInternacional.Checked,this.tBoxPartida.Text,
-                this.cBoxDestinos.SelectedValue.ToString(),this.dateTimePicker.Value,
-                this.aeronave.Matricula,int.Parse(this.lblCantPremium.Text),int.Parse(this.lblCantTurista.Text),
-                float.Parse(this.lblPrecioPremium.Text),float.Parse(this.lblPrecioTurista.Text),
-                int.Parse(this.tBoxDuracion.Text),new List<Pasajero>(),EEstadoDeVuelo.Pendiente);
+            if (this.aeronave == this.dateTimePicker.Value.Date)
+            {
+                MessageBox.Show("La aeronave ya tiene un viaje en la fecha indicada!.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //this.aeronave.Disponible = false;
+            this.aeronave.Agenda.Add(this.dateTimePicker.Value.Date);
+            this.aeronave.HorasDeVuelo += int.Parse(this.tBoxDuracion.Text);
+            this.viaje = new Viaje(this.chbxInternacional.Checked, this.tBoxPartida.Text,
+                this.cBoxDestinos.SelectedValue.ToString(), this.dateTimePicker.Value.Date,
+                this.aeronave.Matricula, int.Parse(this.lblCantPremium.Text), int.Parse(this.lblCantTurista.Text),
+                float.Parse(this.lblPrecioPremium.Text), float.Parse(this.lblPrecioTurista.Text),
+                int.Parse(this.tBoxDuracion.Text), new List<Pasajero>(), EEstadoDeVuelo.Pendiente);
 
             this.DialogResult = DialogResult.OK;
 
         }
 
-        private void ActualizarPrecio()
+        protected void ActualizarPrecio()
         {
             int horas = int.Parse(this.tBoxDuracion.Text);
             float precioTurista;

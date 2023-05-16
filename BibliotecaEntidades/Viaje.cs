@@ -20,6 +20,7 @@ namespace BibliotecaEntidades
         private float costoTurista;
         private float duracion;
         private List<Pasajero> listaPasajeros;        
+        
         private static Random rand;
 
         static Viaje()
@@ -32,7 +33,7 @@ namespace BibliotecaEntidades
             this.esInternacional = false;
             this.partida = "No especificada";
             this.destino = ENacional.SantaRosa.ToString(); //utilizar .ToString() en el enum al asignar.
-            this.fechaDeVuelo = DateTime.Now;
+            this.fechaDeVuelo = DateTime.Today;
             this.avionAsignado = "AAAA0000";
             this.asientosPremium = 0;
             this.asientosTurista = 0;
@@ -101,8 +102,8 @@ namespace BibliotecaEntidades
         }
         
         /// <summary>
-        /// Esta funcion calcula la cantidad de asientos premium de una aeronave (20% de sus asientos)
-        /// 
+        /// Esta funcion calcula la cantidad de asientos premium y turista 
+        /// de una aeronave (20% de sus asientos)
         /// </summary>
         /// <param name="aeronave">
         /// Aeronave de la cual se quieran calcular sus asientos.
@@ -165,7 +166,7 @@ namespace BibliotecaEntidades
         #region SOBRECARGA DE OPs
         public static bool operator ==(Viaje v1, Viaje v2)
         {
-            return (v1.destino == v2.destino)&&(v1.fechaDeVuelo==v2.fechaDeVuelo)&&
+            return (v1.destino == v2.destino)&&(v1.fechaDeVuelo.Date==v2.fechaDeVuelo.Date)&&
                 (v1.avionAsignado==v2.avionAsignado);
         }
         public static bool operator !=(Viaje v1, Viaje v2)

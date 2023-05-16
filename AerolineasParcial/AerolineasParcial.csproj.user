@@ -7,6 +7,9 @@
     <Compile Update="Consultas\ConsultaFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Consultas\FormViajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Consultas\FrmSelectorAeronaves.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -29,6 +32,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="CRUD\Modificacion\FrmEditarPasajero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CRUD\Modificacion\FrmEditarViaje.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Principal\InicioSesion.cs">

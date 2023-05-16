@@ -206,6 +206,24 @@ namespace AerolineasParcial
 
         }
 
+        private void editarViajeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEditarViaje ventana = new FrmEditarViaje(this.aeropuerto);
+            DialogResult res = ventana.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                if (this.aeropuerto != ventana.Viaje)
+                {
+                    this.aeropuerto += ventana.Viaje;
+                    //Archivos.GuardarViajes(this.aeropuerto.Viajes);
+                    MessageBox.Show("Edicion completa", "Exito!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+            }
+        }
+
         #endregion
+
+
     }
 }

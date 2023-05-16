@@ -15,8 +15,8 @@ namespace BibliotecaEntidades
         private bool comida;
         private int capacidadBodega;
         private bool disponible;
-        
-
+        private int horasDeVuelo;
+        private List<DateTime> agendaDeVuelos;
         public Aeronave()
         {
             this.matricula = "AAAA0000";
@@ -26,10 +26,13 @@ namespace BibliotecaEntidades
             this.comida = false;
             this.capacidadBodega = 0;
             this.disponible = true;
+            this.horasDeVuelo = 0;
+            this.agendaDeVuelos = new List<DateTime>();
         }
 
         public Aeronave(string matricula, int asientos, int banios,
-            bool internet, bool comida, int bodega,bool disponible)
+            bool internet, bool comida, int bodega,bool disponible,int horasDeVuelo,
+            List<DateTime> agenda)
         {
             this.matricula = matricula;
             this.asientos = asientos;
@@ -38,6 +41,8 @@ namespace BibliotecaEntidades
             this.comida = comida;
             this.capacidadBodega = bodega;
             this.disponible = disponible;
+            this.horasDeVuelo = horasDeVuelo;
+            this.agendaDeVuelos = agenda;
         }
 
         #region METODOS
@@ -111,6 +116,8 @@ namespace BibliotecaEntidades
             set { capacidadBodega = value; } //no puede ser negativo o 0.
         }
         public bool Disponible { get { return this.disponible; } set { this.disponible = value; } }
+        public int HorasDeVuelo { get { return this.horasDeVuelo; } set { horasDeVuelo = value; } }
+        public List<DateTime> Agenda { get { return agendaDeVuelos; } }
         #endregion
 
         #region SOBRECARGA DE OPs
@@ -122,6 +129,50 @@ namespace BibliotecaEntidades
         {
             return !(a1 == a2);
         }
+        
+        /// <summary>
+        /// Esta sobrecarga busca si ya existe la fecha indicada en la agenda de la aeronave.
+        /// </summary>
+        /// <param name="a1">Aeronave la cual se validara su agenda</param>
+        /// <param name="fecha">Fecha a buscar en la agenda</param>
+        /// <returns>Retorna TRUE si la fecha existe, caso contrario FALSE.</returns>
+        public static bool operator ==(Aeronave a1, DateTime fecha)
+        {
+            bool ret = false;
+            foreach (DateTime dt in a1.Agenda)
+            {
+                if (dt.Date == fecha)
+                {
+                    ret = true;
+                    break;
+                }
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// Esta sobrecarga busca una fecha en la agenda.
+        /// </summary>
+        /// <param name="a1">Aeronave cuya agenda desea verificar.</param>
+        /// <param name="fecha">Fecha a buscar.</param>
+        /// <returns>Retorna TRUE si no la encuentra, caso positivo retorna FALSE</returns>
+        public static bool operator !=(Aeronave a1, DateTime fecha)
+        {
+            return !(a1 == fecha);
+        }
+
+        public static Aeronave operator +(Aeronave a1, DateTime fecha)
+        {
+            a1.agendaDeVuelos.Add(fecha);
+            return a1;
+        }
+
+        public static Aeronave operator -(Aeronave a1, DateTime fecha)
+        {
+            a1.agendaDeVuelos.Remove(fecha);
+            return a1;
+        }
+
         #endregion
 
         public override bool Equals(object? obj)
