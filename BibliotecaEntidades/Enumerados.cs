@@ -23,16 +23,6 @@ public enum EInternacional //Destinos internacionales.
         //NA = no asignado
 }
 
-public enum EOperacion//sacar
-{
-    Alta,Baja,Modificacion
-}
-
-public enum EEntidad//sacar
-{
-    Usuario,Pasajero,Vuelo,Aeronave
-}
-
 public enum ETipoEquipaje
 {
     Mano,Bodega
