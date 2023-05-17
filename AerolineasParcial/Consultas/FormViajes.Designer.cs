@@ -44,7 +44,7 @@
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(75, 23);
             btnModificar.TabIndex = 2;
-            btnModificar.Text = "Modificar";
+            btnModificar.Text = "Seleccionar";
             btnModificar.UseVisualStyleBackColor = true;
             btnModificar.Click += btnModificar_Click;
             // 

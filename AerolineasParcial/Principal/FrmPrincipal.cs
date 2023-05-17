@@ -2,6 +2,7 @@
 using AerolineasParcial.CRUD.Altas;
 using AerolineasParcial.CRUD.Bajas;
 using AerolineasParcial.CRUD.Modificacion;
+using AerolineasParcial.Principal;
 using BibliotecaEntidades;
 using System;
 using System.Collections.Generic;
@@ -57,6 +58,26 @@ namespace AerolineasParcial
             #endregion
 
             IniciarSesion();
+
+            #region Desactivo todos los controles
+            this.btnAltaPasajero.Enabled = false;
+            this.btnModificarPasajero.Enabled = false;
+            this.btnBajaPasajero.Enabled = false;
+
+            this.btnAltaAeronave.Enabled = false;
+            this.btnModificarAeronave.Enabled = false;
+            this.btnBajaAeronave.Enabled = false;
+
+            this.btnAltaViaje.Enabled = false;
+            this.btnModificarViaje.Enabled = false;
+            this.btnBajaViaje.Enabled = false;
+
+            this.btnListado.Enabled = false;//Listado
+            this.btnVenta.Enabled = false;//Vender
+            this.btnEstadisticas.Enabled = false;//Estadisticas
+            #endregion
+            
+            //Los activo segun el perfil.
             EstablecerOperaciones();
         }
 
@@ -68,7 +89,7 @@ namespace AerolineasParcial
             {
                 this.usuario = ventanaSesion.Usuario;
 
-                this.lblUsuario.Text = " Sesion: " + this.usuario.apellido +
+                this.lblUsuario.Text = " [" + this.usuario.perfil + "] " + this.usuario.apellido +
                   " " + this.usuario.nombre + " - " +
                   DateTime.Now.ToShortDateString();
             }
@@ -76,6 +97,35 @@ namespace AerolineasParcial
 
         private void EstablecerOperaciones()
         {
+            if (this.usuario.perfil == EPerfil.vendedor)
+            {
+                this.btnListado.Enabled = true;//Listado
+                this.btnVenta.Enabled = true;//Vender
+                this.btnEstadisticas.Enabled = true;//Estadisticas
+                this.btnAltaPasajero.Enabled = true;//CRUD
+                this.btnModificarPasajero.Enabled = true;
+                this.btnBajaPasajero.Enabled = true;
+            }
+
+            if (this.usuario.perfil == EPerfil.supervisor)
+            {
+                this.btnListado.Enabled = false;//Listado
+                this.btnAltaPasajero.Enabled = true;//CRUD
+                this.btnModificarPasajero.Enabled = true;
+                this.btnBajaPasajero.Enabled = true;
+                this.btnEstadisticas.Enabled = true;
+            }
+
+            if (this.usuario.perfil == EPerfil.administrador)
+            {
+                this.btnAltaAeronave.Enabled = true;
+                this.btnModificarAeronave.Enabled = true;
+                this.btnBajaAeronave.Enabled = true;
+
+                this.btnAltaViaje.Enabled = true;
+                this.btnModificarViaje.Enabled = true;
+                this.btnBajaViaje.Enabled = true;
+            }
 
         }
 
@@ -257,7 +307,7 @@ namespace AerolineasParcial
                 MessageBox.Show("Viaje eliminado!", "Exito!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
         }
 
         #endregion
@@ -268,6 +318,14 @@ namespace AerolineasParcial
             consulta.Show(this);//dialog?
         }
 
-        
+        private void btnVenta_Click(object sender, EventArgs e)
+        {
+            FormVenta ventana = new FormVenta(this.aeropuerto);
+            DialogResult res = ventana.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                MessageBox.Show("Que tenga buen viaje.","Exito!",MessageBoxButtons.OK);
+            }
+        }
     }
 }

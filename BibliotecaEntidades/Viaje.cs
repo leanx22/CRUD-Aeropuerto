@@ -173,6 +173,34 @@ namespace BibliotecaEntidades
         {
             return !(v1 == v2);
         }
+
+        /// <summary>
+        /// Sobrecarga que agrega al pasajero a la lista de pasajeros del viaje.
+        /// </summary>
+        /// <param name="v1">Viaje</param>
+        /// <param name="p1">Pasajero que se quiere agregar</param>
+        /// <returns>Retorna un nuevo viaje con el pasajero agregado en su lista.</returns>
+        public static Viaje operator +(Viaje v1, Pasajero p1)
+        {
+            v1.ListaPasajeros.Add(p1);
+            return v1;
+        }
+
+        public static Viaje operator -(Viaje v1, Pasajero p1)
+        {
+            v1.ListaPasajeros.Remove(p1);
+            return v1;
+        }
+
+        public static bool operator ==(Viaje v1, Pasajero p1)
+        {           
+            return v1.ListaPasajeros.Contains(p1);
+        }
+
+        public static bool operator !=(Viaje v1, Pasajero p1)
+        {
+            return !v1.ListaPasajeros.Contains(p1);
+        }
         #endregion
 
         public override bool Equals(object? obj)

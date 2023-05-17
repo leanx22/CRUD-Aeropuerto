@@ -101,7 +101,21 @@ namespace BibliotecaEntidades
             return ret;
         }
 
+        /// <summary>
+        /// Funcion que suma el IVA (21%) a un valor.
+        /// </summary>
+        /// <param name="valorInicial">
+        /// Valor sin IVA a el cual se lo quiera calcular.
+        /// </param>
+        /// <returns>Retorna el valor ingresado + IVA(21%)</returns>
+        public static float CalcularIVA(float valorInicial)
+        {
+            float resultado;
 
+            resultado = valorInicial + (valorInicial*0.21f);
+
+            return resultado;
+        }
 
         #endregion
 

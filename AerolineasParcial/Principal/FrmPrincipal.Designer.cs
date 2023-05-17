@@ -110,6 +110,7 @@
             btnVenta.TabIndex = 4;
             btnVenta.Text = "NUEVA VENTA";
             btnVenta.UseVisualStyleBackColor = true;
+            btnVenta.Click += btnVenta_Click;
             // 
             // btnListado
             // 
@@ -207,7 +208,7 @@
             btnAltaAeronave.ForeColor = Color.FromArgb(145, 155, 176);
             btnAltaAeronave.Location = new Point(366, 66);
             btnAltaAeronave.Name = "btnAltaAeronave";
-            btnAltaAeronave.Size = new Size(300, 301);
+            btnAltaAeronave.Size = new Size(300, 300);
             btnAltaAeronave.TabIndex = 9;
             btnAltaAeronave.Text = "AERONAVE";
             btnAltaAeronave.UseVisualStyleBackColor = false;
@@ -225,7 +226,7 @@
             btnAltaViaje.ForeColor = Color.FromArgb(145, 155, 176);
             btnAltaViaje.Location = new Point(716, 66);
             btnAltaViaje.Name = "btnAltaViaje";
-            btnAltaViaje.Size = new Size(300, 301);
+            btnAltaViaje.Size = new Size(300, 300);
             btnAltaViaje.TabIndex = 8;
             btnAltaViaje.Text = "VIAJE";
             btnAltaViaje.UseVisualStyleBackColor = false;
@@ -243,7 +244,7 @@
             btnAltaPasajero.ForeColor = Color.FromArgb(145, 155, 176);
             btnAltaPasajero.Location = new Point(12, 66);
             btnAltaPasajero.Name = "btnAltaPasajero";
-            btnAltaPasajero.Size = new Size(300, 301);
+            btnAltaPasajero.Size = new Size(300, 300);
             btnAltaPasajero.TabIndex = 7;
             btnAltaPasajero.Text = "PASAJERO";
             btnAltaPasajero.UseVisualStyleBackColor = false;

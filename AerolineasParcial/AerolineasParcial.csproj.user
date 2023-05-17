@@ -40,6 +40,9 @@
     <Compile Update="CRUD\Modificacion\FrmEditarViaje.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Principal\FormVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Principal\InicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
