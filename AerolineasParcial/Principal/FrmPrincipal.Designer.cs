@@ -42,6 +42,7 @@
             btnAltas = new Button();
             gridVuelos = new DataGridView();
             lblTitulo = new Label();
+            lblAyuda = new Label();
             pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridVuelos).BeginInit();
@@ -67,7 +68,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.userIcon;
-            pictureBox1.Location = new Point(4, 12);
+            pictureBox1.Location = new Point(3, 50);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(176, 93);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -81,7 +82,7 @@
             lblUsuario.FlatStyle = FlatStyle.Flat;
             lblUsuario.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblUsuario.ForeColor = Color.White;
-            lblUsuario.Location = new Point(39, 108);
+            lblUsuario.Location = new Point(40, 146);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(102, 20);
             lblUsuario.TabIndex = 6;
@@ -180,11 +181,11 @@
             gridVuelos.BorderStyle = BorderStyle.None;
             gridVuelos.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             gridVuelos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(14, 110, 140);
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(19, 150, 191);
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(14, 110, 140);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(19, 150, 191);
             dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             gridVuelos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
@@ -213,6 +214,7 @@
             gridVuelos.RowTemplate.Height = 50;
             gridVuelos.Size = new Size(843, 515);
             gridVuelos.TabIndex = 5;
+            gridVuelos.CellMouseDoubleClick += gridVuelos_CellMouseDoubleClick;
             // 
             // lblTitulo
             // 
@@ -227,12 +229,25 @@
             lblTitulo.TabIndex = 6;
             lblTitulo.Text = "VUELOS";
             // 
+            // lblAyuda
+            // 
+            lblAyuda.AutoSize = true;
+            lblAyuda.BackColor = Color.Transparent;
+            lblAyuda.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAyuda.ForeColor = Color.FromArgb(14, 110, 140);
+            lblAyuda.Location = new Point(675, 85);
+            lblAyuda.Name = "lblAyuda";
+            lblAyuda.Size = new Size(353, 20);
+            lblAyuda.TabIndex = 7;
+            lblAyuda.Text = "Haga doble click en un vuelo para ver sus detalles";
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(9, 70, 89);
             ClientSize = new Size(1028, 623);
+            Controls.Add(lblAyuda);
             Controls.Add(lblTitulo);
             Controls.Add(gridVuelos);
             Controls.Add(pnlMenu);
@@ -260,5 +275,6 @@
         private PictureBox pictureBox1;
         private DataGridView gridVuelos;
         private Label lblTitulo;
+        private Label lblAyuda;
     }
 }

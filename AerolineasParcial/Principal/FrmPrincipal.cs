@@ -1,4 +1,5 @@
-﻿using AerolineasParcial.CRUD;
+﻿using AerolineasParcial.Consultas;
+using AerolineasParcial.CRUD;
 using AerolineasParcial.CRUD.Altas;
 using AerolineasParcial.CRUD.Bajas;
 using AerolineasParcial.CRUD.Modificacion;
@@ -21,12 +22,14 @@ namespace AerolineasParcial
     {
         private Usuario usuario;
         private Aeropuerto aeropuerto;
+        private ToolTip tTip;
 
         public FrmPrincipal()
         {
             InitializeComponent();
             this.usuario = new Usuario();
             this.aeropuerto = new Aeropuerto();
+            this.tTip = new ToolTip();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -34,10 +37,12 @@ namespace AerolineasParcial
         {
             this.lblUsuario.Text = "Invitado.";
             this.lblUsuario.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
+            this.lblAyuda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 
             #region Anchors
             this.lblUsuario.Anchor = AnchorStyles.Left | AnchorStyles.Top;
             #endregion
+
 
             this.gridVuelos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom |
                 AnchorStyles.Right | AnchorStyles.Left;
@@ -48,6 +53,16 @@ namespace AerolineasParcial
             this.gridVuelos.AllowUserToResizeColumns = false;
             this.gridVuelos.AllowUserToResizeRows = false;
             this.gridVuelos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            this.gridVuelos.Columns["EsInternacional"].Visible = false;
+            this.gridVuelos.Columns["AvionAsignado"].Visible = false;
+            this.gridVuelos.Columns["CostoPremium"].Visible = false;
+            this.gridVuelos.Columns["CostoTurista"].Visible = false;
+
+            this.gridVuelos.Columns["AsientosPremium"].HeaderText = "Asientos premium";
+            this.gridVuelos.Columns["AsientosTurista"].HeaderText = "Asientos turista";
+            this.gridVuelos.Columns["Duracion"].HeaderText = "Duracion del vuelo";
+            this.gridVuelos.Columns["FechaDeVuelo"].HeaderText = "Fecha de salida";
 
             IniciarSesion();
 
@@ -304,5 +319,21 @@ namespace AerolineasParcial
 
         #endregion
 
+        private void gridVuelos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Viaje viaje = new Viaje();
+
+            //Si no hay vuelos seleccionados:
+            if (gridVuelos.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Para ver los detalles, primero debe seleccionar un vuelo.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            viaje = this.aeropuerto.Viajes[gridVuelos.SelectedRows[0].Index];
+            FrmDetallesVuelo ventana = new FrmDetallesVuelo(viaje);
+            ventana.Show(this);
+        }
     }
 }

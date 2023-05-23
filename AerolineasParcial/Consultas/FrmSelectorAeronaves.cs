@@ -52,7 +52,7 @@ namespace AerolineasParcial.Consultas
             }
 
             //obtengo el indice de la seleccion.            
-            indice = indice = dataGridView1.SelectedRows[0].Index;
+            indice = dataGridView1.SelectedRows[0].Index;
             this.aeronave = this.aeropuerto.Aeronaves[indice];
 
             if (!this.aeronave.Disponible)
