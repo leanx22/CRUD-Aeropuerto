@@ -8,8 +8,9 @@ namespace AerolineasParcial
 {
     public partial class FrmInicioSesion : Form
     {
-        public List<Usuario> listaUsers; //pasar a private
+        private List<Usuario> listaUsers;
         private Usuario usuario;
+        
         public FrmInicioSesion()
         {
             InitializeComponent();
@@ -18,9 +19,14 @@ namespace AerolineasParcial
             this.usuario = new Usuario();            
         }
 
+        #region PROPIEDADES
+        
         public Usuario Usuario { get { return this.usuario; } }
 
-        private void Form1_Load(object sender, EventArgs e)
+        #endregion
+
+        #region METODOS_FORM
+        private void InicioSesion_Load(object sender, EventArgs e)
         {
             tBoxUser.PlaceholderText = "empleado@mail.com";
             tBoxPswrd.PlaceholderText = "Ingrese aqui su contrasena";
@@ -31,9 +37,8 @@ namespace AerolineasParcial
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle; //Para que no se pueda reescalar.
             this.MaximizeBox = false;
-            this.ControlBox = false;
 
-            if (!Usuario.Deserealizar("MOCK_DATA.json", out this.listaUsers))
+            if (!Archivos.DeserealizarUsuarios("MOCK_DATA.json", out this.listaUsers))
             {
                 btnAceptar.Enabled = false;
                 MessageBox.Show("Hubo un error al intentar deserealizar el archivo de users.",
@@ -43,7 +48,8 @@ namespace AerolineasParcial
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (ValidarCredenciales(tBoxUser.Text, tBoxPswrd.Text))
+            if (Usuario.ValidarCredenciales(tBoxUser.Text, tBoxPswrd.Text,
+                this.listaUsers, out this.usuario))
             {
                 this.DialogResult = DialogResult.OK;
             }
@@ -58,22 +64,8 @@ namespace AerolineasParcial
         {
             Application.Exit();//Es correcto su uso?
         }
-        
-        private bool ValidarCredenciales(string mail, string contrasena)
-        {
-            //Recorre la lista y busca coincidencia de correo&clave
-            bool ret = false;
 
-            foreach (Usuario us in this.listaUsers)
-            {
-                if (us.correo == mail && us.clave==contrasena)
-                {
-                    this.usuario = us;
-                    ret = true;
-                    break;
-                }
-            }
-            return ret;
-        }
+        #endregion
+
     }
 }

@@ -3,14 +3,54 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace BibliotecaEntidades
 {
     public static class Archivos
     {
+        #region USUARIOS
+
+        /// <summary>
+        /// Deserealiza el jSon de usuarios en la lista que se le pase por parametro y la inicializa.
+        /// </summary>
+        /// <param name="filename">Nombre del archivo a deserealizar.</param>
+        /// <param name="lista">Salida de la lista deserealizada.</param>
+        /// <returns>Retorna true o false dependiendo del exito de la operacion.</returns>
+        public static bool DeserealizarUsuarios(string filename, out List<Usuario> lista)
+        {
+            JsonSerializerOptions jSonOptions = new JsonSerializerOptions();
+            lista = new List<Usuario>();
+            string jsonText;
+            bool ret = false;
+
+            if (File.Exists(filename))
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(filename))
+                    {
+                        jsonText = reader.ReadToEnd();
+
+                        //Nueva opcion para que pueda deserealizar los strings como enum.
+                        jSonOptions.Converters.Add(new JsonStringEnumConverter());
+                        lista = (List<Usuario>)JsonSerializer.Deserialize(jsonText, typeof(List<Usuario>), jSonOptions);
+                        ret = true;
+                    }
+                }
+                catch
+                {
+                    ret = false;
+                }
+            }
+            return ret;
+        }
+
+        #endregion
+
         #region PASAJEROS
-        
+
         /// <summary>
         /// Deserealiza el archivo donde se guarda la lista de pasajeros.
         /// </summary>

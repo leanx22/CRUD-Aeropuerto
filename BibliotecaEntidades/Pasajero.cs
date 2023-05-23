@@ -10,27 +10,29 @@ namespace BibliotecaEntidades
 {
     public class Pasajero:Persona
     {
-        //private string apellido;
-        //private string nombre;
+        //nombre (h)
+        //apellido (h)
         private long dni;
         private short edad;
-        private Dictionary<ETipoEquipaje, int> equipaje;
+        //Diccionario anidado para el equipaje (Tipo/Cantidad,Peso)
+        private Dictionary<ETipoEquipaje, Dictionary<int,int>> equipaje;
         
 
         public Pasajero() : base()
         {
-            //this.apellido = "Sin apellido";
-            //this.nombre = "Sin nombre";
+            //nombre (base)
+            //apellido (base)
             this.dni = 00112233;
             this.edad = 0;
-            this.equipaje = new Dictionary<ETipoEquipaje, int>();
+            this.equipaje = new Dictionary<ETipoEquipaje, Dictionary<int,int>>();
         }
 
         public Pasajero(string nombre, string apellido, long dni,
-            short edad, Dictionary<ETipoEquipaje,int> equipaje):base(nombre,apellido)
+            short edad, Dictionary<ETipoEquipaje,Dictionary<int, int>> equipaje)
+            :base(nombre,apellido)
         {
-            //this.nombre = nombre;
-            //this.apellido = apellido;
+            //nombre (base)
+            //apellido (base)
             this.dni = dni;
             this.edad = edad;
             this.equipaje = equipaje;
@@ -47,7 +49,7 @@ namespace BibliotecaEntidades
             get { return edad; }
             set { edad = value; }
         }
-        public Dictionary<ETipoEquipaje, int> Equipaje
+        public Dictionary<ETipoEquipaje, Dictionary<int, int>> Equipaje
         {
             get { return equipaje; }
             set { equipaje = value; }

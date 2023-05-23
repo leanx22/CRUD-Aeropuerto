@@ -115,7 +115,7 @@
             Controls.Add(btnAceptar);
             Name = "FrmInicioSesion";
             Text = "Inicio de sesion";
-            Load += Form1_Load;
+            Load += InicioSesion_Load;
             GrpBox.ResumeLayout(false);
             GrpBox.PerformLayout();
             ResumeLayout(false);

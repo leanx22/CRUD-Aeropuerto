@@ -7,8 +7,8 @@ namespace BibliotecaEntidades
 {   
     public class Usuario:Persona
     {
-        //private string Apellido;
-        //private string Nombre;
+        //nombre (h)
+        //apellido (h)
         private int Legajo;
         private string Correo;
         private string Clave;
@@ -16,21 +16,19 @@ namespace BibliotecaEntidades
 
         public Usuario():base()
         {
-            //this.Apellido = "Sin apellido";
-            //this.Nombre = "Sin nombre";
+            //nombre (base)
+            //apellido (base)
             this.Legajo = -1;
             this.Correo = "Sin correo";
             this.Clave = "Sin clave";
-            //this.Perfil = "No asignado";
             this.Perfil = EPerfil.vendedor;
-            //this.eperfil = EPerfiles.NA;
         }
 
         public Usuario(string apellido, string nombre, int legajo, string correo,
             string clave, EPerfil perfil) : base(nombre,apellido)
         {
-            //this.Apellido = apellido;
-            //this.Nombre = nombre;
+            //nombre (base)
+            //apellido (base)
             this.Legajo = legajo;
             this.Correo = correo;
             this.Clave = clave;
@@ -38,8 +36,7 @@ namespace BibliotecaEntidades
         }
 
         #region PROPIEDADES
-        //public string apellido { get { return Apellido; } set { Apellido = value; } }
-        //public string nombre { get { return Nombre; } set { Nombre = value; } }
+        //Prop de nombre y apellido en base
         public int legajo { get { return Legajo; } set { Legajo = value; } }
         public string correo { get { return Correo; } set { Correo = value; } }
         public string clave { get { return Clave; } set { Clave = value; } }
@@ -47,36 +44,39 @@ namespace BibliotecaEntidades
         #endregion
 
         #region METODOS        
+
         /// <summary>
-        /// Deserealiza el jSon de usuarios en la lista que se le pase por parametro y la inicializa.
+        /// Esta funcion se encarga de buscar coincidencias de mail&clave en una lista de usuarios.
+        /// Si se encuentra una igualdad se guardara al usuario en la variable de salida.
         /// </summary>
-        /// <param name="filename">Nombre del archivo a deserealizar.</param>
-        /// <param name="lista">Salida de la lista deserealizada.</param>
-        /// <returns>Retorna true o false dependiendo del exito de la operacion.</returns>
-        public static bool Deserealizar(string filename,out List<Usuario> lista)
+        /// <param name="mail">
+        /// Mail a comparar.
+        /// </param>
+        /// <param name="contrasena">
+        /// Clave a comparar.
+        /// </param>
+        /// <param name="listaUsers">
+        /// Lista de usuarios donde se realizara la busqueda.
+        /// </param>
+        /// <param name="usuario">
+        /// Variable de salida donde se exportara al usuario en caso de existir sus credenciales.
+        /// </param>
+        /// <returns>
+        /// Retorna TRUE en caso de encontrar una coincidencia, o FALSE si falla.
+        /// </returns>
+        public static bool ValidarCredenciales(string mail, string contrasena, List<Usuario> listaUsers,
+            out Usuario usuario)
         {
-            JsonSerializerOptions jSonOptions = new JsonSerializerOptions();
-            lista = new List<Usuario>();
-            string jsonText;
             bool ret = false;
+            usuario = new Usuario();
 
-            if (File.Exists(filename))
+            foreach (Usuario us in listaUsers)
             {
-                try
+                if (us.correo == mail && us.clave == contrasena)
                 {
-                    using (StreamReader reader = new StreamReader(filename))
-                    {
-                        jsonText = reader.ReadToEnd();
-
-                        //Nueva opcion para que pueda deserealizar los strings como enum.
-                        jSonOptions.Converters.Add(new JsonStringEnumConverter());
-                        lista = (List<Usuario>)JsonSerializer.Deserialize(jsonText, typeof(List<Usuario>), jSonOptions);
-                        ret = true;
-                    }
-                }
-                catch
-                {
-                    ret = false;
+                    usuario = us;
+                    ret = true;
+                    break;
                 }
             }
             return ret;
@@ -94,6 +94,9 @@ namespace BibliotecaEntidades
             sb.AppendLine(this.Perfil.ToString());
             return sb.ToString();
         }
+        
         #endregion
+
+
     }
 }

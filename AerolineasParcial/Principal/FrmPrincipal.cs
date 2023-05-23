@@ -19,82 +19,80 @@ namespace AerolineasParcial
 {
     public partial class FrmPrincipal : Form
     {
-        Usuario usuario;
-        Aeropuerto aeropuerto;
+        private Usuario usuario;
+        private Aeropuerto aeropuerto;
 
         public FrmPrincipal()
         {
             InitializeComponent();
-            usuario = new Usuario();
-            aeropuerto = new Aeropuerto();
+            this.usuario = new Usuario();
+            this.aeropuerto = new Aeropuerto();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            lblUsuario.Text = "No se inicio sesion.";
-            lblUsuario.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
+            this.lblUsuario.Text = "Invitado.";
+            this.lblUsuario.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
 
             #region Anchors
-            tabControl.Anchor = AnchorStyles.Left | AnchorStyles.Right |
-                                AnchorStyles.Top | AnchorStyles.Bottom;
-            lblUsuario.Anchor = AnchorStyles.Left;
-            btnVenta.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            btnEstadisticas.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            this.lblUsuario.Anchor = AnchorStyles.Left | AnchorStyles.Top;
             #endregion
 
-            #region TEXTOS
-            btnAltaPasajero.Text = "ALTA\nPASAJERO";
-            btnAltaAeronave.Text = "ALTA\nAERONAVE";
-            btnAltaViaje.Text = "ALTA\nVIAJE";
-
-            btnModificarPasajero.Text = "EDITAR\nPASAJERO";
-            btnModificarAeronave.Text = "EDITAR\nAERONAVE";
-            btnModificarViaje.Text = "EDITAR\nVIAJE";
-
-            btnBajaPasajero.Text = "BAJA\nPASAJERO";
-            btnBajaAeronave.Text = "BAJA\nAERONAVE";
-            btnBajaViaje.Text = "BAJA\nVIAJE";
-            #endregion
+            this.gridVuelos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom |
+                AnchorStyles.Right | AnchorStyles.Left;
+            this.gridVuelos.DataSource = this.aeropuerto.Viajes;
+            this.gridVuelos.ReadOnly = true;
+            this.gridVuelos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.gridVuelos.MultiSelect = false;
+            this.gridVuelos.AllowUserToResizeColumns = false;
+            this.gridVuelos.AllowUserToResizeRows = false;
+            this.gridVuelos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             IniciarSesion();
 
             #region Desactivo todos los controles
-            this.btnAltaPasajero.Enabled = false;
-            this.btnModificarPasajero.Enabled = false;
-            this.btnBajaPasajero.Enabled = false;
-
-            this.btnAltaAeronave.Enabled = false;
-            this.btnModificarAeronave.Enabled = false;
-            this.btnBajaAeronave.Enabled = false;
-
-            this.btnAltaViaje.Enabled = false;
-            this.btnModificarViaje.Enabled = false;
-            this.btnBajaViaje.Enabled = false;
-
-            this.btnListado.Enabled = false;//Listado
-            this.btnVenta.Enabled = false;//Vender
-            this.btnEstadisticas.Enabled = false;//Estadisticas
+            //this.btnListado.Enabled = false;//Listado
+            //this.btnVenta.Enabled = false;//Vender
+            //this.btnEstadisticas.Enabled = false;//Estadisticas
             #endregion
-            
-            //Los activo segun el perfil.
-            EstablecerOperaciones();
+
+            //Activo controles segun el perfil
+            //EstablecerOperaciones();
         }
 
+        #region METODOS
+
+        /// <summary>
+        /// Esta funcion se encarga de mostrar el formulario de inicio de sesion, verificar si
+        /// la operacion fue correcta y actualiza la barra de informacion con el nombre del user.
+        /// </summary>
         private void IniciarSesion()
         {
-            FrmInicioSesion ventanaSesion = new FrmInicioSesion();
-            DialogResult result = ventanaSesion.ShowDialog();
+            FrmInicioSesion ventana = new FrmInicioSesion();
+            DialogResult result = ventana.ShowDialog();
             if (result == DialogResult.OK)
             {
-                this.usuario = ventanaSesion.Usuario;
+                this.usuario = ventana.Usuario;
 
-                this.lblUsuario.Text = " [" + this.usuario.perfil + "] " + this.usuario.apellido +
-                  " " + this.usuario.nombre + " - " +
+                this.lblUsuario.Text = this.usuario.apellido + " " + this.usuario.nombre + "\n" +
                   DateTime.Now.ToShortDateString();
+            }
+            else
+            {
+                /*
+                MessageBox.Show("Ocurrio un error durante el inicio de sesion." +
+                    "No se puede continuar.","Error",MessageBoxButtons.OK,
+                    MessageBoxIcon.Hand);
+                */
+                Application.Exit(); //Es correcto cerrar asi?
             }
         }
 
+        /// <summary>
+        /// Esta funcion activa los distintos controles y distintas funcionalidades
+        /// dependiendo del perfil del usuario.
+        /// </summary>
         private void EstablecerOperaciones()
         {
             if (this.usuario.perfil == EPerfil.vendedor)
@@ -102,48 +100,39 @@ namespace AerolineasParcial
                 this.btnListado.Enabled = true;//Listado
                 this.btnVenta.Enabled = true;//Vender
                 this.btnEstadisticas.Enabled = true;//Estadisticas
-                this.btnAltaPasajero.Enabled = true;//CRUD
-                this.btnModificarPasajero.Enabled = true;
-                this.btnBajaPasajero.Enabled = true;
             }
 
             if (this.usuario.perfil == EPerfil.supervisor)
             {
                 this.btnListado.Enabled = false;//Listado
-                this.btnAltaPasajero.Enabled = true;//CRUD
-                this.btnModificarPasajero.Enabled = true;
-                this.btnBajaPasajero.Enabled = true;
                 this.btnEstadisticas.Enabled = true;
             }
 
             if (this.usuario.perfil == EPerfil.administrador)
             {
-                this.btnAltaAeronave.Enabled = true;
-                this.btnModificarAeronave.Enabled = true;
-                this.btnBajaAeronave.Enabled = true;
 
-                this.btnAltaViaje.Enabled = true;
-                this.btnModificarViaje.Enabled = true;
-                this.btnBajaViaje.Enabled = true;
             }
 
         }
 
-        private void btnAltas_Click(object sender, EventArgs e)
+        private void btnListado_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedIndex = 0;//ALTAS
+            ConsultaFrm consulta = new ConsultaFrm(this.aeropuerto);
+            consulta.Show(this);//dialog?
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnVenta_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedIndex = 1;//Modificar
+            FormVenta ventana = new FormVenta(this.aeropuerto);
+            DialogResult res = ventana.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                MessageBox.Show("Que tenga buen viaje.", "Exito!", MessageBoxButtons.OK);
+            }
         }
 
-        private void btnBajas_Click(object sender, EventArgs e)
-        {
-            tabControl.SelectedIndex = 2;//Baja
-        }
-
+        /* Operaciones
+         * 
         #region PASAJERO
 
         private void btnAltaPasajero_Click(object sender, EventArgs e)
@@ -311,21 +300,9 @@ namespace AerolineasParcial
         }
 
         #endregion
+        */
 
-        private void btnListado_Click(object sender, EventArgs e)
-        {
-            ConsultaFrm consulta = new ConsultaFrm(this.aeropuerto);
-            consulta.Show(this);//dialog?
-        }
+        #endregion
 
-        private void btnVenta_Click(object sender, EventArgs e)
-        {
-            FormVenta ventana = new FormVenta(this.aeropuerto);
-            DialogResult res = ventana.ShowDialog();
-            if (res == DialogResult.OK)
-            {
-                MessageBox.Show("Que tenga buen viaje.","Exito!",MessageBoxButtons.OK);
-            }
-        }
     }
 }
