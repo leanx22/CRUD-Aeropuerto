@@ -20,7 +20,8 @@ namespace AerolineasParcial
 {
     public partial class FrmPrincipal : Form
     {
-        private Usuario usuario;
+
+        private Usuario usuario; //El usuario dado por el inicio de sesion.
         private Aeropuerto aeropuerto;
         private ToolTip tTip;
 
@@ -35,35 +36,51 @@ namespace AerolineasParcial
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            this.lblUsuario.Text = "Invitado.";
-            this.lblUsuario.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
-            this.lblAyuda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            this.Text = "Aeropuerto";
 
-            #region Anchors
+            #region lblUsuario
+
+            //Propiedades del label de infomacion del usuario.
+            this.lblUsuario.Text = "Invitado.";
             this.lblUsuario.Anchor = AnchorStyles.Left | AnchorStyles.Top;
+
             #endregion
 
+            #region lblAyuda
 
-            this.gridVuelos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom |
-                AnchorStyles.Right | AnchorStyles.Left;
+            //Propiedades del label con ayuda.
+            this.lblAyuda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+
+            #endregion
+
+            #region DataGridView
+
+            //Propiedades del DataGridView
             this.gridVuelos.DataSource = this.aeropuerto.Viajes;
             this.gridVuelos.ReadOnly = true;
-            this.gridVuelos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.gridVuelos.MultiSelect = false;
             this.gridVuelos.AllowUserToResizeColumns = false;
             this.gridVuelos.AllowUserToResizeRows = false;
+            this.gridVuelos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom |
+                AnchorStyles.Right | AnchorStyles.Left;
+            this.gridVuelos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.gridVuelos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            //Deshabilito las columnas que no quiero que se muestren.
             this.gridVuelos.Columns["EsInternacional"].Visible = false;
             this.gridVuelos.Columns["AvionAsignado"].Visible = false;
             this.gridVuelos.Columns["CostoPremium"].Visible = false;
             this.gridVuelos.Columns["CostoTurista"].Visible = false;
 
+            //Cambio el nombre de algunas columnas.
             this.gridVuelos.Columns["AsientosPremium"].HeaderText = "Asientos premium";
             this.gridVuelos.Columns["AsientosTurista"].HeaderText = "Asientos turista";
             this.gridVuelos.Columns["Duracion"].HeaderText = "Duracion del vuelo";
             this.gridVuelos.Columns["FechaDeVuelo"].HeaderText = "Fecha de salida";
 
+            #endregion
+
+            //Llamo al inicio de sesion.
             IniciarSesion();
 
             #region Desactivo todos los controles
@@ -88,21 +105,35 @@ namespace AerolineasParcial
             DialogResult result = ventana.ShowDialog();
             if (result == DialogResult.OK)
             {
-                this.usuario = ventana.Usuario;
+                this.usuario = ventana.Usuario; //Guardo el usuario
 
                 this.lblUsuario.Text = this.usuario.apellido + " " + this.usuario.nombre + "\n" +
-                  DateTime.Now.ToShortDateString();
+                  DateTime.Now.ToShortDateString(); //Actualizo la informacion en el form.
             }
             else
             {
-                /*
-                MessageBox.Show("Ocurrio un error durante el inicio de sesion." +
-                    "No se puede continuar.","Error",MessageBoxButtons.OK,
-                    MessageBoxIcon.Hand);
-                */
                 Application.Exit(); //Es correcto cerrar asi?
             }
         }
+
+        //Al hacer doble click en una celda.
+        private void gridVuelos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Viaje viaje = new Viaje();
+
+            //Si no hay vuelos seleccionados. No valido si hay MAS de 1 porque no hay multiselect.
+            if (gridVuelos.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Para ver los detalles, primero debe seleccionar un vuelo.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            viaje = this.aeropuerto.Viajes[gridVuelos.SelectedRows[0].Index];
+            FrmDetallesVuelo ventana = new FrmDetallesVuelo(viaje);
+            ventana.Show(this);
+        }
+
 
         /// <summary>
         /// Esta funcion activa los distintos controles y distintas funcionalidades
@@ -319,21 +350,7 @@ namespace AerolineasParcial
 
         #endregion
 
-        private void gridVuelos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            Viaje viaje = new Viaje();
 
-            //Si no hay vuelos seleccionados:
-            if (gridVuelos.SelectedRows.Count <= 0)
-            {
-                MessageBox.Show("Para ver los detalles, primero debe seleccionar un vuelo.",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
-            viaje = this.aeropuerto.Viajes[gridVuelos.SelectedRows[0].Index];
-            FrmDetallesVuelo ventana = new FrmDetallesVuelo(viaje);
-            ventana.Show(this);
-        }
     }
 }

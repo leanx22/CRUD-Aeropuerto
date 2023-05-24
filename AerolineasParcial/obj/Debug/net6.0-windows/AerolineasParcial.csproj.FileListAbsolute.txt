@@ -6,7 +6,6 @@ A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\Aerolineas
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\bin\Debug\net6.0-windows\BibliotecaEntidades.dll
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\bin\Debug\net6.0-windows\BibliotecaEntidades.pdb
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.csproj.AssemblyReference.cache
-A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.BuscadorPasajero.resources
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.ConsultaFrm.resources
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.CRUD.Altas.FormAltaAeronave.resources
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.CRUD.FormAltaPasajero.resources

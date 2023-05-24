@@ -10,17 +10,17 @@ namespace AerolineasParcial
     {
         private List<Usuario> listaUsers;
         private Usuario usuario;
-        
+
         public FrmInicioSesion()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;//Para que aparezca en el centro.
             this.listaUsers = new List<Usuario>();
-            this.usuario = new Usuario();            
+            this.usuario = new Usuario();
         }
 
         #region PROPIEDADES
-        
+
         public Usuario Usuario { get { return this.usuario; } }
 
         #endregion
@@ -42,7 +42,7 @@ namespace AerolineasParcial
             {
                 btnAceptar.Enabled = false;
                 MessageBox.Show("Hubo un error al intentar deserealizar el archivo de users.",
-                    "No puede continuar",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    "No puede continuar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

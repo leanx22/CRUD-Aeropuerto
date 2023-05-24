@@ -28,24 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            propertyGrid1 = new PropertyGrid();
+            propGridVuelo = new PropertyGrid();
+            btnInfoPasajeros = new Button();
             SuspendLayout();
             // 
-            // propertyGrid1
+            // propGridVuelo
             // 
-            propertyGrid1.Dock = DockStyle.Fill;
-            propertyGrid1.Location = new Point(0, 0);
-            propertyGrid1.Name = "propertyGrid1";
-            propertyGrid1.Size = new Size(452, 570);
-            propertyGrid1.TabIndex = 0;
+            propGridVuelo.BackColor = Color.FromArgb(60, 72, 107);
+            propGridVuelo.CategorySplitterColor = Color.Lime;
+            propGridVuelo.CommandsLinkColor = Color.FromArgb(60, 72, 107);
+            propGridVuelo.DisabledItemForeColor = Color.White;
+            propGridVuelo.Dock = DockStyle.Top;
+            propGridVuelo.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            propGridVuelo.HelpVisible = false;
+            propGridVuelo.LineColor = Color.FromArgb(14, 110, 140);
+            propGridVuelo.Location = new Point(0, 0);
+            propGridVuelo.Name = "propGridVuelo";
+            propGridVuelo.SelectedItemWithFocusBackColor = Color.Transparent;
+            propGridVuelo.SelectedItemWithFocusForeColor = Color.Transparent;
+            propGridVuelo.Size = new Size(452, 409);
+            propGridVuelo.TabIndex = 0;
+            propGridVuelo.ToolbarVisible = false;
+            propGridVuelo.ViewBackColor = Color.FromArgb(4, 30, 38);
+            propGridVuelo.ViewBorderColor = Color.Transparent;
+            // 
+            // btnInfoPasajeros
+            // 
+            btnInfoPasajeros.FlatAppearance.BorderSize = 2;
+            btnInfoPasajeros.FlatAppearance.MouseDownBackColor = Color.FromArgb(19, 150, 191);
+            btnInfoPasajeros.FlatStyle = FlatStyle.Flat;
+            btnInfoPasajeros.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnInfoPasajeros.ForeColor = Color.White;
+            btnInfoPasajeros.Location = new Point(12, 415);
+            btnInfoPasajeros.Name = "btnInfoPasajeros";
+            btnInfoPasajeros.Size = new Size(428, 33);
+            btnInfoPasajeros.TabIndex = 2;
+            btnInfoPasajeros.Text = "PASAJEROS";
+            btnInfoPasajeros.UseVisualStyleBackColor = true;
             // 
             // FrmDetallesVuelo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DarkGray;
-            ClientSize = new Size(452, 570);
-            Controls.Add(propertyGrid1);
+            BackColor = Color.FromArgb(9, 70, 89);
+            ClientSize = new Size(452, 456);
+            Controls.Add(btnInfoPasajeros);
+            Controls.Add(propGridVuelo);
             Name = "FrmDetallesVuelo";
             Text = "FrmDetallesVuelo";
             Load += FrmDetallesVuelo_Load;
@@ -54,6 +82,7 @@
 
         #endregion
 
-        private PropertyGrid propertyGrid1;
+        private PropertyGrid propGridVuelo;
+        private Button btnInfoPasajeros;
     }
 }

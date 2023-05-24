@@ -18,29 +18,58 @@ namespace AerolineasParcial.Consultas
         public FormViajes(Aeropuerto aeropuerto)
         {
             InitializeComponent();
-            this.aeropuerto = aeropuerto; this.viaje = new Viaje();
+            this.aeropuerto = aeropuerto;
+            this.viaje = new Viaje();
         }
 
         public Viaje Viaje { get { return this.viaje; } }
 
         private void FormViajes_Load(object sender, EventArgs e)
         {
-            this.dataGrid.ReadOnly = true;
-            this.dataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.DataSource = this.aeropuerto.Viajes;
-            this.dataGrid.MultiSelect = false;
-            this.dataGrid.Anchor = AnchorStyles.Left | AnchorStyles.Right |
-                AnchorStyles.Top | AnchorStyles.Bottom;
+            this.Text = "Vuelos";
 
-            this.btnModificar.Anchor = AnchorStyles.Right;
-            this.btnOK.Anchor = AnchorStyles.Right;
+            //Propiedades del DataGridView
+            this.gridVuelos.DataSource = this.aeropuerto.Viajes;
+            this.gridVuelos.ReadOnly = true;
+            this.gridVuelos.MultiSelect = false;
+            this.gridVuelos.AllowUserToResizeColumns = false;
+            this.gridVuelos.AllowUserToResizeRows = false;
+            this.gridVuelos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom |
+                AnchorStyles.Right | AnchorStyles.Left;
+            this.gridVuelos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.gridVuelos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            //Deshabilito las columnas que no quiero que se muestren.
+            //this.gridVuelos.Columns["EsInternacional"].Visible = false;
+            //this.gridVuelos.Columns["AvionAsignado"].Visible = false;
+            //this.gridVuelos.Columns["CostoPremium"].Visible = false;
+            //this.gridVuelos.Columns["CostoTurista"].Visible = false;
+
+            //Cambio el nombre de algunas columnas.
+            this.gridVuelos.Columns["AsientosPremium"].HeaderText = "Asientos premium";
+            this.gridVuelos.Columns["AsientosTurista"].HeaderText = "Asientos turista";
+            this.gridVuelos.Columns["Duracion"].HeaderText = "Duracion del vuelo";
+            this.gridVuelos.Columns["FechaDeVuelo"].HeaderText = "Fecha de salida";
+
+            //Propiedades checkBoxes
+            this.chbxComida.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+            this.chbxInternet.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+
+            //Propiedades buttons
+            this.btnSelect.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
+            this.btnSalir.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
+
+            //Propiedades lbls
+            this.linkDatosCompletos.Anchor = AnchorStyles.Left | AnchorStyles.Right |
+                AnchorStyles.Bottom;
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+
+        private void btnSelect_Click(object sender, EventArgs e)
         {
             int indice;
 
-            if (!(dataGrid.SelectedRows.Count > 0))
+            if (!(gridVuelos.SelectedRows.Count > 0))
             {
                 MessageBox.Show("Primero debe seleccionar un viaje en la lista.",
                      "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -48,7 +77,7 @@ namespace AerolineasParcial.Consultas
             }
 
             //obtengo el indice de la seleccion.            
-            indice = dataGrid.SelectedRows[0].Index;
+            indice = gridVuelos.SelectedRows[0].Index;
             this.viaje = this.aeropuerto.Viajes[indice];
 
             if (this.viaje.Estado != EEstadoDeVuelo.Pendiente)
@@ -61,7 +90,7 @@ namespace AerolineasParcial.Consultas
             this.DialogResult = DialogResult.OK;
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }

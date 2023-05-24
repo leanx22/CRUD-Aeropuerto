@@ -31,103 +31,147 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            btnModificar = new Button();
-            btnOK = new Button();
-            dataGrid = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
+            gridVuelos = new DataGridView();
+            btnSelect = new Button();
+            btnSalir = new Button();
+            chbxInternet = new CheckBox();
+            chbxComida = new CheckBox();
+            linkDatosCompletos = new LinkLabel();
+            ((System.ComponentModel.ISupportInitialize)gridVuelos).BeginInit();
             SuspendLayout();
             // 
-            // btnModificar
+            // gridVuelos
             // 
-            btnModificar.Location = new Point(689, 530);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(75, 23);
-            btnModificar.TabIndex = 2;
-            btnModificar.Text = "Seleccionar";
-            btnModificar.UseVisualStyleBackColor = true;
-            btnModificar.Click += btnModificar_Click;
-            // 
-            // btnOK
-            // 
-            btnOK.Location = new Point(770, 530);
-            btnOK.Name = "btnOK";
-            btnOK.Size = new Size(75, 23);
-            btnOK.TabIndex = 3;
-            btnOK.Text = "Salir";
-            btnOK.UseVisualStyleBackColor = true;
-            btnOK.Click += btnOK_Click;
-            // 
-            // dataGrid
-            // 
-            dataGrid.AllowUserToResizeColumns = false;
-            dataGrid.AllowUserToResizeRows = false;
+            gridVuelos.BackgroundColor = Color.FromArgb(14, 110, 140);
+            gridVuelos.BorderStyle = BorderStyle.None;
+            gridVuelos.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
+            gridVuelos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.CadetBlue;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.SelectionBackColor = Color.RoyalBlue;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGrid.Anchor = AnchorStyles.None;
-            dataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGrid.BackgroundColor = SystemColors.ControlLight;
-            dataGrid.BorderStyle = BorderStyle.Fixed3D;
-            dataGrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical;
-            dataGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(19, 150, 191);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(19, 150, 191);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            gridVuelos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            gridVuelos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.CornflowerBlue;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(14, 110, 140);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(228, 0, 70);
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.LightBlue;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            gridVuelos.DefaultCellStyle = dataGridViewCellStyle2;
+            gridVuelos.EnableHeadersVisualStyles = false;
+            gridVuelos.Location = new Point(12, 12);
+            gridVuelos.Name = "gridVuelos";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.OrangeRed;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.RoyalBlue;
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGrid.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGrid.EnableHeadersVisualStyles = false;
-            dataGrid.Location = new Point(13, 13);
-            dataGrid.MultiSelect = false;
-            dataGrid.Name = "dataGrid";
-            dataGrid.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGrid.RowHeadersVisible = false;
-            dataGrid.RowTemplate.Height = 25;
-            dataGrid.Size = new Size(833, 512);
-            dataGrid.TabIndex = 11;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            gridVuelos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            gridVuelos.RowHeadersVisible = false;
+            gridVuelos.RowTemplate.Height = 50;
+            gridVuelos.Size = new Size(833, 500);
+            gridVuelos.TabIndex = 6;
+            // 
+            // btnSelect
+            // 
+            btnSelect.FlatAppearance.BorderSize = 2;
+            btnSelect.FlatAppearance.MouseDownBackColor = Color.FromArgb(19, 150, 191);
+            btnSelect.FlatStyle = FlatStyle.Flat;
+            btnSelect.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSelect.ForeColor = Color.White;
+            btnSelect.Location = new Point(613, 518);
+            btnSelect.Name = "btnSelect";
+            btnSelect.Size = new Size(113, 35);
+            btnSelect.TabIndex = 7;
+            btnSelect.Text = "Seleccionar";
+            btnSelect.UseVisualStyleBackColor = true;
+            btnSelect.Click += btnSelect_Click;
+            // 
+            // btnSalir
+            // 
+            btnSalir.FlatAppearance.BorderSize = 2;
+            btnSalir.FlatAppearance.MouseDownBackColor = Color.FromArgb(19, 150, 191);
+            btnSalir.FlatStyle = FlatStyle.Flat;
+            btnSalir.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSalir.ForeColor = Color.White;
+            btnSalir.Location = new Point(732, 518);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(113, 35);
+            btnSalir.TabIndex = 8;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
+            // 
+            // chbxInternet
+            // 
+            chbxInternet.AutoSize = true;
+            chbxInternet.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            chbxInternet.ForeColor = Color.White;
+            chbxInternet.Location = new Point(12, 527);
+            chbxInternet.Name = "chbxInternet";
+            chbxInternet.Size = new Size(76, 21);
+            chbxInternet.TabIndex = 9;
+            chbxInternet.Text = "Internet";
+            chbxInternet.UseVisualStyleBackColor = true;
+            // 
+            // chbxComida
+            // 
+            chbxComida.AutoSize = true;
+            chbxComida.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            chbxComida.ForeColor = Color.White;
+            chbxComida.Location = new Point(108, 527);
+            chbxComida.Name = "chbxComida";
+            chbxComida.Size = new Size(73, 21);
+            chbxComida.TabIndex = 10;
+            chbxComida.Text = "Comida";
+            chbxComida.UseVisualStyleBackColor = true;
+            // 
+            // linkDatosCompletos
+            // 
+            linkDatosCompletos.AutoSize = true;
+            linkDatosCompletos.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            linkDatosCompletos.LinkColor = Color.White;
+            linkDatosCompletos.Location = new Point(187, 528);
+            linkDatosCompletos.Name = "linkDatosCompletos";
+            linkDatosCompletos.Size = new Size(161, 17);
+            linkDatosCompletos.TabIndex = 11;
+            linkDatosCompletos.TabStop = true;
+            linkDatosCompletos.Text = "Mostrar datos completos";
             // 
             // FormViajes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(859, 566);
-            Controls.Add(dataGrid);
-            Controls.Add(btnOK);
-            Controls.Add(btnModificar);
-            MinimumSize = new Size(875, 605);
+            BackColor = Color.FromArgb(9, 70, 89);
+            ClientSize = new Size(859, 559);
+            Controls.Add(linkDatosCompletos);
+            Controls.Add(chbxComida);
+            Controls.Add(chbxInternet);
+            Controls.Add(btnSalir);
+            Controls.Add(btnSelect);
+            Controls.Add(gridVuelos);
+            MinimumSize = new Size(875, 598);
             Name = "FormViajes";
             Text = "FormViajes";
             Load += FormViajes_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridVuelos).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private Button btnModificar;
-        private Button btnOK;
-        private DataGridView dataGrid;
+        private Button btnSelect;
+        private Button btnSalir;
+        private DataGridView gridVuelos;
+        private CheckBox chbxInternet;
+        private CheckBox chbxComida;
+        private LinkLabel linkDatosCompletos;
     }
 }

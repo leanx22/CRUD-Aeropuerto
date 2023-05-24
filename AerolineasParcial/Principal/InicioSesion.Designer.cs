@@ -32,27 +32,37 @@
             btnSalir = new Button();
             tBoxUser = new TextBox();
             tBoxPswrd = new TextBox();
-            GrpBox = new GroupBox();
             labelPswrd = new Label();
             labelMail = new Label();
-            GrpBox.SuspendLayout();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(12, 179);
+            btnAceptar.FlatAppearance.BorderColor = Color.White;
+            btnAceptar.FlatAppearance.BorderSize = 2;
+            btnAceptar.FlatStyle = FlatStyle.Flat;
+            btnAceptar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAceptar.ForeColor = Color.White;
+            btnAceptar.Location = new Point(12, 132);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(151, 47);
+            btnAceptar.Size = new Size(299, 46);
             btnAceptar.TabIndex = 0;
-            btnAceptar.Text = "button1";
+            btnAceptar.Text = "button2";
             btnAceptar.UseVisualStyleBackColor = true;
             btnAceptar.Click += btnAceptar_Click;
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(186, 179);
+            btnSalir.FlatAppearance.BorderColor = Color.White;
+            btnSalir.FlatAppearance.BorderSize = 2;
+            btnSalir.FlatStyle = FlatStyle.Flat;
+            btnSalir.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSalir.ForeColor = Color.White;
+            btnSalir.Location = new Point(12, 184);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(147, 47);
+            btnSalir.Size = new Size(299, 47);
             btnSalir.TabIndex = 1;
             btnSalir.Text = "button1";
             btnSalir.UseVisualStyleBackColor = true;
@@ -60,65 +70,75 @@
             // 
             // tBoxUser
             // 
-            tBoxUser.Location = new Point(58, 52);
+            tBoxUser.BackColor = Color.White;
+            tBoxUser.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            tBoxUser.ForeColor = Color.Black;
+            tBoxUser.Location = new Point(150, 35);
             tBoxUser.Name = "tBoxUser";
-            tBoxUser.Size = new Size(198, 23);
+            tBoxUser.Size = new Size(161, 23);
             tBoxUser.TabIndex = 2;
             // 
             // tBoxPswrd
             // 
-            tBoxPswrd.Location = new Point(58, 110);
+            tBoxPswrd.BackColor = Color.White;
+            tBoxPswrd.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            tBoxPswrd.ForeColor = Color.Black;
+            tBoxPswrd.Location = new Point(150, 93);
             tBoxPswrd.Name = "tBoxPswrd";
-            tBoxPswrd.Size = new Size(198, 23);
+            tBoxPswrd.Size = new Size(161, 23);
             tBoxPswrd.TabIndex = 3;
-            // 
-            // GrpBox
-            // 
-            GrpBox.Controls.Add(labelPswrd);
-            GrpBox.Controls.Add(labelMail);
-            GrpBox.Controls.Add(tBoxUser);
-            GrpBox.Controls.Add(tBoxPswrd);
-            GrpBox.Location = new Point(12, 12);
-            GrpBox.Name = "GrpBox";
-            GrpBox.Size = new Size(321, 161);
-            GrpBox.TabIndex = 4;
-            GrpBox.TabStop = false;
-            GrpBox.Text = "Datos del Usuario";
             // 
             // labelPswrd
             // 
             labelPswrd.AutoSize = true;
-            labelPswrd.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelPswrd.Location = new Point(58, 92);
+            labelPswrd.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelPswrd.ForeColor = Color.White;
+            labelPswrd.Location = new Point(150, 73);
             labelPswrd.Name = "labelPswrd";
-            labelPswrd.Size = new Size(72, 15);
+            labelPswrd.Size = new Size(81, 17);
             labelPswrd.TabIndex = 5;
             labelPswrd.Text = "Contraseña:";
             // 
             // labelMail
             // 
             labelMail.AutoSize = true;
-            labelMail.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelMail.Location = new Point(58, 34);
+            labelMail.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelMail.ForeColor = Color.White;
+            labelMail.Location = new Point(150, 12);
             labelMail.Name = "labelMail";
-            labelMail.Size = new Size(39, 15);
+            labelMail.Size = new Size(51, 20);
             labelMail.TabIndex = 4;
             labelMail.Text = "Email:";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.userIcon;
+            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(118, 104);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // FrmInicioSesion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(345, 238);
-            Controls.Add(GrpBox);
+            BackColor = Color.FromArgb(4, 30, 38);
+            ClientSize = new Size(323, 249);
+            Controls.Add(pictureBox1);
+            Controls.Add(labelMail);
+            Controls.Add(labelPswrd);
             Controls.Add(btnSalir);
+            Controls.Add(tBoxPswrd);
+            Controls.Add(tBoxUser);
             Controls.Add(btnAceptar);
             Name = "FrmInicioSesion";
             Text = "Inicio de sesion";
             Load += InicioSesion_Load;
-            GrpBox.ResumeLayout(false);
-            GrpBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -127,8 +147,8 @@
         private Button btnSalir;
         private TextBox tBoxUser;
         private TextBox tBoxPswrd;
-        private GroupBox GrpBox;
         private Label labelPswrd;
         private Label labelMail;
+        private PictureBox pictureBox1;
     }
 }

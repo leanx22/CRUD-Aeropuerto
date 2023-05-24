@@ -23,9 +23,13 @@ namespace AerolineasParcial.Consultas
 
         private void FrmDetallesVuelo_Load(object sender, EventArgs e)
         {
+            this.Text = "Detalles del vuelo";
+            this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
-            this.propertyGrid1.SelectedObject = viaje;
-            this.propertyGrid1.Enabled = false;
+
+            this.propGridVuelo.SelectedObject = viaje;
+            this.propGridVuelo.Enabled = false;
+
         }
     }
 }
