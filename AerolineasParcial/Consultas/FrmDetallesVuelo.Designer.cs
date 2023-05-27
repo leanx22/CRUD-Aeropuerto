@@ -65,6 +65,7 @@
             btnInfoPasajeros.TabIndex = 2;
             btnInfoPasajeros.Text = "PASAJEROS";
             btnInfoPasajeros.UseVisualStyleBackColor = true;
+            btnInfoPasajeros.Click += btnInfoPasajeros_Click;
             // 
             // FrmDetallesVuelo
             // 

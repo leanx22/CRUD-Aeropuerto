@@ -78,6 +78,7 @@ namespace AerolineasParcial
             this.gridVuelos.Columns["Duracion"].HeaderText = "Duracion del vuelo";
             this.gridVuelos.Columns["FechaDeVuelo"].HeaderText = "Fecha de salida";
 
+
             #endregion
 
             //Llamo al inicio de sesion.
@@ -352,5 +353,15 @@ namespace AerolineasParcial
 
 
 
+        private void btnPasajeros_Click(object sender, EventArgs e)
+        {       
+            ABMpasajeros ventana = new ABMpasajeros(this.aeropuerto.Pasajeros);
+            DialogResult res = ventana.ShowDialog();
+            if (res == DialogResult.OK) 
+            {
+                this.aeropuerto += ventana.Pasajeros;
+                Archivos.GuardarPasajeros(this.aeropuerto.Pasajeros);
+            }
+        }
     }
 }

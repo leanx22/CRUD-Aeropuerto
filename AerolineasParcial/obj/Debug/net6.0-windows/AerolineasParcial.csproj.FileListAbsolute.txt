@@ -34,3 +34,6 @@ A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\Aerolineas
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.CRUD.Bajas.FrmBajaViaje.resources
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.Principal.FormVenta.resources
 A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.Consultas.FrmDetallesVuelo.resources
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.Consultas.FrmPasajeros.resources
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.CRUD.ABMpasajeros.resources
+A:\UNIVERSIDAD\PROGRAMACION\PROGRA-LABO II\Guia.Leandro.PrimerParcial\AerolineasParcial\AerolineasParcial\obj\Debug\net6.0-windows\AerolineasParcial.CRUD.FrmCRUD.resources

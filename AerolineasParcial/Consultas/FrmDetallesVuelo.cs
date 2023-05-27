@@ -31,5 +31,11 @@ namespace AerolineasParcial.Consultas
             this.propGridVuelo.Enabled = false;
 
         }
+
+        private void btnInfoPasajeros_Click(object sender, EventArgs e)
+        {
+            FrmPasajeros ventana = new FrmPasajeros(this.viaje.ListaPasajeros);
+            ventana.Show(this);
+        }
     }
 }

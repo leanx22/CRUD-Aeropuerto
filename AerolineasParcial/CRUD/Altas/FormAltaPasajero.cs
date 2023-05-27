@@ -48,7 +48,11 @@ namespace AerolineasParcial.CRUD
         {
             long dni;
             short edad;
-            Dictionary<ETipoEquipaje, Dictionary<int,int>> dic = new Dictionary<ETipoEquipaje, Dictionary<int, int>>();
+            
+            Dictionary<ETipoEquipaje, Equipaje> dic = new Dictionary<ETipoEquipaje, Equipaje>();
+
+            dic.Add(ETipoEquipaje.Mano, new Equipaje(0,0f));
+            dic.Add(ETipoEquipaje.Bodega, new Equipaje(0,0f));
 
             if (!long.TryParse(tBoxDni.Text, out dni))
             {
@@ -73,14 +77,7 @@ namespace AerolineasParcial.CRUD
                     return;
                 }
             }
-
-            //Al crear el pasajero no tiene equipaje.
-            dic[ETipoEquipaje.Mano][0] = 0; //Cantidad
-            dic[ETipoEquipaje.Mano][1] = 0; //Peso
-
-            dic[ETipoEquipaje.Bodega][0] = 0; //Cantidad
-            dic[ETipoEquipaje.Bodega][1] = 0; //Peso
-
+           
             this.pasajero = new Pasajero(tBoxNombre.Text, tBoxApellido.Text, dni, edad, dic);
             this.DialogResult = DialogResult.OK;
         }

@@ -72,13 +72,15 @@ namespace AerolineasParcial
         {
             long dni = 0;
 
-            if (this.tBoxDNI.Text != string.Empty && !long.TryParse(this.tBoxDNI.Text, out dni))
+            if (!Pasajero.ValidarDNI(tBoxDNI.Text))
             {
                 MessageBox.Show("El DNI ingresado no es valido.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            this.gridDatos.DataSource = this.aeropuerto.BuscarPasajero(dni, this.tBoxNombre.Text, this.tBoxApellido.Text);
+
+            dni = long.Parse(tBoxDNI.Text);//Uso .Parse ya que fue validado en el IF anterior.
+            this.gridDatos.DataSource = Pasajero.BuscarPasajero(this.aeropuerto.Pasajeros ,dni, this.tBoxNombre.Text, this.tBoxApellido.Text);
         }
 
         private void btnBuscarAeronave_Click(object sender, EventArgs e)

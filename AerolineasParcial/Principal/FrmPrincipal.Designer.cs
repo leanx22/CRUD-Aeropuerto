@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             pnlMenu = new Panel();
             pictureBox1 = new PictureBox();
             lblUsuario = new Label();
             btnEstadisticas = new Button();
             btnVenta = new Button();
             btnListado = new Button();
-            btnBajas = new Button();
-            btnModificar = new Button();
-            btnAltas = new Button();
+            btnViajes = new Button();
+            btnAeronaves = new Button();
+            btnPasajeros = new Button();
             gridVuelos = new DataGridView();
             lblTitulo = new Label();
             lblAyuda = new Label();
@@ -56,9 +56,9 @@
             pnlMenu.Controls.Add(btnEstadisticas);
             pnlMenu.Controls.Add(btnVenta);
             pnlMenu.Controls.Add(btnListado);
-            pnlMenu.Controls.Add(btnBajas);
-            pnlMenu.Controls.Add(btnModificar);
-            pnlMenu.Controls.Add(btnAltas);
+            pnlMenu.Controls.Add(btnViajes);
+            pnlMenu.Controls.Add(btnAeronaves);
+            pnlMenu.Controls.Add(btnPasajeros);
             pnlMenu.Dock = DockStyle.Left;
             pnlMenu.Location = new Point(0, 0);
             pnlMenu.Name = "pnlMenu";
@@ -96,7 +96,7 @@
             btnEstadisticas.FlatStyle = FlatStyle.Flat;
             btnEstadisticas.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnEstadisticas.ForeColor = Color.White;
-            btnEstadisticas.Location = new Point(4, 465);
+            btnEstadisticas.Location = new Point(3, 495);
             btnEstadisticas.Name = "btnEstadisticas";
             btnEstadisticas.Size = new Size(176, 41);
             btnEstadisticas.TabIndex = 5;
@@ -110,7 +110,7 @@
             btnVenta.FlatStyle = FlatStyle.Flat;
             btnVenta.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnVenta.ForeColor = Color.White;
-            btnVenta.Location = new Point(4, 230);
+            btnVenta.Location = new Point(3, 217);
             btnVenta.Name = "btnVenta";
             btnVenta.Size = new Size(176, 41);
             btnVenta.TabIndex = 4;
@@ -125,55 +125,56 @@
             btnListado.FlatStyle = FlatStyle.Flat;
             btnListado.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnListado.ForeColor = Color.White;
-            btnListado.Location = new Point(4, 418);
+            btnListado.Location = new Point(3, 448);
             btnListado.Name = "btnListado";
-            btnListado.Size = new Size(177, 41);
+            btnListado.Size = new Size(176, 41);
             btnListado.TabIndex = 3;
             btnListado.Text = "LISTADOS";
             btnListado.UseVisualStyleBackColor = true;
             btnListado.Click += btnListado_Click;
             // 
-            // btnBajas
+            // btnViajes
             // 
-            btnBajas.FlatAppearance.BorderSize = 2;
-            btnBajas.FlatAppearance.MouseDownBackColor = Color.FromArgb(19, 150, 191);
-            btnBajas.FlatStyle = FlatStyle.Flat;
-            btnBajas.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnBajas.ForeColor = Color.White;
-            btnBajas.Location = new Point(4, 371);
-            btnBajas.Name = "btnBajas";
-            btnBajas.Size = new Size(176, 41);
-            btnBajas.TabIndex = 2;
-            btnBajas.Text = "BAJA";
-            btnBajas.UseVisualStyleBackColor = true;
+            btnViajes.FlatAppearance.BorderSize = 2;
+            btnViajes.FlatAppearance.MouseDownBackColor = Color.FromArgb(19, 150, 191);
+            btnViajes.FlatStyle = FlatStyle.Flat;
+            btnViajes.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnViajes.ForeColor = Color.White;
+            btnViajes.Location = new Point(3, 381);
+            btnViajes.Name = "btnViajes";
+            btnViajes.Size = new Size(176, 41);
+            btnViajes.TabIndex = 2;
+            btnViajes.Text = "VIAJES";
+            btnViajes.UseVisualStyleBackColor = true;
             // 
-            // btnModificar
+            // btnAeronaves
             // 
-            btnModificar.FlatAppearance.BorderSize = 2;
-            btnModificar.FlatAppearance.MouseDownBackColor = Color.FromArgb(19, 150, 191);
-            btnModificar.FlatStyle = FlatStyle.Flat;
-            btnModificar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnModificar.ForeColor = Color.White;
-            btnModificar.Location = new Point(4, 324);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(176, 41);
-            btnModificar.TabIndex = 1;
-            btnModificar.Text = "MODIFICACION";
-            btnModificar.UseVisualStyleBackColor = true;
+            btnAeronaves.FlatAppearance.BorderSize = 2;
+            btnAeronaves.FlatAppearance.MouseDownBackColor = Color.FromArgb(19, 150, 191);
+            btnAeronaves.FlatStyle = FlatStyle.Flat;
+            btnAeronaves.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAeronaves.ForeColor = Color.White;
+            btnAeronaves.Location = new Point(3, 334);
+            btnAeronaves.Name = "btnAeronaves";
+            btnAeronaves.Size = new Size(176, 41);
+            btnAeronaves.TabIndex = 1;
+            btnAeronaves.Text = "AERONAVES";
+            btnAeronaves.UseVisualStyleBackColor = true;
             // 
-            // btnAltas
+            // btnPasajeros
             // 
-            btnAltas.FlatAppearance.BorderSize = 2;
-            btnAltas.FlatAppearance.MouseDownBackColor = Color.FromArgb(19, 150, 191);
-            btnAltas.FlatStyle = FlatStyle.Flat;
-            btnAltas.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAltas.ForeColor = Color.White;
-            btnAltas.Location = new Point(4, 277);
-            btnAltas.Name = "btnAltas";
-            btnAltas.Size = new Size(176, 41);
-            btnAltas.TabIndex = 0;
-            btnAltas.Text = "ALTAS";
-            btnAltas.UseVisualStyleBackColor = true;
+            btnPasajeros.FlatAppearance.BorderSize = 2;
+            btnPasajeros.FlatAppearance.MouseDownBackColor = Color.FromArgb(19, 150, 191);
+            btnPasajeros.FlatStyle = FlatStyle.Flat;
+            btnPasajeros.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPasajeros.ForeColor = Color.White;
+            btnPasajeros.Location = new Point(3, 287);
+            btnPasajeros.Name = "btnPasajeros";
+            btnPasajeros.Size = new Size(176, 41);
+            btnPasajeros.TabIndex = 0;
+            btnPasajeros.Text = "PASAJEROS";
+            btnPasajeros.UseVisualStyleBackColor = true;
+            btnPasajeros.Click += btnPasajeros_Click;
             // 
             // gridVuelos
             // 
@@ -181,35 +182,35 @@
             gridVuelos.BorderStyle = BorderStyle.None;
             gridVuelos.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             gridVuelos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(19, 150, 191);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(19, 150, 191);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            gridVuelos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(19, 150, 191);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(19, 150, 191);
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            gridVuelos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             gridVuelos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(14, 110, 140);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(228, 0, 70);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            gridVuelos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(14, 110, 140);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(228, 0, 70);
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            gridVuelos.DefaultCellStyle = dataGridViewCellStyle5;
             gridVuelos.Dock = DockStyle.Bottom;
             gridVuelos.EnableHeadersVisualStyles = false;
             gridVuelos.Location = new Point(185, 108);
             gridVuelos.Name = "gridVuelos";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.OrangeRed;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            gridVuelos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.OrangeRed;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            gridVuelos.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             gridVuelos.RowHeadersVisible = false;
             gridVuelos.RowTemplate.Height = 50;
             gridVuelos.Size = new Size(843, 515);
@@ -265,10 +266,10 @@
 
         #endregion
         private Panel pnlMenu;
-        private Button btnAltas;
+        private Button btnPasajeros;
         private Button btnListado;
-        private Button btnBajas;
-        private Button btnModificar;
+        private Button btnViajes;
+        private Button btnAeronaves;
         private Label lblUsuario;
         private Button btnVenta;
         private Button btnEstadisticas;

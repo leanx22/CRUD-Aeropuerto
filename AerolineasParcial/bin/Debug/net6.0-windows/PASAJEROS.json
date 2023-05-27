@@ -1,1 +1,1 @@
-[{"DNI":44338249,"Edad":20,"Equipaje":{"Mano":0,"Bodega":0},"nombre":"Lean","apellido":"Frias"},{"DNI":1234,"Edad":21,"Equipaje":{"Mano":0,"Bodega":0},"nombre":"Testeo Nombre","apellido":"TesteoApellido"},{"DNI":4321,"Edad":31,"Equipaje":{"Mano":0,"Bodega":0},"nombre":"nonbre","apellido":"apelido"}]
+[{"DNI":123,"Edad":123,"Equipaje":{"Mano":{"Cantidad":0,"Peso":0},"Bodega":{"Cantidad":0,"Peso":0}},"nombre":"123","apellido":"123"}]

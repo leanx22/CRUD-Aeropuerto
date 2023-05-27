@@ -31,27 +31,6 @@ namespace BibliotecaEntidades
 
         #region METODOS
 
-        /// <summary>
-        /// Busca uno o varios pasajeros en la lista que coincidan con al menos uno de los parametros.
-        /// </summary>
-        /// <param name="dni">DNI del pasajero que se desee encontrar</param>
-        /// <param name="nombre">Nombre del pasajero que se desea buscar</param>
-        /// <param name="apellido">Apellido del pasajero que se desea buscar</param>
-        /// <returns>Retorna una lista con los pasajeros que coincidan.</returns>
-        public List<Pasajero> BuscarPasajero(long dni, string nombre, string apellido)
-        {
-            List<Pasajero> resultados = new List<Pasajero>();
-            foreach (Pasajero p in this.listaPasajeros)
-            {
-                if ((dni == 0 || p.DNI == dni) &&
-                    (nombre == string.Empty || p.nombre == nombre) &&
-                    apellido == string.Empty || p.apellido == apellido)
-                {
-                    resultados.Add(p);
-                }
-            }
-            return resultados;
-        }
         
         /// <summary>
         /// Busca si algun pasajero en la lista coincide con el DNI. Deben ser iguales.
@@ -138,7 +117,24 @@ namespace BibliotecaEntidades
         {
             return !(aeropuerto == pasajero);
         }
+        
+        
+        /// <summary>
+        /// (Revisar uso de copy to u otro metodo)/Esta sobrecarga reemplaza la lista original por
+        /// una nueva.
+        /// </summary>
+        /// <param name="aeropuerto">aeropuerto que contiene la lista original</param>
+        /// <param name="listaPasajeros">nueva lista a guardar.</param>
+        /// <returns></returns>
+        public static Aeropuerto operator +(Aeropuerto aeropuerto, List<Pasajero> listaPasajeros)
+        {
+            //List<Pasajero> nuevaLista = new List<Pasajero>();
+            //nuevaLista.AddRange(listaPasajeros);
+            //aeropuerto.listaPasajeros = nuevaLista;
+            aeropuerto.listaPasajeros = listaPasajeros;
 
+            return aeropuerto;
+        }
 
         public static Aeropuerto operator +(Aeropuerto aeropuerto, Aeronave aeronave)
         {
