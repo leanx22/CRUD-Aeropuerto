@@ -1,4 +1,5 @@
 ﻿using AerolineasParcial.Consultas;
+using AerolineasParcial.CRUD.Modificacion;
 using BibliotecaEntidades;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,22 @@ namespace AerolineasParcial.CRUD
 {
     public partial class ABMpasajeros : FrmCRUD
     {
+        //Lista de pasajeros original.
         private List<Pasajero> listaPasajeros;
+
+        //Lista donde se guardan las coincidencias de una busqueda.
+        private List<Pasajero> listaFiltrada;
+
+        //Es true cuando el usuario realizo una busqueda y eldataGrid tiene como source la
+        //lista filtrada.
+        private bool VistaFiltrada;
 
         public ABMpasajeros(List<Pasajero> listaPasajeros)
         {
             InitializeComponent();
             this.listaPasajeros = listaPasajeros;
+            this.listaFiltrada = new List<Pasajero>();
+            this.VistaFiltrada = false;
         }
 
         public List<Pasajero> Pasajeros { get { return this.listaPasajeros; } }
@@ -50,13 +61,22 @@ namespace AerolineasParcial.CRUD
             this.tBoxApellido.PlaceholderText = "Buscar Apellido";
         }
 
+
+        #region OPERACIONES
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             Pasajero pasajero;
             FormAltaPasajero ventana = new FormAltaPasajero();
             DialogResult rs = ventana.ShowDialog();
-            if (rs == DialogResult.OK && !this.listaPasajeros.Contains(ventana.Pasajero))
+            if (rs == DialogResult.OK)
             {
+                if (this.listaPasajeros.Contains(ventana.Pasajero))
+                {
+                    MessageBox.Show("El pasajero ya existe.", "Error!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return;
+                }
+
                 pasajero = ventana.Pasajero;
                 this.listaPasajeros.Add(pasajero);
 
@@ -68,33 +88,89 @@ namespace AerolineasParcial.CRUD
                 base.dGrid.DataSource = this.listaPasajeros;
                 base.dGrid.ClearSelection();
             }
+        }
+
+        private void btnBaja_Click(object sender, EventArgs e)
+        {
+            Pasajero pasajero;
+            if (base.dGrid.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("No hay ningun pasajero seleccionado!", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!VistaFiltrada)
+            {
+                pasajero = this.listaPasajeros[base.dGrid.SelectedRows[0].Index];
+            }
             else
             {
-                MessageBox.Show("El pasajero ya existe.", "Error!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                pasajero = this.listaFiltrada[base.dGrid.SelectedRows[0].Index];
+            }
+
+            DialogResult res = MessageBox.Show("Seguro que desea eliminar al pasajero" +
+                " permanentemente?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+            {
+                base.dGrid.DataSource = null;
+                this.listaPasajeros.Remove(pasajero);
+                
+                base.dGrid.DataSource = this.listaPasajeros;
+                this.VistaFiltrada = false;
+                
+                MessageBox.Show("Pasajero eliminado correctamente", "Exito!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Pasajero pasajero;
+            if (base.dGrid.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("No hay ningun pasajero seleccionado!", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!VistaFiltrada)
+            {
+                pasajero = this.listaPasajeros[base.dGrid.SelectedRows[0].Index];
+            }
+            else
+            {
+                pasajero = this.listaFiltrada[base.dGrid.SelectedRows[0].Index];
+            }
+
+            FrmEditarPasajero ventana = new FrmEditarPasajero(pasajero);
+            DialogResult res = ventana.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                base.dGrid.DataSource = null;
+                this.listaPasajeros.Remove(pasajero);
+                this.listaPasajeros.Add(ventana.Pasajero);
+                
+                base.dGrid.DataSource = this.listaPasajeros;
+                this.VistaFiltrada = false;
+
+                MessageBox.Show("Pasajero modificado correctamente", "Exito!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
             }
 
         }
+        #endregion
+
+        #region METODOS
 
         private void btnOK_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnBaja_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ABMpasajeros_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult res = MessageBox.Show("Seguro que desea salir?\n" +
-                "Los cambios se van a guardar.", "Confirmar.",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (res == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
             base.DialogResult = DialogResult.OK;
         }
 
@@ -110,9 +186,42 @@ namespace AerolineasParcial.CRUD
             }
 
             indice = dGrid.SelectedRows[0].Index;
-            MessageBox.Show("Equipaje de MANO: \n"+this.listaPasajeros[indice].Equipaje[ETipoEquipaje.Mano].ToString() +
+            MessageBox.Show("Equipaje de MANO: \n" + this.listaPasajeros[indice].Equipaje[ETipoEquipaje.Mano].ToString() +
                 "\nEquipaje de BODEGA: \n" + this.listaPasajeros[indice].Equipaje[ETipoEquipaje.Bodega].ToString());
 
+        }
+        #endregion
+
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            long dni = 0;
+            if (tBoxDNI.Text != string.Empty && !Pasajero.ValidarDNI(tBoxDNI.Text))
+            {
+                MessageBox.Show("Dni no valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            long.TryParse(tBoxDNI.Text, out dni);
+
+            this.listaFiltrada = Pasajero.BuscarPasajero(this.listaPasajeros, dni,
+                this.tBoxNombre.Text, this.tBoxApellido.Text);
+
+            base.dGrid.DataSource = null;
+            base.dGrid.DataSource = this.listaFiltrada;
+            this.VistaFiltrada = true;
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.tBoxDNI.Text = string.Empty;
+            this.tBoxNombre.Text = string.Empty;
+            this.tBoxApellido.Text = string.Empty;
+
+            base.dGrid.DataSource = null;
+            base.dGrid.DataSource = this.listaPasajeros;
+            this.VistaFiltrada = false;
         }
     }
 }

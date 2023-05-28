@@ -36,7 +36,7 @@ namespace AerolineasParcial
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            this.Text = "Aeropuerto";
+            this.Text = "SkyLink";
 
             #region lblUsuario
 

@@ -34,12 +34,12 @@ namespace BibliotecaEntidades
         
         /// <summary>
         /// Busca si algun pasajero en la lista coincide con el DNI. Deben ser iguales.
-        /// El pasajero es retornado con OUT en caso de existir.
+        /// El pasajero es retornado con OUT en caso de existir. NO USAR, LO VOY A MOVER
         /// </summary>
         /// <param name="dni">DNI del pasajero que se desee encontrar.</param>
         /// <param name="resultado">Parametro de salida donde se retornara un pasajero si se lo encuentra.</param>
         /// <returns>Retorna true o false, si encontro o no un pasajero coincidente.</returns>
-        public bool BuscarPasajero(long dni, out Pasajero resultado)
+        public bool BuscarPasajero(long dni, out Pasajero resultado) //ELIMINAR
         {
             resultado = new Pasajero();
             bool ret = false;

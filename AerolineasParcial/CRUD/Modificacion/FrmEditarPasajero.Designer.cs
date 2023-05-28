@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnBuscar = new Button();
             SuspendLayout();
             // 
             // lblTitle
@@ -40,38 +39,20 @@
             // 
             btnGuardar.Text = "Guardar";
             // 
-            // btnBuscar
-            // 
-            btnBuscar.Location = new Point(496, 83);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(70, 23);
-            btnBuscar.TabIndex = 24;
-            btnBuscar.Text = "button1";
-            btnBuscar.UseVisualStyleBackColor = true;
-            btnBuscar.Click += btnBuscar_Click;
-            // 
             // FrmEditarPasajero
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(634, 441);
             ControlBox = false;
-            Controls.Add(btnBuscar);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             Name = "FrmEditarPasajero";
             Text = "FrmEditarPasajero";
-            Controls.SetChildIndex(tBoxDni, 0);
-            Controls.SetChildIndex(tBoxNombre, 0);
-            Controls.SetChildIndex(tBoxApellido, 0);
-            Controls.SetChildIndex(tBoxEdad, 0);
-            Controls.SetChildIndex(btnBuscar, 0);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button btnBuscar;
     }
 }

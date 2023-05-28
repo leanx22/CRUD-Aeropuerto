@@ -16,10 +16,9 @@ namespace AerolineasParcial.CRUD
         protected Pasajero pasajero;
         public FormAltaPasajero()
         {
-            this.pasajero = new Pasajero();
-            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
-
+            this.pasajero = new Pasajero();
+            this.StartPosition = FormStartPosition.CenterScreen;            
         }
 
         protected virtual void FormAltaPasajero_Load(object sender, EventArgs e)
@@ -32,7 +31,6 @@ namespace AerolineasParcial.CRUD
             this.MaximizeBox = false;
             this.ControlBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
-
 
         }
         
@@ -54,17 +52,27 @@ namespace AerolineasParcial.CRUD
             dic.Add(ETipoEquipaje.Mano, new Equipaje(0,0f));
             dic.Add(ETipoEquipaje.Bodega, new Equipaje(0,0f));
 
-            if (!long.TryParse(tBoxDni.Text, out dni))
+            if (!Pasajero.ValidarDNI(tBoxDni.Text))
             {
-                MessageBox.Show("El DNI ingresado no es valido", "Error", MessageBoxButtons.OK,
+                MessageBox.Show("El DNI ingresado no es valido:\n" +
+                    "-DNI debe tener minimo 7 caracteres (solo numericos)", "Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!short.TryParse(tBoxEdad.Text, out edad) && edad < 120)
+            if (!Pasajero.ValidarSoloCaracteres(tBoxNombre.Text,true) ||
+                !Pasajero.ValidarSoloCaracteres(tBoxApellido.Text,true))
             {
-                MessageBox.Show("La edad ingresada no es valida", "Error", MessageBoxButtons.OK,
+                MessageBox.Show("El NOMBRE o APELLIDO no son validos:\n" +
+                    "-Admite espacios pero NO caracteres numericos", "Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!short.TryParse(tBoxEdad.Text, out edad) || edad <0 || edad > 120)
+            {
+                MessageBox.Show("La edad ingresada no es valida (se admite de 0 a 120)",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -77,7 +85,8 @@ namespace AerolineasParcial.CRUD
                     return;
                 }
             }
-           
+
+            dni = long.Parse(tBoxDni.Text);//Uso .Parse porque ya valide antes.
             this.pasajero = new Pasajero(tBoxNombre.Text, tBoxApellido.Text, dni, edad, dic);
             this.DialogResult = DialogResult.OK;
         }
@@ -92,13 +101,6 @@ namespace AerolineasParcial.CRUD
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
             }
-        }
-
-        protected virtual void UpdateUIInfo()
-        {
-            this.tBoxNombre.Text = this.pasajero.nombre;
-            this.tBoxApellido.Text = this.pasajero.apellido;
-            this.tBoxEdad.Text = this.pasajero.Edad.ToString();
         }
 
         #endregion

@@ -68,7 +68,7 @@ namespace AerolineasParcial.CRUD.Bajas
             }
 
             base.btnGuardar.Enabled = true;
-            base.UpdateUIInfo();
+            //base.UpdateUIInfo();
         }
 
     }

@@ -55,6 +55,7 @@
             btnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEditar.FlatAppearance.BorderSize = 2;
             btnEditar.FlatAppearance.MouseDownBackColor = Color.FromArgb(19, 150, 191);
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnOK
             // 
@@ -97,6 +98,7 @@
             btnBuscar.TabIndex = 16;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // btnLimpiar
             // 
@@ -111,6 +113,7 @@
             btnLimpiar.TabIndex = 17;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnEquipaje
             // 

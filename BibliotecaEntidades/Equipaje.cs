@@ -29,7 +29,6 @@ namespace BibliotecaEntidades
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("INFORMACION DE EQUIPAJE->\n");
             sb.AppendLine(">Cantidad: "+this.cantidad);
             sb.AppendLine(">Peso: "+this.peso);
             return sb.ToString();

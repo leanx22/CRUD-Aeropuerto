@@ -84,6 +84,38 @@ namespace BibliotecaEntidades
         }
 
         /// <summary>
+        /// Esta funcion valida si la cadena otorgada por parametro contiene solo caracteres
+        /// alfabeticos.
+        /// </summary>
+        /// <param name="cadena">
+        /// Cadena que se quiera validar.
+        /// </param>
+        /// <param name="permiteEspacios">
+        /// Si se permiten o no espacios en la cadena.
+        /// </param>>
+        /// <returns>
+        /// Retorna VERDADERO si la cadena es valida, caso contrario retorna FALSE.
+        /// </returns>
+        public static bool ValidarSoloCaracteres(string cadena, bool permiteEspacios)
+        {
+            bool ret = true;
+
+            foreach (char c in cadena)
+            {
+                if (!char.IsLetter(c))
+                {
+                    if (permiteEspacios && char.IsWhiteSpace(c))
+                    {
+                        continue;
+                    }
+                    ret = false;
+                    break;
+                }
+            }
+            return ret;
+        }
+
+        /// <summary>
         /// Busca uno o varios pasajeros en la lista que coincidan con al menos uno de los parametros.
         /// </summary>
         /// <param name="lista">Lista donde se realizara la busqueda</param>>
