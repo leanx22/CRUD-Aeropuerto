@@ -2,7 +2,7 @@
 
 ----------
 ## Sobre mí: ##
-Soy Guia Leandro. La verdad que este trabajo lo sufrí bastante, sí fué un desafío ya que sentí que me faltaban conocimientos para poder lograr algunas funciones de la aplicación (sobre todo, en cuanto a controles de windowsForms) ya que no sabía donde aplicarlas o si lo que estaba haciendo estaba bien (aunque funcione). De todas formas sí siento que aprendí, algunos controles nuevos y soluciones a crasheos constantes de visual studio por ejemplo.
+Soy Guia Leandro. La verdad que este trabajo lo sufrí bastante, sí fué un desafío ya que sentí que me faltaban conocimientos para poder lograr algunas funciones de la aplicación (sobre todo, en cuanto a controles de windowsForms) ya que no sabía donde aplicarlas o si lo que estaba haciendo estaba bien (aunque funcione). De todas formas sí siento que aprendí (sobre todo por mi cuenta), algunos controles nuevos y soluciones a crasheos constantes de visual studio por ejemplo.
 
 ## Resumen ##
 La aplicación ayuda a administrar un aeropuerto. Permitiendo administrar las aeronaves, los viajes o los pasajeros de la institucion, asi como la venta de pasajes.
